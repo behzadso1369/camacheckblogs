@@ -108,7 +108,7 @@
     {
       "parameters": {
         "method": "GET",
-        "url": "=https://api.github.com/repos/{{ $('نگهداری توکن').item.json.ghOwner }}/{{ $('نگهداری توکن').item.json.ghRepo }}/contents/?ref={{ $('نگهداری توکن').item.json.ghBranch }}",
+        "url": "=https://api.github.com/repos/{{ $('نگهداری توکن').item.json.ghOwner }}/{{ $('نگهداری توکن').item.json.ghRepo }}/git/trees/{{ $('نگهداری توکن').item.json.ghBranch }}?recursive=1",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -119,15 +119,15 @@
         "options": {}
       },
       "id": "get-folders",
-      "name": "لیست پوشه‌های گیت",
+      "name": "درخت کامل مخزن گیت",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [-400, 400],
-      "notes": "GitHub Contents API — لیست پوشه‌های ریشه مخزن (هر بلاگ یک پوشه)."
+      "notes": "GitHub Git Trees API با recursive=1 — کل درخت مخزن در یک درخواست."
     },
     {
       "parameters": {
-        "jsCode": "// اولین پوشه‌ی بلاگی که (۱) منتشر نشده و (۲) حداقل یک عکس در images دارد را انتخاب می‌کند\nconst folders = $input.all().map(i => i.json).filter(x => x.type === 'dir' && !x.name.startsWith('.'));\nconst published = ($('اسلاگ‌های منتشرشده').first().json.publishedSlugs) || [];\nconst tk = $('نگهداری توکن').first().json;\nconst imgRe = /\\.(jpg|jpeg|png|webp)$/i;\nfor (const f of folders.sort((a,b) => a.name.localeCompare(b.name))) {\n  if (published.includes(f.name)) continue;\n  // چک عکس‌دار بودن از طریق GitHub Contents API\n  const url = `https://api.github.com/repos/${tk.ghOwner}/${tk.ghRepo}/contents/${f.name}/images?ref=${tk.ghBranch}`;\n  let hasImage = false;\n  try {\n    const res = await fetch(url, { headers: { 'accept': 'application/vnd.github+json', 'User-Agent': 'n8n-carmacheck' } });\n    if (res.ok) {\n      const list = await res.json();\n      hasImage = Array.isArray(list) && list.some(x => x.type === 'file' && imgRe.test(x.name));\n    }\n  } catch (e) { hasImage = false; }\n  if (hasImage) {\n    return [{ json: {\n      blogSlug: f.name,\n      accessToken: tk.accessToken,\n      apiBase: tk.apiBase,\n      ghOwner: tk.ghOwner,\n      ghRepo: tk.ghRepo,\n      ghBranch: tk.ghBranch,\n      fileServeBase: tk.fileServeBase\n    }}];\n  }\n}\n// هیچ بلاگ عکس‌دارِ منتشرنشده‌ای نمانده → توقف\nreturn [];"
+        "jsCode": "// از درخت کامل مخزن، اولین بلاگی که index.html + meta.json + حداقل یک عکس دارد و منتشر نشده را انتخاب می‌کند\nconst j = $input.first().json;\nconst tree = (j.tree) || [];\nconst published = ($('اسلاگ‌های منتشرشده').first().json.publishedSlugs) || [];\nconst tk = $('نگهداری توکن').first().json;\nconst imgRe = /\\.(jpg|jpeg|png|webp)$/i;\nconst slugs = {};\nfor (const e of tree) {\n  const parts = String(e.path).split('/');\n  const slug = parts[0];\n  if (!slug || slug.startsWith('.')) continue;\n  if (!slugs[slug]) slugs[slug] = { html: false, meta: false, img: false };\n  if (parts.length === 2 && parts[1] === 'index.html') slugs[slug].html = true;\n  if (parts.length === 2 && parts[1] === 'meta.json') slugs[slug].meta = true;\n  if (parts.length === 3 && parts[1] === 'images' && e.type === 'blob' && imgRe.test(parts[2])) slugs[slug].img = true;\n}\nconst eligible = Object.keys(slugs)\n  .filter(s => slugs[s].html && slugs[s].meta && slugs[s].img && !published.includes(s))\n  .sort();\nif (eligible.length === 0) return [];\nreturn [{ json: {\n  blogSlug: eligible[0],\n  accessToken: tk.accessToken,\n  apiBase: tk.apiBase,\n  ghOwner: tk.ghOwner,\n  ghRepo: tk.ghRepo,\n  ghBranch: tk.ghBranch,\n  fileServeBase: tk.fileServeBase\n}}];"
       },
       "id": "pick-blog",
       "name": "انتخاب بلاگ بعدی",
