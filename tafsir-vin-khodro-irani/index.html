@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="تفسیر کامل کد شاسی (VIN) خودروهای ایرانی — معنی هر عدد و حرف، محل شماره شاسی، و تشخیص دستکاری. راهنمای کارشناس با ۱۵ سال تجربه.">
+  <title>تفسیر کامل کد شاسی (VIN) خودروهای ایرانی — هر عدد یعنی چی</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #1a1a1a;
+      background: #f5f5f5;
+    }
+
+    article {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 32px 60px;
+    }
+
+    h1 { font-size: 2rem; font-weight: 800; line-height: 1.4; margin-bottom: 24px; color: #111; }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 48px 0 16px;
+      color: #111;
+      border-right: 4px solid #1d6fb8;
+      padding-right: 12px;
+    }
+
+    h3 { font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #222; }
+    p { margin-bottom: 18px; color: #2c2c2c; }
+    strong { color: #111; font-weight: 700; }
+
+    .hero-image, .section-image { width: 100%; border-radius: 12px; margin: 24px 0 8px; display: block; object-fit: cover; }
+    .hero-image { height: 420px; }
+    .section-image { height: 300px; }
+
+    .img-placeholder {
+      width: 100%; border-radius: 12px; margin: 24px 0 8px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #eef3f8 0%, #dde7f0 100%);
+      border: 2px dashed #b8c9da; color: #7a8ba0; font-size: 0.9rem; gap: 8px;
+      text-align: center; padding: 12px;
+    }
+    .img-placeholder.hero { height: 420px; }
+    .img-placeholder.section { height: 280px; }
+    .img-placeholder .ph-icon { font-size: 2.5rem; }
+    .img-placeholder .ph-label { font-weight: 600; color: #5a7290; }
+    .img-placeholder .ph-file { font-size: 0.78rem; color: #9bb0c5; direction: ltr; }
+
+    .image-caption { text-align: center; font-size: 0.82rem; color: #888; margin-bottom: 24px; }
+
+    .tip-box { background: #fff8e1; border-right: 4px solid #f4a200; border-radius: 8px; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; }
+    .warning-box { background: #fff0f0; border-right: 4px solid #e63946; border-radius: 8px; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; }
+    .success-box { background: #f0fff4; border-right: 4px solid #2d9e5f; border-radius: 8px; padding: 14px 18px; margin: 20px 0; font-size: 0.95rem; }
+
+    .verdict-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.93rem; }
+    .verdict-table th { background: #1d6fb8; color: #fff; padding: 12px; text-align: right; font-weight: 700; }
+    .verdict-table td { padding: 12px; border-bottom: 1px solid #eee; }
+    .verdict-table tr:nth-child(even) { background: #f9fbfd; }
+
+    .vin-code {
+      direction: ltr;
+      text-align: center;
+      font-family: Consolas, monospace;
+      font-size: 1.3rem;
+      letter-spacing: 3px;
+      background: #f0f4f8;
+      border: 1px solid #d8e2ec;
+      border-radius: 8px;
+      padding: 14px;
+      margin: 20px 0;
+      font-weight: 700;
+      color: #1d6fb8;
+    }
+
+    .checklist { list-style: none; margin: 16px 0 24px; padding: 0; }
+    .checklist li { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
+    .checklist li::before { content: "✓"; color: #2d9e5f; font-weight: 800; font-size: 1rem; flex-shrink: 0; }
+
+    hr { border: none; border-top: 1px solid #eee; margin: 48px 0; }
+    .faq h3 { font-size: 1.05rem; color: #111; margin: 28px 0 8px; }
+    .faq p { font-size: 0.95rem; color: #444; }
+
+    a { color: #1d6fb8; }
+
+    @media (max-width: 600px) {
+      article { padding: 20px 16px 48px; }
+      h1 { font-size: 1.5rem; }
+      .img-placeholder.hero, .hero-image { height: 220px; }
+      .img-placeholder.section, .section-image { height: 180px; }
+      .verdict-table { font-size: 0.82rem; }
+      .verdict-table th, .verdict-table td { padding: 8px; }
+      .vin-code { font-size: 1rem; letter-spacing: 2px; }
+    }
+  </style>
+</head>
+<body>
+<article>
+
+  <h1>تفسیر کامل کد شاسی (VIN) خودروهای ایرانی — هر عدد یعنی چی</h1>
+
+  <img class="hero-image" src="images/hero-vin-plate.jpg" alt="پلاک شماره شاسی VIN روی بدنه خودرو ایرانی">
+  <p class="image-caption">۱۷ کاراکتر که کل شناسنامه خودرو توشه</p>
+
+  <p>
+    یه روز یه مشتری بهم زنگ زد. گفت: «یه پژو پارس پیدا کردم، مدل ۹۸، قیمتش عالیه.»
+    گفتم قبل از هر چیزی کد شاسی رو برام بفرست. فرستاد.
+    سه دقیقه بعد بهش گفتم: «این ماشین مدل ۹۸ نیست. مدل ۹۵ـه.»
+    تعجب کرد. گفت از کجا فهمیدی؟ گفتم: از خود ماشین. از <strong>کد شاسی یا همون VIN</strong>.
+    ماشین دروغ نمیگه — فروشنده شاید.
+  </p>
+
+  <p>
+    راستش رو بخواهید، کد شاسی یکی از مظلوم‌ترین بخش‌های خودروئه.
+    ۹۰ درصد خریدارها حتی نگاهش نمیکنن. در حالی که این ۱۷ کاراکتر،
+    <strong>شناسنامه کامل خودروئه</strong>: کجا ساخته شده، چه سالی، چه موتوری داره،
+    و حتی اینکه چندمین خودروی خط تولید بوده. توی این مقاله یاد میگیری
+    این کد رو مثل یه کارشناس بخونی.
+  </p>
+
+  <div class="tip-box">
+    <strong>⚡ نکته طلایی:</strong> VIN مخفف Vehicle Identification Number ـه —
+    یه کد ۱۷ کاراکتری استاندارد جهانی که از سال ۱۹۸۱ روی همه خودروهای دنیا اجباریه. هیچ دو خودرویی VIN یکسان ندارن.
+  </div>
+
+  <h2 id="where-is-vin">شماره شاسی کجای خودروئه؟</h2>
+
+  <img class="section-image" src="images/vin-locations.jpg" alt="محل‌های شماره شاسی روی خودرو — پلاک اتاق، شیشه، سینی" loading="lazy">
+  <p class="image-caption">VIN رو باید از چند جا چک کنی — نه فقط یه جا</p>
+
+  <p>
+    اولین قدم اینه که بدونی کجا دنبالش بگردی. توی خودروهای ایرانی معمولاً این جاهاست:
+  </p>
+
+  <ul class="checklist">
+    <li>پلاک شناسایی روی ستون درب راننده (پلاک آبی یا سفید)</li>
+    <li>روی سینی جلو، زیر کاپوت (حک‌شده روی بدنه)</li>
+    <li>گوشه پایین شیشه جلو (در خودروهای جدیدتر)</li>
+    <li>روی کارت خودرو و سند — که باید با بدنه یکی باشه</li>
+    <li>زیر صندلی یا کف اتاق در بعضی مدل‌ها (مثل پراید)</li>
+  </ul>
+
+  <p>
+    نکته مهم اینجاست: <strong>همه این محل‌ها باید یه شماره واحد رو نشون بدن.</strong>
+    اگه پلاک ستون درب یه چیز بگه و حکاکی سینی یه چیز دیگه — یا جای حکاکی
+    تازه‌کاری و جوشکاری شده باشه — با یه خودروی مشکوک طرفی. شاید اتاق تعویض شده. شاید سرقتی باشه.
+  </p>
+
+  <div class="warning-box">
+    <strong>⚠️ هشدار:</strong> اگه دور محل حکاکی شماره شاسی آثار سنگ‌زنی، جوش، یا رنگ تازه دیدی،
+    همون لحظه معامله رو متوقف کن. دستکاری شماره شاسی جرمه و خودروش توقیف میشه —
+    حتی اگه تو بی‌گناه خریده باشیش.
+  </div>
+
+  <h2 id="vin-structure">ساختار ۱۷ کاراکتری VIN — قطعه به قطعه</h2>
+
+  <p>
+    بیا یه VIN واقعی ایرانی رو با هم باز کنیم. مثلاً این کد یه سمند رو:
+  </p>
+
+  <div class="vin-code">IRFC951V2GJ123456</div>
+
+  <p>
+    این ۱۷ کاراکتر به سه بخش اصلی تقسیم میشه. مثل کد ملی که هر بخشش یه معنی داره:
+  </p>
+
+  <table class="verdict-table">
+    <thead>
+      <tr>
+        <th>بخش</th>
+        <th>کاراکترها</th>
+        <th>اسم فنی</th>
+        <th>چی رو نشون میده</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>۱ تا ۳</td>
+        <td class="vin-part">IRF</td>
+        <td>WMI</td>
+        <td>کشور و کارخانه سازنده</td>
+      </tr>
+      <tr>
+        <td>۴ تا ۹</td>
+        <td class="vin-part">C951V2</td>
+        <td>VDS</td>
+        <td>مشخصات فنی: مدل، موتور، بدنه</td>
+      </tr>
+      <tr>
+        <td>۱۰ تا ۱۷</td>
+        <td class="vin-part">GJ123456</td>
+        <td>VIS</td>
+        <td>سال تولید، کارخانه، شماره سریال</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>بخش اول — WMI: شناسه سازنده (کاراکتر ۱ تا ۳)</h3>
+
+  <p>
+    سه کاراکتر اول میگه خودرو کجا و توسط کی ساخته شده.
+    کدهای رایج بازار ایران رو حفظ کن — یا حداقل این جدول رو سیو کن:
+  </p>
+
+  <table class="verdict-table">
+    <thead>
+      <tr><th>کد WMI</th><th>سازنده</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="vin-part">IRF</td><td>ایران‌خودرو (سمند، پژو، دنا، رانا)</td></tr>
+      <tr><td class="vin-part">IRH / IRP</td><td>سایپا و پارس‌خودرو (پراید، تیبا، کوییک، شاهین)</td></tr>
+      <tr><td class="vin-part">NAA</td><td>ایران‌خودرو — کدهای قدیمی‌تر</td></tr>
+      <tr><td class="vin-part">NAS</td><td>سایپا — کدهای قدیمی‌تر</td></tr>
+      <tr><td class="vin-part">NAP</td><td>پارس‌خودرو قدیمی</td></tr>
+      <tr><td class="vin-part">LSJ / LDC و کدهای L</td><td>خودروهای چینی (چری، جک، ام‌وی‌ام و...)</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    در واقع همین سه حرف اول کلی حرف داره. مثلاً اگه فروشنده میگه «این مونتاژ ایرانه»
+    ولی VIN با <span dir="ltr">L</span> شروع میشه، یعنی خودرو کامل از چین وارد شده — نه مونتاژ داخل.
+    همین یه قلم میتونه چند ده میلیون روی قیمت اثر بذاره.
+  </p>
+
+  <h3>بخش دوم — VDS: مشخصات خودرو (کاراکتر ۴ تا ۹)</h3>
+
+  <p>
+    این شش کاراکتر کد فنی مدله: نوع بدنه، نوع موتور، و پلتفرم.
+    هر سازنده کدگذاری خودش رو داره. مثلاً توی محصولات ایران‌خودرو،
+    این بخش مشخص میکنه خودرو سمند LX هست یا EF7، پژو پارس ساده‌ست یا TU5.
+    <strong>این همون جاییه که میفهمی موتور واقعاً همونیه که فروشنده ادعا میکنه.</strong>
+  </p>
+
+  <p>
+    باور کنید یا نه، من بارها دیدم پژو پارس «TU5» فروخته میشه در حالی که
+    VIN میگه موتورش XU7 معمولیه. اختلاف قیمت این دو تا؟ گاهی بالای ۱۰۰ میلیون تومن.
+    یه نگاه به کد شاسی، جلوی این کلاه رو میگیره.
+  </p>
+
+  <div class="tip-box">
+    <strong>⚡ نکته طلایی:</strong> برای رمزگشایی دقیق VDS مدل خودت، کافیه VIN رو توی
+    سایت‌های استعلام VIN (مثل سامانه‌های رسمی سازنده یا سایت‌های decoder بین‌المللی) وارد کنی.
+    ولی برای تایید نهایی، <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">کارشناسی حضوری خودرو</a> مطمئن‌ترین راهه — کارشناس کد رو با خود خودرو تطبیق میده.
+  </div>
+
+  <h3>بخش سوم — VIS: سال، کارخانه و سریال (کاراکتر ۱۰ تا ۱۷)</h3>
+
+  <p>
+    مهم‌ترین کاراکتر برای خریدار، <strong>کاراکتر دهم</strong>ـه: سال تولید.
+    این حرف یا عدد بر اساس یه جدول استاندارد جهانی تعیین میشه:
+  </p>
+
+  <table class="verdict-table">
+    <thead>
+      <tr><th>کاراکتر دهم</th><th>سال میلادی</th><th>حدود سال شمسی</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="vin-part">F</td><td>2015</td><td>۱۳۹۳-۹۴</td></tr>
+      <tr><td class="vin-part">G</td><td>2016</td><td>۱۳۹۴-۹۵</td></tr>
+      <tr><td class="vin-part">H</td><td>2017</td><td>۱۳۹۵-۹۶</td></tr>
+      <tr><td class="vin-part">J</td><td>2018</td><td>۱۳۹۶-۹۷</td></tr>
+      <tr><td class="vin-part">K</td><td>2019</td><td>۱۳۹۷-۹۸</td></tr>
+      <tr><td class="vin-part">L</td><td>2020</td><td>۱۳۹۸-۹۹</td></tr>
+      <tr><td class="vin-part">M</td><td>2021</td><td>۱۳۹۹-۱۴۰۰</td></tr>
+      <tr><td class="vin-part">N</td><td>2022</td><td>۱۴۰۰-۰۱</td></tr>
+      <tr><td class="vin-part">P</td><td>2023</td><td>۱۴۰۱-۰۲</td></tr>
+      <tr><td class="vin-part">R</td><td>2024</td><td>۱۴۰۲-۰۳</td></tr>
+      <tr><td class="vin-part">S</td><td>2025</td><td>۱۴۰۳-۰۴</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    یادت باشه حروف <span dir="ltr">I</span>، <span dir="ltr">O</span> و <span dir="ltr">Q</span>
+    هیچ‌وقت توی VIN استفاده نمیشن — چون با ۱ و ۰ اشتباه میشن.
+    اگه توی کد شاسی یکی از اینا رو دیدی، یا اشتباه خوندی یا کد جعلیه.
+  </p>
+
+  <p>
+    و اون داستان اول مقاله؟ همینجوری فهمیدم. فروشنده میگفت مدل ۹۸،
+    ولی کاراکتر دهم VIN حرف <span dir="ltr">G</span> بود — یعنی تولید ۲۰۱۶، حدود ۹۵.
+    سه سال اختلاف. یعنی حدود ۸۰ میلیون تومن اختلاف قیمت اون روز بازار.
+  </p>
+
+  <div class="warning-box">
+    <strong>⚠️ هشدار:</strong> «مدل» توی بازار ایران دو معنی داره — سال تولید و سال پلاک.
+    بعضی فروشنده‌ها خودروی تولید ۹۵ که سال ۹۸ پلاک شده رو «مدل ۹۸» جا میزنن.
+    VIN فقط سال تولید رو میگه — و همون ملاک قیمته.
+  </div>
+
+  <h2 id="vin-fraud">دستکاری VIN — چطور بفهمیم؟</h2>
+
+  <img class="section-image" src="images/vin-tampering-check.jpg" alt="بررسی اصالت و دستکاری شماره شاسی خودرو" loading="lazy">
+  <p class="image-caption">اصالت شماره شاسی = اصالت کل خودرو</p>
+
+  <p>
+    خودروهای سرقتی یا اوراقی‌های دوبله، معمولاً با شماره شاسی دستکاری‌شده وارد بازار میشن.
+    این چیزهاییه که من موقع کارشناسی چک میکنم:
+  </p>
+
+  <ul class="checklist">
+    <li>یکدست بودن حکاکی — عمق و فاصله حروف باید یکنواخت باشه</li>
+    <li>نبودن آثار سنگ‌زنی یا صافکاری دور محل حکاکی</li>
+    <li>تطابق پلاک ستون درب با حکاکی روی بدنه</li>
+    <li>تطابق VIN بدنه با کارت خودرو و سند</li>
+    <li>سالم بودن پرچ‌های پلاک شناسایی — پرچ نو یعنی پلاک باز شده</li>
+    <li>تطابق سال تولید VIN با ظاهر و فرسودگی واقعی خودرو</li>
+  </ul>
+
+  <p>
+    یه بار مشتری داشتم — آقای کریمی، راننده اسنپ — که یه پراید ارزون پیدا کرده بود.
+    ۲۰ میلیون زیر قیمت بازار. رفتم بالای سرش. پلاک شناسایی ستون درب نو بود،
+    ولی پرچ‌هاش رنگ‌پریده و خط‌خطی. حکاکی سینی هم دورش تازه رنگ شده بود.
+    بهش گفتم: این ماشین رو نخر. دو هفته بعد شنیدیم همون خودرو توی یه معامله دیگه
+    توسط پلیس توقیف شد — اتاقش مال یه خودروی سرقتی بود.
+    <strong>اون ۲۰ میلیون تخفیف، قیمت دردسر بود، نه فرصت.</strong>
+  </p>
+
+  <div class="success-box">
+    <strong>✅ اقدام عملی:</strong> قبل از هر معامله، VIN رو با کارت و سند تطبیق بده و
+    از دفاتر پلیس +۱۰ استعلام اصالت بگیر. اگه به هر دلیلی شک داری، یه
+    <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#2d9e5f;font-weight:700">کارشناس اصالت بدنه از کارماچک</a>
+    بفرست بالای سر خودرو — تشخیص دستکاری شاسی کار تخصصیه.
+  </div>
+
+  <h2 id="vin-uses">با VIN چه استعلام‌هایی میشه گرفت؟</h2>
+
+  <p>
+    کد شاسی فقط برای خوندن مشخصات نیست. باهاش این کارها رو هم میتونی بکنی:
+  </p>
+
+  <ul class="checklist">
+    <li>استعلام اصالت خودرو در دفاتر پلیس +۱۰</li>
+    <li>استعلام سوابق بیمه شخص ثالث و تخفیف‌ها از سامانه بیمه مرکزی</li>
+    <li>پیگیری سوابق خدمات در نمایندگی‌های سازنده (ایساکو، امداد سایپا)</li>
+    <li>چک کردن فراخوان‌های کارخانه (ریکال) برای رفع ایراد رایگان</li>
+    <li>تشخیص دقیق قطعه یدکی سازگار موقع خرید لوازم</li>
+  </ul>
+
+  <p>
+    مورد آخر رو دست کم نگیر. خیلی وقت‌ها لوازم‌فروش برای اینکه قطعه دقیق مدلت رو بده،
+    VIN رو ازت میخواد — مخصوصاً برای خودروهای چینی که هر سالشون یه تغییر داره.
+    عکس پلاک VIN رو توی گوشیت داشته باش. کارت راه میندازه.
+  </p>
+
+  <div class="tip-box">
+    <strong>⚡ نکته طلایی:</strong> برای خودروهای وارداتی، با VIN میتونی از سایت‌های
+    بین‌المللی مثل decoder های آنلاین، تاریخچه تولید و حتی آپشن‌های کارخانه‌ای رو دربیاری —
+    چیزایی که فروشنده شاید خودشم ندونه.
+  </div>
+
+  <h2 id="conclusion">جمع‌بندی — ۱۷ کاراکتری که میلیون‌ها می‌ارزه</h2>
+
+  <img class="section-image" src="images/vin-summary.jpg" alt="خلاصه راهنمای خواندن کد شاسی VIN خودرو ایرانی" loading="lazy">
+  <p class="image-caption">سه حرف اول: سازنده · کاراکتر دهم: سال تولید · هشت رقم آخر: سریال</p>
+
+  <p>
+    دفعه بعد که رفتی خودرو ببینی، قبل از اینکه سوار شی، برو سراغ ستون درب راننده.
+    سه حرف اول رو بخون — سازنده رو میگه. کاراکتر دهم رو پیدا کن — سال واقعی تولید رو میگه.
+    محل حکاکی رو نگاه کن — اصالت رو میگه. همین سه تا حرکت ساده،
+    تو رو از ۹۰ درصد خریدارها جلوتر میذاره.
+  </p>
+
+  <p>
+    در واقع VIN مثل آزمایش DNA خودروئه. ظاهر رو میشه آرایش کرد،
+    کیلومتر رو میشه دستکاری کرد، ولی این ۱۷ کاراکتر سخت‌ترین چیز برای جعله.
+    <strong>یاد بگیر بخونیش — یا کسی رو بیار که بلده.</strong>
+    برای مطالب بیشتر مثل تشخیص کیلومتر واقعی و رنگ‌شدگی، سری به
+    <a href="https://carmacheck.com/blog" style="color:#1d6fb8;font-weight:700">بلاگ کارماچک</a> بزن.
+    <!-- TODO: internal blog link به مقاله کیلومتر واقعی -->
+  </p>
+
+  <div class="warning-box">
+    <strong>⚠️ هشدار آخر:</strong> هیچ خودرویی رو — هرچقدر قیمتش وسوسه‌کننده —
+    بدون تطبیق VIN با سند و بدون
+    <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">کارشناسی کامل</a> نخر.
+    خودرویی که شاسیش مشکل داشته باشه، نه قابل انتقال سنده نه قابل بیمه — یعنی عملاً یه تیکه آهن.
+  </div>
+
+  <hr>
+
+  <section class="faq">
+    <h2 id="faq">سوالات متداول</h2>
+
+    <h3>شماره شاسی و شماره موتور فرقشون چیه؟</h3>
+    <p>
+      شماره شاسی (VIN) شناسه کل خودروئه و روی بدنه حک شده؛ شماره موتور فقط مال موتوره
+      و روی بلوک موتور حکه. موقع معامله هر دو باید با سند تطبیق داده بشن.
+      تعویض موتور با مجوز قانونیه ولی باید توی سند ثبت شده باشه.
+    </p>
+
+    <h3>از روی VIN میشه فهمید خودرو تصادفی بوده یا نه؟</h3>
+    <p>
+      مستقیم نه — VIN تاریخچه تصادف رو ذخیره نمیکنه. ولی با VIN میتونی سوابق بیمه
+      و خسارت‌های پرداختی رو از بیمه مرکزی استعلام بگیری که تا حد خوبی تصادفات ثبت‌شده رو نشون میده.
+      برای تصادفات ثبت‌نشده فقط <a href="https://carmacheck.com/services" style="color:#1d6fb8;font-weight:700">کارشناسی فنی بدنه</a> جواب میده.
+    </p>
+
+    <h3>اگه VIN روی بدنه با سند فرق داشت چیکار کنم؟</h3>
+    <p>
+      معامله رو همون لحظه متوقف کن. حتی یه کاراکتر اختلاف یعنی یا سند مال این خودرو نیست
+      یا شاسی دستکاری شده. هیچ توجیهی از طرف فروشنده رو قبول نکن — این مورد قابل چشم‌پوشی نیست.
+    </p>
+
+    <h3>چرا بعضی VIN های ایرانی با NAA شروع میشن و بعضی با IRF؟</h3>
+    <p>
+      هر دو مال ایران‌خودروئه — کدهای WMI در طول زمان و بر اساس استاندارد ثبت جهانی تغییر کردن.
+      خودروهای قدیمی‌تر معمولاً NAA دارن و جدیدترها IRF. هر دو معتبرن،
+      فقط دوره تولید رو نشون میدن.
+    </p>
+
+    <h3>کاراکتر دهم VIN خودروی من عدده نه حرف — یعنی چی؟</h3>
+    <p>
+      اعداد ۱ تا ۹ هم توی چرخه سال تولید استفاده میشن (مثلاً ۱ یعنی ۲۰۰۱ یا ۲۰۳۱).
+      چون چرخه هر ۳۰ سال تکرار میشه، سال دقیق رو با توجه به نسل خودرو تشخیص بده —
+      یه پراید با کاراکتر دهم «۵» قطعاً ۲۰۰۵ـه نه ۲۰۳۵.
+    </p>
+
+    <h3>استعلام VIN چقدر هزینه داره؟</h3>
+    <p>
+      استعلام اصالت در دفاتر پلیس +۱۰ هزینه‌ش جزئیه (در حد چند ده هزار تومان).
+      استعلام سوابق بیمه رایگانه. کارشناسی کامل اصالت بدنه هم نسبت به ریسکی که پوشش میده
+      خیلی ناچیزه — برای جزئیات با <a href="https://carmacheck.com/contact-us" style="color:#1d6fb8;font-weight:700">کارماچک تماس بگیر</a>.
+    </p>
+  </section>
+
+</article>
+</body>
+</html>

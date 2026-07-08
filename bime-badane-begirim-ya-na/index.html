@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="بیمه بدنه بگیریم یا نه؟ محاسبه واقعی سود و زیان بیمه بدنه خودرو با اعداد بازار ایران، از زبان کارشناس خودرو با ۱۵ سال تجربه.">
+  <title>بیمه بدنه بگیریم یا نگیریم؟ — محاسبه سود و زیان واقعی</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #1a1a1a;
+      background: #f5f5f5;
+    }
+
+    article {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 32px 60px;
+    }
+
+    h1 { font-size: 2rem; font-weight: 800; line-height: 1.4; margin-bottom: 24px; color: #111; }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 48px 0 16px;
+      color: #111;
+      border-right: 4px solid #1d6fb8;
+      padding-right: 12px;
+    }
+
+    h3 { font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #222; }
+    p { margin-bottom: 18px; color: #2c2c2c; }
+    strong { color: #111; font-weight: 700; }
+
+    /* ===== IMAGES ===== */
+    .hero-image, .section-image, .infographic {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .hero-image { height: 420px; }
+    .section-image { height: 300px; }
+
+    /* ===== PLACEHOLDERS (تا وقتی عکس آماده نشده) ===== */
+    .img-placeholder {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #eef3f8 0%, #dde7f0 100%);
+      border: 2px dashed #b8c9da;
+      color: #7a8ba0;
+      font-size: 0.9rem;
+      gap: 8px;
+      text-align: center;
+      padding: 12px;
+    }
+    .img-placeholder.hero { height: 420px; }
+    .img-placeholder.section { height: 280px; }
+    .img-placeholder .ph-icon { font-size: 2.5rem; }
+    .img-placeholder .ph-label { font-weight: 600; color: #5a7290; }
+    .img-placeholder .ph-file { font-size: 0.78rem; color: #9bb0c5; direction: ltr; }
+
+    .image-caption { text-align: center; font-size: 0.82rem; color: #888; margin-bottom: 24px; }
+
+    /* ===== BOXES ===== */
+    .tip-box {
+      background: #fff8e1;
+      border-right: 4px solid #f4a200;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .warning-box {
+      background: #fff0f0;
+      border-right: 4px solid #e63946;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .success-box {
+      background: #f0fff4;
+      border-right: 4px solid #2d9e5f;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ===== STEPS ===== */
+    .steps { margin: 24px 0; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: #fafafa;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+    .step-num {
+      min-width: 36px; height: 36px;
+      background: #1d6fb8;
+      color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; flex-shrink: 0;
+    }
+    .step-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #111; }
+    .step-content p { margin: 0; font-size: 0.93rem; color: #444; }
+
+    /* ===== CHECKLIST ===== */
+    .checklist { list-style: none; margin: 16px 0 24px; padding: 0; }
+    .checklist li {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .checklist li::before { content: "✓"; color: #2d9e5f; font-weight: 800; font-size: 1rem; flex-shrink: 0; }
+
+    /* ===== VERDICT TABLE ===== */
+    .verdict-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.93rem; }
+    .verdict-table th { background: #1d6fb8; color: #fff; padding: 12px; text-align: right; font-weight: 700; }
+    .verdict-table td { padding: 12px; border-bottom: 1px solid #eee; }
+    .verdict-table tr:nth-child(even) { background: #f9fbfd; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #fff; }
+    .badge.green { background: #2d9e5f; }
+    .badge.yellow { background: #f4a200; }
+    .badge.red { background: #e63946; }
+
+    /* ===== PRICE LIST ===== */
+    .price-list { margin: 16px 0 24px; padding: 0; list-style: none; }
+    .price-list li {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.95rem;
+    }
+    .price-list .drop { font-weight: 800; color: #e63946; direction: ltr; }
+    .price-list .drop.low { color: #2d9e5f; }
+    .price-list .drop.mid { color: #f4a200; }
+
+    hr { border: none; border-top: 1px solid #eee; margin: 48px 0; }
+
+    .faq h3 { font-size: 1.05rem; color: #111; margin: 28px 0 8px; }
+    .faq p { font-size: 0.95rem; color: #444; }
+
+    @media (max-width: 600px) {
+      article { padding: 20px 16px 48px; }
+      h1 { font-size: 1.5rem; }
+      .img-placeholder.hero, .hero-image { height: 220px; }
+      .img-placeholder.section, .section-image { height: 180px; }
+      .verdict-table { font-size: 0.82rem; }
+      .verdict-table th, .verdict-table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+<article>
+
+  <h1>بیمه بدنه بگیریم یا نگیریم؟ — محاسبه سود و زیان واقعی</h1>
+
+  <!-- <img class="hero-image" src="images/car-body-insurance-hero.jpg" alt="بیمه بدنه خودرو و بررسی خسارت بدنه توسط کارشناس بیمه"> -->
+  <div class="img-placeholder hero">
+    <div class="ph-icon">🚗📋</div>
+    <div class="ph-label">کارشناس بیمه در حال بررسی خسارت بدنه خودرو</div>
+    <div class="ph-file">images/car-body-insurance-hero.jpg</div>
+  </div>
+  <p class="image-caption">بیمه بدنه فقط وقتی به دردتان می‌خورد که قبلش حسابش را کرده باشید</p>
+
+  <p>هفته پیش یکی از مشتری‌های قدیمی‌ام زنگ زد. صدایش می‌لرزید. گفت: «دنا پلاسم رو توی پارکینگ خط انداختن، از گلگیر تا در عقب. رفتم نمایندگی، گفتن ۸۵ میلیون تومان هزینه صافکاری و نقاشیه. بیمه بدنه هم ندارم.» و بعد همان سوال همیشگی: «به نظرت باید <strong>بیمه بدنه</strong> می‌گرفتم؟» راستش را بخواهید، این سوال جواب بله یا نه ندارد. جوابش یک محاسبه است. یک محاسبه ساده که در این مقاله قدم به قدم با هم انجامش می‌دهیم — با اعداد واقعی بازار ایران، نه با شعارهای تبلیغاتی شرکت‌های بیمه.</p>
+
+  <p>من ۱۵ سال است در کار کارشناسی و خرید و فروش خودرو هستم. هزاران ماشین تصادفی دیده‌ام. صاحب‌هایی دیده‌ام که بیمه بدنه نجاتشان داده، و صاحب‌هایی که سال‌ها حق بیمه دادند و یک ریال هم پس نگرفتند. بیایید بدون تعارف حساب کنیم.</p>
+
+  <h2 id="what-is-body-insurance">بیمه بدنه دقیقاً چی هست و چی رو پوشش می‌ده؟</h2>
+
+  <p>خیلی‌ها بیمه بدنه را با بیمه شخص ثالث قاطی می‌کنند. ساده بگویم: <strong>بیمه شخص ثالث خسارتی را که شما به دیگران می‌زنید پرداخت می‌کند و اجباری است.</strong> بیمه بدنه خسارتی را که به ماشین خودتان وارد می‌شود جبران می‌کند و کاملاً اختیاری است.</p>
+
+  <p>پوشش‌های اصلی بیمه بدنه معمولاً این‌ها هستند:</p>
+
+  <ul class="checklist">
+    <li>تصادف و واژگونی — چه مقصر باشید چه نباشید</li>
+    <li>آتش‌سوزی، صاعقه و انفجار</li>
+    <li>سرقت کلی خودرو</li>
+    <li>با خرید پوشش اضافه: سرقت قطعات (آینه، ضبط، لاستیک)، شکست شیشه، بلایای طبیعی مثل سیل و تگرگ، خط‌وخش و کشیدن جسم تیز (پوشش موسوم به خط‌وخش)، نوسان قیمت (افزایش ارزش خودرو در طول سال)</li>
+  </ul>
+
+  <p>نکته مهم اینجاست: پوشش پایه، خیلی از اتفاق‌های رایج مثل خط‌وخش پارکینگی یا سرقت آینه را شامل <strong>نمی‌شود</strong>. باید جداگانه بخرید. همین‌جا اولین جای گول خوردن مردم است — فکر می‌کنند «بیمه بدنه دارم، خیالم راحت» و بعد سر خسارت می‌فهمند پوشش لازم را نخریده‌اند. نتیجه این بخش: قبل از هر چیز بدانید دقیقاً چه چیزی می‌خرید.</p>
+
+  <div class="warning-box">
+    ⚠️ <strong>هشدار:</strong> اگر خودروتان قبلاً رنگ‌شدگی یا تصادف داشته و موقع صدور بیمه اعلام نکنید، شرکت بیمه موقع پرداخت خسارت می‌تواند درصد قابل توجهی کسر کند یا حتی خسارت را رد کند. کارشناس بیمه موقع بازدید اولیه همه این‌ها را ثبت می‌کند.
+  </div>
+
+  <h2 id="real-cost-calculation">محاسبه واقعی: حق بیمه چقدره و در ازاش چی می‌گیرید؟</h2>
+
+  <!-- <img class="section-image" src="images/insurance-cost-calculation.jpg" alt="محاسبه هزینه و سود بیمه بدنه خودرو با ماشین حساب" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">🧮</div>
+    <div class="ph-label">محاسبه سود و زیان بیمه بدنه</div>
+    <div class="ph-file">images/insurance-cost-calculation.jpg</div>
+  </div>
+  <p class="image-caption">حق بیمه بدنه معمولاً حدود ۱.۵ تا ۳ درصد ارزش خودرو در سال است</p>
+
+  <p>بریم سر اصل مطلب. حق بیمه بدنه در ایران معمولاً چیزی بین <strong>۱.۵ تا ۳ درصد ارزش روز خودرو در سال</strong> درمی‌آید — بسته به نوع خودرو، پوشش‌های اضافه، تخفیف عدم خسارت و شرکت بیمه. چند مثال واقعی از پرونده‌هایی که خودم دیده‌ام:</p>
+
+  <ul class="price-list">
+    <li><span>پراید ۱۱۱ مدل ۹۸ (ارزش حدود ۳۵۰ میلیون تومان)</span><span class="drop low">≈ ۶ تا ۸ میلیون در سال</span></li>
+    <li><span>پژو ۲۰۶ تیپ ۵ (ارزش حدود ۷۰۰ میلیون تومان)</span><span class="drop mid">≈ ۱۲ تا ۱۶ میلیون در سال</span></li>
+    <li><span>دنا پلاس توربو (ارزش حدود ۱.۲ میلیارد تومان)</span><span class="drop mid">≈ ۲۰ تا ۲۸ میلیون در سال</span></li>
+    <li><span>شاسی‌بلند مونتاژی ۳ میلیاردی</span><span class="drop">≈ ۵۰ تا ۷۵ میلیون در سال</span></li>
+  </ul>
+
+  <p>حالا طرف دیگر معادله. هزینه صافکاری و نقاشی در تهران را ببینید: نقاشی هر قطعه بین ۳ تا ۸ میلیون تومان. تعویض سپر دنا با رنگ، راحت ۱۵ تا ۲۰ میلیون. یک تصادف جدی که درب و ستون و ایربگ درگیر شود؟ از ۱۵۰ میلیون شروع می‌شود و سقفش، کل ارزش ماشین است. یعنی <strong>یک تصادف متوسط، معادل ۵ تا ۱۰ سال حق بیمه بدنه است.</strong></p>
+
+  <p>ریاضی‌اش ساده است. فرض کنید حق بیمه سالانه ۲ درصد ارزش ماشین باشد. اگر احتمال اینکه در یک سال خسارتی بیشتر از ۲ درصد ارزش ماشین به آن وارد شود، از دید شما بالاست — بیمه بدنه می‌ارزد. اگر پایین است، نمی‌ارزد. به همین سادگی. اما «احتمال» برای هر کسی فرق دارد و بخش بعدی دقیقاً درباره همین است.</p>
+
+  <div class="tip-box">
+    💡 <strong>نکته طلایی:</strong> تخفیف عدم خسارت بیمه بدنه هر سال جمع می‌شود و تا ۶۰ درصد می‌رسد. یعنی اگر چند سال خسارت نگیرید، حق بیمه‌تان عملاً نصف می‌شود و معادله خیلی به نفع شما تغییر می‌کند. این تخفیف موقع فروش خودرو قابل انتقال به خودروی بعدی خودتان هم هست — از دستش ندهید.
+  </div>
+
+  <h2 id="who-needs-it">برای چه کسانی بیمه بدنه واجبه؟ (جدول تصمیم‌گیری)</h2>
+
+  <!-- <img class="section-image" src="images/who-needs-body-insurance.jpg" alt="جدول تصمیم گیری برای خرید بیمه بدنه خودرو" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">⚖️</div>
+    <div class="ph-label">چه کسی به بیمه بدنه نیاز دارد؟</div>
+    <div class="ph-file">images/who-needs-body-insurance.jpg</div>
+  </div>
+  <p class="image-caption">بیمه بدنه برای همه نه واجب است، نه بیهوده — بستگی به شرایط شما دارد</p>
+
+  <p>بعد از ۱۵ سال دیدن خسارت‌های جور و واجور، من مردم را به چند گروه تقسیم می‌کنم. خودتان را در این جدول پیدا کنید:</p>
+
+  <table class="verdict-table">
+    <tr><th>وضعیت شما</th><th>توصیه من</th><th>وضعیت</th></tr>
+    <tr><td>خودروی گران (بالای ۱.۵ میلیارد) یا خودروی وارداتی با قطعات نایاب</td><td>حتماً بگیرید — یک گلگیر وارداتی گاهی ۱۰۰ میلیون آب می‌خورد</td><td><span class="badge green">واجب</span></td></tr>
+    <tr><td>ماشین لیزینگی یا قسطی که هنوز اقساطش تمام نشده</td><td>بگیرید — اگر ماشین از بین برود، قسط‌ها سر جایشان می‌مانند</td><td><span class="badge green">واجب</span></td></tr>
+    <tr><td>راننده تازه‌کار یا کم‌تجربه (زیر ۳ سال گواهینامه)</td><td>آمار تصادف راننده‌های سال اول چند برابر بقیه است — بگیرید</td><td><span class="badge green">واجب</span></td></tr>
+    <tr><td>پارک شبانه در خیابان، در محله‌ای با آمار سرقت بالا</td><td>حداقل پوشش سرقت کلی و قطعات را بگیرید</td><td><span class="badge yellow">توصیه می‌شود</span></td></tr>
+    <tr><td>راننده پرکار (اسنپ، آژانس، بین‌شهری زیاد)</td><td>کیلومتر بیشتر = ریسک بیشتر — منطقی است بگیرید</td><td><span class="badge yellow">توصیه می‌شود</span></td></tr>
+    <tr><td>پراید یا خودروی ارزان‌قیمت، راننده باتجربه، پارکینگ اختصاصی، کارکرد کم</td><td>حسابش معمولاً نمی‌ارزد — همان پول را کنار بگذارید</td><td><span class="badge red">لازم نیست</span></td></tr>
+  </table>
+
+  <p>یک تجربه شخصی بگویم. چند سال پیش مشتری داشتم — آقای محمدی، معلم بازنشسته — که یک سمند مدل پایین داشت با ارزش آن موقع حدود ۱۵۰ میلیون. هر سال ۴-۵ میلیون بیمه بدنه کامل می‌داد، با همه پوشش‌های اضافه. ده سال بود یک خط هم به ماشینش نیفتاده بود. راننده آرام، پارکینگ داشت، روزی ۱۰ کیلومتر هم راه نمی‌رفت. حساب کردیم: در ده سال چیزی حدود ۴۰ میلیون (به پول آن روزها) حق بیمه داده بود — یعنی بیش از یک‌چهارم ارزش ماشینش! برای او بیمه بدنه از اول اشتباه بود. همان پول را اگر در حسابی جدا می‌گذاشت، خودش صندوق خسارت خودش بود.</p>
+
+  <p>اما همان سال، یک جوان ۲۲ ساله را دیدم که ۲۰۷ صفرش را دو ماه بعد از خرید، جلوی دانشگاه کوبیده بود به تیر برق. ۱۸۰ میلیون خسارت. بیمه بدنه نداشت چون «حیفش آمده بود» ۱۰ میلیون حق بیمه بدهد. نتیجه: بیمه بدنه ابزار است، نه خوب است نه بد — باید با شرایط شما جور دربیاید.</p>
+
+  <h2 id="franchise-and-tricks">فرانشیز و بندهای ریز قرارداد — جایی که سود بیمه‌گر پنهان شده</h2>
+
+  <!-- <img class="section-image" src="images/insurance-contract-fine-print.jpg" alt="بندهای ریز قرارداد بیمه بدنه و فرانشیز خودرو" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">🔍</div>
+    <div class="ph-label">بندهای ریز قرارداد بیمه بدنه</div>
+    <div class="ph-file">images/insurance-contract-fine-print.jpg</div>
+  </div>
+  <p class="image-caption">فرانشیز یعنی بخشی از هر خسارت به عهده خود شماست</p>
+
+  <p>اینجا بخشی است که هیچ فروشنده بیمه‌ای با آب‌وتاب برایتان توضیح نمی‌دهد. <strong>فرانشیز</strong> یعنی درصدی از هر خسارت که خودتان باید بپردازید. فرانشیز معمول خسارت اول حدود ۱۰ درصد است (حداقل مبلغ هم دارد)، خسارت دوم ۲۰ درصد و خسارت سوم ۳۰ درصد. برای راننده‌های با گواهینامه زیر ۳ سال، فرانشیز معمولاً ۱۰ درصد اضافه می‌شود.</p>
+
+  <p>یعنی چه؟ یعنی اگر خسارت ۲۰ میلیونی بگیرید، حدود ۲ میلیونش را خودتان می‌دهید. برای خسارت‌های کوچک — مثلاً خط‌وخش ۵ میلیونی — عملاً گرفتن خسارت نمی‌صرفد، چون هم فرانشیز کم می‌شود، هم تخفیف عدم خسارت سال بعدتان می‌پرد. <strong>بیمه بدنه را برای خسارت‌های بزرگ بگیرید، نه خط‌وخش‌های ریز.</strong></p>
+
+  <p>چند بند ریز دیگر که باید حواستان باشد:</p>
+
+  <ul class="checklist">
+    <li><strong>ماده استهلاک:</strong> برای قطعات تعویضی خودروهای کارکرده، بیمه‌گر استهلاک کم می‌کند — قطعه نو می‌خرید، پول قطعه کارکرده می‌گیرید</li>
+    <li><strong>ارزش‌گذاری پایین:</strong> اگر خودرو را کمتر از ارزش واقعی بیمه کنید، خسارت هم به همان نسبت کم پرداخت می‌شود (قاعده نسبی سرمایه)</li>
+    <li><strong>پوشش نوسان قیمت:</strong> در بازار ایران که قیمت خودرو گاهی در یک سال ۳۰-۴۰ درصد بالا می‌رود، بدون این پوشش، سر سرقت کلی ضرر بزرگی می‌کنید</li>
+    <li><strong>راننده جایگزین:</strong> بعضی بیمه‌نامه‌ها فقط راننده مشخص را پوشش می‌دهند — اگر ماشین دست خانواده می‌چرخد، حواستان باشد</li>
+  </ul>
+
+  <div class="warning-box">
+    ⚠️ <strong>هشدار جدی برای خریداران خودروی دست دوم:</strong> ماشینی که بیمه بدنه دارد و خسارت سنگین گرفته، یعنی سابقه تصادف جدی دارد — حتی اگر فروشنده قسم بخورد «فقط یه خط بود». قبل از خرید هر خودرویی، سابقه خسارت بیمه‌ای را استعلام کنید و حتماً <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">کارشناسی کامل بدنه و شاسی</a> انجام دهید. من ماشین‌هایی دیده‌ام که با پول بیمه «تعمیر نمایشگاهی» شده‌اند و ظاهرشان از روز اول بهتر است — اما شاسی‌شان کشیده.
+  </div>
+
+  <h2 id="smart-buying-guide">راهنمای خرید هوشمندانه بیمه بدنه — قدم به قدم</h2>
+
+  <p>اگر بعد از محاسبه‌ها به این نتیجه رسیدید که بیمه بدنه برایتان می‌صرفد، این‌طوری بخرید که سرتان کلاه نرود:</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">۱</div>
+      <div class="step-content">
+        <h4>ارزش واقعی خودرو را تعیین کنید</h4>
+        <p>نه کمتر (که خسارت کم بگیرید) نه بیشتر (که حق بیمه اضافه بدهید). قیمت روز بازار را مبنا بگذارید و پوشش نوسان قیمت هم اضافه کنید.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">۲</div>
+      <div class="step-content">
+        <h4>از ۳-۴ شرکت بیمه استعلام بگیرید</h4>
+        <p>اختلاف قیمت بین شرکت‌ها گاهی به ۳۰-۴۰ درصد می‌رسد. اما فقط قیمت را نبینید — سرعت پرداخت خسارت و رتبه توانگری مالی شرکت (که بیمه مرکزی هر سال منتشر می‌کند) مهم‌تر است.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">۳</div>
+      <div class="step-content">
+        <h4>پوشش‌های اضافه را بر اساس شرایط خودتان انتخاب کنید</h4>
+        <p>پارک در خیابان؟ سرقت قطعات. شهر تگرگ‌خیز؟ بلایای طبیعی. تازه‌راننده؟ پوشش کامل تصادف. پول پوششی را که به دردتان نمی‌خورد ندهید.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">۴</div>
+      <div class="step-content">
+        <h4>موقع بازدید اولیه، همه چیز را شفاف اعلام کنید</h4>
+        <p>رنگ‌شدگی، تعویضی، خط‌وخش موجود — همه ثبت شود. این شفافیت موقع خسارت به نفع خودتان است.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">۵</div>
+      <div class="step-content">
+        <h4>تخفیف عدم خسارت را مدیریت کنید</h4>
+        <p>خسارت‌های کوچک را از جیب بدهید و تخفیف را نگه دارید برای روز مبادا. خسارت ۴ میلیونی نگیرید که تخفیف ۱۰ میلیونی سال بعد را از دست بدهید.</p>
+      </div>
+    </div>
+  </div>
+
+  <p>و یک نکته که کمتر کسی می‌گوید: اگر خودروی دست دوم می‌خرید و فروشنده بیمه بدنه دارد، انتقال بیمه‌نامه را در قولنامه قید کنید. البته تخفیف عدم خسارت بدنه به خودروی فروشنده تعلق دارد نه به شما، اما باقی‌مانده مدت بیمه‌نامه قابل استفاده است و ارزش مالی دارد.</p>
+
+  <h2 id="final-verdict">جمع‌بندی: فرمول نهایی تصمیم‌گیری</h2>
+
+  <p>بگذارید همه حرف‌های این مقاله را در سه خط خلاصه کنم. بیمه بدنه یک شرط‌بندی حساب‌شده است: شما سالانه حدود ۲ درصد ارزش ماشین می‌دهید تا اگر اتفاق بزرگی افتاد، ضررش گردن بیمه‌گر باشد. اگر <strong>ریسک شما بالاست</strong> (ماشین گران، راننده کم‌تجربه، تردد زیاد، پارک خیابانی) این معامله به نفع شماست. اگر <strong>ریسک شما پایین است</strong> (ماشین ارزان، راننده محتاط، پارکینگ، کارکرد کم) احتمالاً پول‌تان را دور می‌ریزید — همان مبلغ را هر سال در حسابی جدا پس‌انداز کنید تا صندوق خسارت شخصی خودتان باشد.</p>
+
+  <p>در واقع بزرگ‌ترین اشتباه، تصمیم احساسی است: نه از سر ترس بخرید، نه از سر خساست نخرید. حساب کنید، بعد تصمیم بگیرید.</p>
+
+  <div class="success-box">
+    ✅ <strong>یک قدم عملی قبل از هر تصمیمی:</strong> چه بخواهید خودرویی بخرید و برایش بیمه بدنه بگیرید، چه بخواهید ماشین فعلی‌تان را بیمه کنید — اول از وضعیت واقعی بدنه، رنگ و شاسی خودرو مطمئن شوید. همین الان از <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">کارماچک درخواست کارشناسی خودرو</a> بدهید تا کارشناس ما وضعیت دقیق بدنه را قبل از صدور بیمه‌نامه مستند کند. برای آشنایی با جزئیات، صفحه <a href="https://carmacheck.com/services" style="color:#1d6fb8;font-weight:700">خدمات کارشناسی کارماچک</a> را ببینید.
+  </div>
+
+  <p>اگر هنوز سوالی دارید یا شرایط خاصی دارید که در این مقاله نبود، از طریق <a href="https://carmacheck.com/contact-us" style="color:#1d6fb8;font-weight:700">صفحه تماس با ما</a> بپرسید. و برای مطالب بیشتر درباره خرید و نگهداری خودرو، سری به <a href="https://carmacheck.com/blog" style="color:#1d6fb8;font-weight:700">بلاگ کارماچک</a> بزنید. <!-- TODO: internal blog link به مقاله «خودرو رنگ‌شده ارزش خرید دارد؟» --></p>
+
+  <hr>
+
+  <h2 id="faq">سوالات متداول درباره بیمه بدنه خودرو</h2>
+
+  <div class="faq">
+    <h3>بیمه بدنه چند درصد ارزش خودرو است؟</h3>
+    <p>معمولاً بین ۱.۵ تا ۳ درصد ارزش روز خودرو در سال، بسته به نوع خودرو، پوشش‌های انتخابی، سابقه تخفیف و شرکت بیمه. با تخفیف عدم خسارت کامل (۶۰٪) این عدد می‌تواند به زیر ۱ درصد برسد.</p>
+
+    <h3>فرق بیمه بدنه و بیمه شخص ثالث چیست؟</h3>
+    <p>شخص ثالث اجباری است و خسارت شما به دیگران را می‌دهد؛ بدنه اختیاری است و خسارت وارد به خودروی خودتان را جبران می‌کند — حتی وقتی خودتان مقصر باشید.</p>
+
+    <h3>آیا بیمه بدنه خط‌وخش پارکینگ را پوشش می‌دهد؟</h3>
+    <p>در پوشش پایه، نه. باید پوشش اضافی «خط‌وخش / کشیدن جسم تیز» را جداگانه بخرید. حتی با این پوشش، فرانشیز و سقف پرداخت دارد و گرفتن خسارت‌های خیلی کوچک معمولاً به‌صرفه نیست.</p>
+
+    <h3>اگر خودرو قسطی یا لیزینگی باشد، بیمه بدنه اجباری است؟</h3>
+    <p>بیشتر شرکت‌های لیزینگ و بانک‌ها تا پایان اقساط، بیمه بدنه را شرط قرارداد می‌کنند — و منطقی هم هست، چون اگر خودرو از بین برود، بدهی شما سر جایش می‌ماند.</p>
+
+    <h3>آیا تخفیف عدم خسارت بیمه بدنه موقع فروش خودرو منتقل می‌شود؟</h3>
+    <p>تخفیف عدم خسارت متعلق به مالک است، نه خودرو. موقع فروش می‌توانید آن را به خودروی بعدی خودتان منتقل کنید؛ به خریدار منتقل نمی‌شود.</p>
+
+    <h3>خسارت بیمه بدنه چقدر طول می‌کشد پرداخت شود؟</h3>
+    <p>بسته به شرکت بیمه و کامل بودن مدارک، معمولاً بین ۱ تا ۴ هفته. شرکت‌های با رتبه توانگری بالاتر معمولاً سریع‌تر پرداخت می‌کنند — قبل از خرید، این رتبه را از سایت بیمه مرکزی چک کنید.</p>
+
+    <p style="margin-top:24px">سوالات بیشتری درباره کارشناسی خودرو دارید؟ <a href="https://carmacheck.com/faq" style="color:#1d6fb8;font-weight:700">سوالات متداول کارماچک</a> را ببینید.</p>
+  </div>
+
+</article>
+</body>
+</html>

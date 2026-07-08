@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="بوهای داخل خودرو چی میگن؟ راهنمای کامل تشخیص مشکل از روی بوی روغن، بنزین، نم و سوختگی — از زبان کارشناس خودرو با ۱۵ سال تجربه.">
+  <title>بوهای داخل خودرو چی میگن؟ — از بوی روغن تا بوی نم</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #1a1a1a;
+      background: #f5f5f5;
+    }
+
+    article {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 32px 60px;
+    }
+
+    h1 { font-size: 2rem; font-weight: 800; line-height: 1.4; margin-bottom: 24px; color: #111; }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 48px 0 16px;
+      color: #111;
+      border-right: 4px solid #e63946;
+      padding-right: 12px;
+    }
+
+    h3 { font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #222; }
+    p { margin-bottom: 18px; color: #2c2c2c; }
+    strong { color: #111; font-weight: 700; }
+
+    /* ===== IMAGES ===== */
+    .hero-image, .section-image, .infographic {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .hero-image { height: 420px; }
+    .section-image { height: 300px; }
+
+    /* ===== PLACEHOLDERS (تا وقتی عکس آماده نشده) ===== */
+    .img-placeholder {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #eef3f8 0%, #dde7f0 100%);
+      border: 2px dashed #b8c9da;
+      color: #7a8ba0;
+      font-size: 0.9rem;
+      gap: 8px;
+      text-align: center;
+      padding: 12px;
+    }
+    .img-placeholder.hero { height: 420px; }
+    .img-placeholder.section { height: 280px; }
+    .img-placeholder .ph-icon { font-size: 2.5rem; }
+    .img-placeholder .ph-label { font-weight: 600; color: #5a7290; }
+    .img-placeholder .ph-file { font-size: 0.78rem; color: #9bb0c5; direction: ltr; }
+
+    .image-caption { text-align: center; font-size: 0.82rem; color: #888; margin-bottom: 24px; }
+
+    /* ===== BOXES ===== */
+    .tip-box {
+      background: #fff8e1;
+      border-right: 4px solid #f4a200;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .warning-box {
+      background: #fff0f0;
+      border-right: 4px solid #e63946;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .success-box {
+      background: #f0fff4;
+      border-right: 4px solid #2d9e5f;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ===== STEPS ===== */
+    .steps { margin: 24px 0; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: #fafafa;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+    .step-num {
+      min-width: 36px; height: 36px;
+      background: #e63946;
+      color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; flex-shrink: 0;
+    }
+    .step-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #111; }
+    .step-content p { margin: 0; font-size: 0.93rem; color: #444; }
+
+    /* ===== CHECKLIST ===== */
+    .checklist { list-style: none; margin: 16px 0 24px; padding: 0; }
+    .checklist li {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .checklist li::before { content: "✓"; color: #2d9e5f; font-weight: 800; font-size: 1rem; flex-shrink: 0; }
+
+    /* ===== VERDICT TABLE ===== */
+    .verdict-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.93rem; }
+    .verdict-table th { background: #e63946; color: #fff; padding: 12px; text-align: right; font-weight: 700; }
+    .verdict-table td { padding: 12px; border-bottom: 1px solid #eee; }
+    .verdict-table tr:nth-child(even) { background: #f9fbfd; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #fff; }
+    .badge.green { background: #2d9e5f; }
+    .badge.yellow { background: #f4a200; }
+    .badge.red { background: #e63946; }
+
+    /* ===== PRICE / COMPARISON LIST ===== */
+    .price-list { margin: 16px 0 24px; padding: 0; list-style: none; }
+    .price-list li {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.95rem;
+    }
+    .price-list .drop { font-weight: 800; color: #e63946; direction: ltr; }
+    .price-list .drop.low { color: #2d9e5f; }
+    .price-list .drop.mid { color: #f4a200; }
+
+    hr { border: none; border-top: 1px solid #eee; margin: 48px 0; }
+
+    .faq h3 { font-size: 1.05rem; color: #111; margin: 28px 0 8px; }
+    .faq p { font-size: 0.95rem; color: #444; }
+
+    @media (max-width: 600px) {
+      article { padding: 20px 16px 48px; }
+      h1 { font-size: 1.5rem; }
+      .img-placeholder.hero, .hero-image { height: 220px; }
+      .img-placeholder.section, .section-image { height: 180px; }
+      .verdict-table { font-size: 0.82rem; }
+      .verdict-table th, .verdict-table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+<article>
+
+  <h1>بوهای داخل خودرو چی میگن؟ — از بوی روغن تا بوی نم</h1>
+
+  <!-- <img class="hero-image" src="images/car-interior-smell-inspection.jpg" alt="کارشناس در حال بررسی بوی داخل کابین خودرو هنگام کارشناسی"> -->
+  <div class="img-placeholder hero">
+    <div class="ph-icon">👃🚗</div>
+    <div class="ph-label">بررسی بوی داخل کابین خودرو هنگام کارشناسی</div>
+    <div class="ph-file">images/car-interior-smell-inspection.jpg</div>
+  </div>
+  <p class="image-caption">دماغ شما گاهی از دستگاه دیاگ زودتر مشکل را پیدا می‌کند</p>
+
+  <p>چند هفته پیش یکی از مشتری‌ها بهم زنگ زد. گفت: «آقا، یه ۲۰۶ دیدم، تمیزِ تمیز. فقط یه بوی عجیبی توی ماشین میاد. مهمه؟» گفتم مهمه؟ <strong>بوی داخل خودرو</strong> گاهی از صد تا برگه کارشناسی بیشتر حرف می‌زنه. راستش رو بخواهید، توی این ۱۵ سالی که کارم کارشناسی خودروئه، بارها شده که قبل از اینکه دستگاه دیاگ رو وصل کنم، دماغم مشکل ماشین رو پیدا کرده. بوی نم؟ احتمال آب‌خوردگی. بوی روغن سوخته؟ نشتی روی منیفولد. بوی بنزین خام؟ خطرناک‌تر از چیزی که فکرش رو بکنید.</p>
+
+  <p>توی این مقاله می‌خوام همون چیزهایی رو بهتون بگم که سر کارشناسی به مشتری‌هام می‌گم. بوها دروغ نمی‌گن. فروشنده می‌تونه کیلومتر رو دستکاری کنه، رنگ رو صاف‌کاری کنه، اما بو رو فقط می‌تونه موقتاً با خوشبوکننده قایم کنه. و همین «قایم کردن» خودش یه علامت هشداره.</p>
+
+  <div class="tip-box">💡 <strong>نکته طلایی:</strong> اولین بار که سوار ماشینِ فروشنده می‌شید، قبل از هر چیز چند ثانیه فقط نفس بکشید. اگه بوی خوشبوکننده خیلی غلیظ بود، بپرسید چرا. خوشبوکننده قوی خیلی وقت‌ها یعنی «یه بویی هست که نباید بفهمی».</div>
+
+  <h2 id="booye-nam-abkhordegi">بوی نم و کپک — علامت آب‌خوردگی که هیچ‌کس دوست نداره بشنوه</h2>
+
+  <!-- <img class="section-image" src="images/damp-carpet-water-damage.jpg" alt="موکت نم‌کشیده خودرو نشانه آب‌خوردگی و نفوذ آب به کابین" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">💧</div>
+    <div class="ph-label">موکت نم‌کشیده — ردپای آب‌خوردگی</div>
+    <div class="ph-file">images/damp-carpet-water-damage.jpg</div>
+  </div>
+  <p class="image-caption">زیر موکت را حتماً لمس کنید؛ نم پنهان همین‌جاست</p>
+
+  <p>بذارید با ترسناک‌ترینش شروع کنم. <strong>بوی نم، خاک نم‌خورده یا کپک</strong> توی کابین یعنی یه جایی آب وارد ماشین شده. حالا یا از آب‌بندی ضعیف سانروف و درها، یا — بدترین حالت — ماشین <strong>آب‌خورده یا سیل‌زده</strong> است. بعد از سیل‌های چند سال اخیر توی ایران، تعداد ماشین‌های آب‌خورده‌ای که با ظاهر تمیز وارد بازار شدن اصلاً کم نیست.</p>
+
+  <p>یه بار مشتری داشتم — آقای محمدی، معلم بازنشسته — که یه سمند LX دیده بود با قیمت حدود ۶۰ میلیون تومن زیر بازار. ذوق‌زده بود. رفتیم سر کارشناسی. در رو که باز کردم، همون ثانیه اول بوی نمِ کهنه زد توی صورتم. موکت رو که بلند کردیم، زیرش زنگ‌زدگی و رسوب گِل بود. ماشین سیل‌زده بود. آقای محمدی اون روز ۶۰ میلیون ضرر نکرد، چون یه بو رو جدی گرفتیم.</p>
+
+  <p>ماشین آب‌خورده فقط بحث موکت نیست. سیم‌کشی، یونیت‌ها، ایربگ — همه در خطرن. خرابی‌هاش هم یکهو نمیاد؛ ماه به ماه خودش رو نشون می‌ده. برای همین می‌گم اگه بوی نم حس کردید، همون‌جا معامله رو متوقف کنید و <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">درخواست کارشناسی حضوری خودرو</a> بدید تا زیر موکت و سینی‌ها دقیق بررسی بشه.</p>
+
+  <ul class="checklist">
+    <li>زیر موکت جلو و عقب را با دست لمس کنید — نم یعنی خطر</li>
+    <li>زیر صندلی‌ها دنبال زنگ‌زدگی روی ریل صندلی بگردید</li>
+    <li>داخل جاچراغی صندوق عقب را برای رسوب گِل چک کنید</li>
+    <li>کمربند ایمنی را تا ته بکشید — لکه آب یا بوی نم روی نوار کمربند</li>
+  </ul>
+
+  <p>نتیجه‌گیری این بخش ساده است: <strong>بوی نم = تا اثبات خلافش، فرض کنید آب‌خوردگی است.</strong></p>
+
+  <h2 id="booye-roghan-sookhte">بوی روغن سوخته — نشتی که داره روی قسمت داغ موتور می‌ریزه</h2>
+
+  <!-- <img class="section-image" src="images/engine-oil-leak-manifold.jpg" alt="نشتی روغن موتور روی منیفولد داغ عامل بوی روغن سوخته در خودرو" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">🛢️</div>
+    <div class="ph-label">نشتی روغن روی منیفولد داغ</div>
+    <div class="ph-file">images/engine-oil-leak-manifold.jpg</div>
+  </div>
+  <p class="image-caption">قطره‌قطره روغن روی منیفولد؛ منبع اصلی بوی روغن سوخته</p>
+
+  <p>بوی روغن سوخته یه بوی تند و سنگینه. مثل بوی روغنِ ماهیتابه‌ای که فراموشش کردید روی گاز. معمولاً وقتی حسش می‌کنید که ماشین گرم شده یا تازه از یه مسیر طولانی رسیدید. معنیش چیه؟ <strong>یه جایی روغن نشت می‌کنه و روی قطعه داغ — معمولاً منیفولد اگزوز — می‌ریزه و می‌سوزه.</strong></p>
+
+  <p>توی پژو ۲۰۶ و ۲۰۷، واشر درب سوپاپ متهم ردیف اوله. توی پراید و تیبا، کاسه‌نمدها و واشر درب سوپاپ. خود تعمیرش شاید ۲ تا ۵ میلیون تومن بیشتر خرج برنداره. اما نکته اینجاست: نشتی روغن اگه قدیمی باشه، یعنی صاحب قبلی به نگهداری ماشین اهمیت نمی‌داده. و این یه سرنخ بزرگ درباره کل ماشینه.</p>
+
+  <div class="warning-box">⚠️ <strong>هشدار:</strong> اگه بوی روغن سوخته همراه با دود آبی از اگزوز باشه، قضیه فرق می‌کنه — موتور داره روغن می‌سوزونه. این یعنی احتمال تعمیر اساسی موتور، با هزینه‌ای که برای یه پژو ۲۰۶ می‌تونه از ۳۰ میلیون تومن هم رد بشه. <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">بدون کارشناسی موتور، همچین ماشینی رو نخرید</a>.</div>
+
+  <p>جمع‌بندی: بوی روغن سوخته به‌تنهایی فاجعه نیست، اما یه چراغ زرد جدیه — هم برای هزینه تعمیر، هم برای شناخت اخلاقِ نگهداری فروشنده.</p>
+
+  <h2 id="booye-benzin">بوی بنزین خام — تنها بویی که باید همین امروز جدی بگیرید</h2>
+
+  <p>بین همه بوها، این یکی شوخی‌بردار نیست. <strong>بوی بنزین خام داخل کابین یا اطراف ماشین یعنی یه جایی سوخت نشت می‌کنه.</strong> شیلنگ‌های فرسوده، اورینگ سوزن انژکتور، پمپ بنزین زیر صندلی عقب (که توی پراید و پژو دقیقاً همون‌جاست)، یا درب باک خراب.</p>
+
+  <p>بنزین + جرقه = آتش. به همین سادگی. من ماشین‌هایی دیدم که سرِ همین نشتی ساده توی پارکینگ سوختن. اگه موقع تست ماشینِ فروشنده بوی بنزین مداوم حس کردید، دو حالت داره: یا نشتی فعال داره، یا تازه دستکاری‌ای توی سیستم سوخت شده (مثلاً نصب غیراصولی LPG که هنوز توی بازار ایران رایجه). هر دو حالت یعنی توقف و بررسی.</p>
+
+  <p>البته یه استثنا هم بگم که منصف باشیم: چند ثانیه بوی بنزین بعد از استارت سرد در هوای خیلی سرد، توی ماشین‌های کاربراتوری قدیمی طبیعیه. اما بوی مداوم؟ هرگز. نتیجه: <strong>بوی بنزین = بررسی فوری، حتی اگه ماشین خودتونه و اصلاً بحث خرید نیست.</strong></p>
+
+  <h2 id="booye-shirin-zeddeyakh">بوی شیرین — نشت ضدیخ و داستان واشر سرسیلندر</h2>
+
+  <!-- <img class="section-image" src="images/coolant-leak-heater-core.jpg" alt="نشت ضدیخ از رادیاتور بخاری عامل بوی شیرین داخل خودرو" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">🍬</div>
+    <div class="ph-label">نشت ضدیخ از رادیاتور بخاری</div>
+    <div class="ph-file">images/coolant-leak-heater-core.jpg</div>
+  </div>
+  <p class="image-caption">بوی شیرین از دریچه بخاری، امضای رادیاتور بخاری نشتی است</p>
+
+  <p>یه بوی شیرینِ عجیب، شبیه شربت. خیلی‌ها اولین بار که حسش می‌کنن فکر می‌کنن چیز بدی نیست — بوی بد که نیست! اما این بو دقیقاً بوی <strong>اتیلن گلیکول</strong>ه، یعنی ضدیخ. و ضدیخ نباید هیچ‌جا بو بده، مگه اینکه داره نشت می‌کنه.</p>
+
+  <p>اگه بو از دریچه‌های بخاری میاد و شیشه جلو هم موقع روشن‌کردن بخاری بخارِ چرب می‌گیره، رادیاتور بخاری نشتی داره. تعویضش توی خیلی از ماشین‌ها یعنی باز کردن داشبورد — دستمزدش گاهی از خود قطعه گرون‌تر در میاد. اما سناریوی بدتر: اگه ضدیخ داره کم می‌شه و نشتی بیرونی پیدا نمی‌کنید، احتمال <strong>واشر سرسیلندر</strong> مطرح می‌شه. توی کارشناسی، ما با تست گاز CO₂ روی رادیاتور همین رو چک می‌کنیم — یکی از همون <a href="https://carmacheck.com/services" style="color:#1d6fb8;font-weight:700">خدمات کارشناسی تخصصی</a> که با چشم غیرمسلح قابل تشخیص نیست.</p>
+
+  <p>نتیجه: بوی شیرین یعنی سیستم خنک‌کننده یه جاش می‌لنگه. سبک نگیریدش، چون آخرِ خطش جوش آوردن موتور وسط اتوبانه.</p>
+
+  <h2 id="booye-lastik-clutch">بوی لاستیک سوخته و بوی کلاچ — فرق این دو تا رو بدونید</h2>
+
+  <p>این دو تا بو رو خیلی‌ها با هم قاطی می‌کنن. <strong>بوی لاستیک سوخته</strong> معمولاً یا از تسمه‌ایه که داره روی پولی سُر می‌خوره، یا از شیلنگ و سیمی که به قطعه داغ چسبیده. <strong>بوی کلاچ سوخته</strong> اما یه بوی تندِ خاص داره — چیزی بین بوی لنت داغ و بوی کاغذ سوخته — و معمولاً بعد از حرکت توی سربالایی یا ترافیک سنگین بلند می‌شه.</p>
+
+  <p>توی تست ماشین دست‌دوم، این ترفند رو همیشه به مشتری‌هام یاد می‌دم: توی یه سربالایی ملایم، با دنده ۳ گاز بدید. اگه دور موتور بالا رفت ولی سرعت نه، و بعدش بوی سوختگی اومد — <strong>کلاچ تمومه</strong>. تعویض دیسک و صفحه برای یه ۲۰۶ حدود ۸ تا ۱۲ میلیون تومن خرج داره (قیمت‌ها رو همیشه روزِ خرید چک کنید، بازار ما ثبات نداره!). این رقم رو باید از قیمت ماشین کم کنید.</p>
+
+  <div class="success-box">✅ <strong>اقدام عملی:</strong> بوی لنت داغ بعد از یه ترمز ممتد توی سرازیری طبیعیه و چند دقیقه بعد می‌ره. اما اگه بو فقط از یه چرخ میاد و اون چرخ داغ‌تر از بقیه‌ست، کالیپر همون چرخ چسبیده — تعمیرش کنید قبل از اینکه دیسک و بلبرینگ رو هم با خودش ببره.</div>
+
+  <h2 id="booye-tokhmemorg-electric">بوی تخم‌مرغ گندیده و بوی سیم سوخته — کاتالیزور و برق</h2>
+
+  <p><strong>بوی تخم‌مرغ گندیده</strong> (سولفید هیدروژن) یعنی کاتالیزور اگزوز درست کار نمی‌کنه یا سوخت‌رسانی غنیه. توی ایران یه داستان دیگه هم داره: خیلی‌ها کاتالیزور رو به‌خاطر قیمت فلزات گران‌بهاش می‌فروشن و جاش لوله می‌ذارن! ماشینی که کاتالیزورش برداشته شده، معاینه فنی رو به‌سختی رد می‌کنه. زیر ماشین رو نگاه کنید یا از کارشناس بخواهید چک کنه.</p>
+
+  <p><strong>بوی سیم و پلاستیک سوخته</strong> هم داستان خودش رو داره — یه بوی تند شیمیایی که معمولاً یعنی اتصالی در سیم‌کشی، فیوز داغ‌شده، یا موتورفن گیرکرده. برق‌دزدی‌های غیراصولی (ضبط، شیشه دودی برقی، دزدگیر متفرقه) که توی بازار ما خیلی رایجه، متهم همیشگیه. اتصالی برق یعنی ریسک آتش‌سوزی. اگه این بو رو موقع کارشناسی حس کردم، تا منبعش پیدا نشه برگه رو امضا نمی‌کنم.</p>
+
+  <p>نتیجه این بخش: بوی تخم‌مرغ = اگزوز و کاتالیزور. بوی سیم سوخته = برق، و فوری‌ترین بو بعد از بنزین.</p>
+
+  <h2 id="jamandi-cheklist">جمع‌بندی — جدول سریع بوها و یه توصیه از ته دل</h2>
+
+  <!-- <img class="section-image" src="images/car-smells-infographic.jpg" alt="اینفوگرافیک راهنمای بوهای داخل خودرو و معنی هر بو" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">📊</div>
+    <div class="ph-label">اینفوگرافیک راهنمای بوهای خودرو</div>
+    <div class="ph-file">images/car-smells-infographic.jpg</div>
+  </div>
+  <p class="image-caption">خلاصه یک‌نگاهی: هر بو، یک تشخیص</p>
+
+  <table class="verdict-table">
+    <tr><th>بو</th><th>مظنون اصلی</th><th>سطح خطر</th></tr>
+    <tr><td>نم و کپک</td><td>آب‌خوردگی / نشتی آب‌بندی</td><td><span class="badge red">قرمز — احتمال سیل‌زدگی</span></td></tr>
+    <tr><td>بنزین خام</td><td>نشتی سوخت</td><td><span class="badge red">قرمز — خطر آتش</span></td></tr>
+    <tr><td>سیم سوخته</td><td>اتصالی برق</td><td><span class="badge red">قرمز — بررسی فوری</span></td></tr>
+    <tr><td>روغن سوخته</td><td>نشتی واشر درب سوپاپ / کاسه‌نمد</td><td><span class="badge yellow">زرد — هزینه تعمیر</span></td></tr>
+    <tr><td>شیرین (ضدیخ)</td><td>رادیاتور بخاری / سرسیلندر</td><td><span class="badge yellow">زرد — پیگیری جدی</span></td></tr>
+    <tr><td>کلاچ سوخته</td><td>دیسک و صفحه</td><td><span class="badge yellow">زرد — چانه‌زنی قیمت</span></td></tr>
+    <tr><td>تخم‌مرغ گندیده</td><td>کاتالیزور</td><td><span class="badge yellow">زرد — معاینه فنی</span></td></tr>
+    <tr><td>لنت داغ بعد از سرازیری</td><td>طبیعی (اگر موقتی باشد)</td><td><span class="badge green">سبز</span></td></tr>
+  </table>
+
+  <p>باور کنید یا نه، دماغ شما یکی از بهترین ابزارهای عیب‌یابیه — رایگان و همیشه همراه. اما دماغ فقط می‌گه «یه مشکلی هست»؛ اینکه مشکل دقیقاً چیه و چقدر خرج داره، کار دستگاه و تجربه‌ست. من توی این سال‌ها یاد گرفتم به هر دوتاش احترام بذارم.</p>
+
+  <div class="success-box">🚗 <strong>قبل از اینکه پول بدید، بو بکشید — و بعدش کارشناس بیارید.</strong> همین الان از <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">کارماچک درخواست کارشناسی خودرو</a> بدید تا کارشناس با تجهیزات کامل، از تست رنگ تا دیاگ و تست سلامت موتور، ماشین رو قبل از خرید زیر و رو کنه. سوالی هم داشتید، از <a href="https://carmacheck.com/contact-us" style="color:#1d6fb8;font-weight:700">راه‌های تماس با ما</a> در خدمتیم.</div>
+
+  <p>مقاله‌های دیگه ما درباره تشخیص رنگ‌شدگی و کارکرد واقعی رو هم توی <a href="https://carmacheck.com/blog" style="color:#1d6fb8;font-weight:700">بلاگ کارماچک</a> بخونید. <!-- TODO: internal blog link --></p>
+
+  <hr>
+
+  <h2 id="faq">سوالات متداول</h2>
+  <div class="faq">
+    <h3>بوی نم داخل ماشین همیشه یعنی سیل‌زدگی؟</h3>
+    <p>نه همیشه. گاهی فقط آب‌بندی درِ سانروف یا درزگیر درها ضعیف شده یا کولر درست تخلیه نمی‌شود. اما چون سیل‌زدگی هم دقیقاً همین بو را می‌دهد، حتماً زیر موکت و سینی‌ها باید بررسی شود — فرض اول را بدترین حالت بگذارید.</p>
+
+    <h3>بوی بنزین بعد از استارت صبحگاهی طبیعی است؟</h3>
+    <p>چند ثانیه در هوای خیلی سرد و در خودروهای قدیمی قابل قبول است. بوی مداوم یا بویی که داخل کابین حس می‌شود هرگز طبیعی نیست و باید فوری بررسی شود.</p>
+
+    <h3>بوی سوختگی کلاچ چقدر هزینه تعمیر دارد؟</h3>
+    <p>تعویض دیسک و صفحه برای خودروهای داخلی مثل پژو ۲۰۶ و سمند معمولاً بین ۸ تا ۱۲ میلیون تومان (قطعه + دستمزد) است. قیمت‌ها متغیرند؛ روز خرید استعلام بگیرید و در چانه‌زنی لحاظ کنید.</p>
+
+    <h3>بوی شیرین داخل کابین خطرناک است؟</h3>
+    <p>بله، هم برای ماشین هم برای سلامتی. بخار اتیلن گلیکول سمی است و نشت ضدیخ اگر ادامه پیدا کند به جوش آوردن موتور و حتی آسیب سرسیلندر ختم می‌شود.</p>
+
+    <h3>با خوشبوکننده می‌شود بوی مشکل‌دار را از بین برد؟</h3>
+    <p>موقتاً بله و فروشنده‌ها همین کار را می‌کنند! برای همین موقع بازدید، خوشبوکننده را بردارید، شیشه‌ها را ببندید، ۵ دقیقه صبر کنید و دوباره بو بکشید. بوی واقعی برمی‌گردد.</p>
+
+    <h3>کارشناسی خودرو این بوها را هم بررسی می‌کند؟</h3>
+    <p>بله. در کارشناسی حضوری، منبع بو ردیابی می‌شود — از تست نشتی و بررسی زیر موکت تا تست CO₂ رادیاتور. جواب سوال‌های بیشتر را در <a href="https://carmacheck.com/faq" style="color:#1d6fb8;font-weight:700">صفحه سوالات متداول کارماچک</a> ببینید.</p>
+  </div>
+
+</article>
+</body>
+</html>

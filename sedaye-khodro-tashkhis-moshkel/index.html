@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="صداهای خودرو و معنی‌شون: راهنمای کامل تشخیص مشکل با گوش — از تق‌تق جلوبندی تا سوت تسمه و کلاک‌کلاک موتور، از زبان کارشناس با ۱۵ سال تجربه.">
+  <title>صداهای خودرو و معنی‌شون — راهنمای کامل تشخیص مشکل با گوش</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #1a1a1a;
+      background: #f5f5f5;
+    }
+
+    article {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 32px 60px;
+    }
+
+    h1 { font-size: 2rem; font-weight: 800; line-height: 1.4; margin-bottom: 24px; color: #111; }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 48px 0 16px;
+      color: #111;
+      border-right: 4px solid #1d6fb8;
+      padding-right: 12px;
+    }
+
+    h3 { font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #222; }
+    p { margin-bottom: 18px; color: #2c2c2c; }
+    strong { color: #111; font-weight: 700; }
+
+    /* ===== IMAGES ===== */
+    .hero-image, .section-image, .infographic {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .hero-image { height: 420px; }
+    .section-image { height: 300px; }
+
+    /* ===== PLACEHOLDERS (تا وقتی عکس آماده نشده) ===== */
+    .img-placeholder {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #eef3f8 0%, #dde7f0 100%);
+      border: 2px dashed #b8c9da;
+      color: #7a8ba0;
+      font-size: 0.9rem;
+      gap: 8px;
+      text-align: center;
+      padding: 12px;
+    }
+    .img-placeholder.hero { height: 420px; }
+    .img-placeholder.section { height: 280px; }
+    .img-placeholder .ph-icon { font-size: 2.5rem; }
+    .img-placeholder .ph-label { font-weight: 600; color: #5a7290; }
+    .img-placeholder .ph-file { font-size: 0.78rem; color: #9bb0c5; direction: ltr; }
+
+    .image-caption { text-align: center; font-size: 0.82rem; color: #888; margin-bottom: 24px; }
+
+    /* ===== BOXES ===== */
+    .tip-box {
+      background: #fff8e1;
+      border-right: 4px solid #f4a200;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .warning-box {
+      background: #fff0f0;
+      border-right: 4px solid #e63946;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .success-box {
+      background: #f0fff4;
+      border-right: 4px solid #2d9e5f;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ===== STEPS ===== */
+    .steps { margin: 24px 0; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: #fafafa;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+    .step-num {
+      min-width: 36px; height: 36px;
+      background: #1d6fb8;
+      color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; flex-shrink: 0;
+    }
+    .step-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #111; }
+    .step-content p { margin: 0; font-size: 0.93rem; color: #444; }
+
+    /* ===== CHECKLIST ===== */
+    .checklist { list-style: none; margin: 16px 0 24px; padding: 0; }
+    .checklist li {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .checklist li::before { content: "✓"; color: #2d9e5f; font-weight: 800; font-size: 1rem; flex-shrink: 0; }
+
+    /* ===== VERDICT TABLE ===== */
+    .verdict-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.93rem; }
+    .verdict-table th { background: #1d6fb8; color: #fff; padding: 12px; text-align: right; font-weight: 700; }
+    .verdict-table td { padding: 12px; border-bottom: 1px solid #eee; }
+    .verdict-table tr:nth-child(even) { background: #f9fbfd; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #fff; }
+    .badge.green { background: #2d9e5f; }
+    .badge.yellow { background: #f4a200; }
+    .badge.red { background: #e63946; }
+
+    /* ===== PRICE / COMPARISON LIST ===== */
+    .price-list { margin: 16px 0 24px; padding: 0; list-style: none; }
+    .price-list li {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.95rem;
+    }
+    .price-list .drop { font-weight: 800; color: #e63946; direction: ltr; }
+    .price-list .drop.low { color: #2d9e5f; }
+    .price-list .drop.mid { color: #f4a200; }
+
+    hr { border: none; border-top: 1px solid #eee; margin: 48px 0; }
+
+    .faq h3 { font-size: 1.05rem; color: #111; margin: 28px 0 8px; }
+    .faq p { font-size: 0.95rem; color: #444; }
+
+    @media (max-width: 600px) {
+      article { padding: 20px 16px 48px; }
+      h1 { font-size: 1.5rem; }
+      .img-placeholder.hero, .hero-image { height: 220px; }
+      .img-placeholder.section, .section-image { height: 180px; }
+      .verdict-table { font-size: 0.82rem; }
+      .verdict-table th, .verdict-table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+<article>
+
+  <h1>صداهای خودرو و معنی‌شون — راهنمای کامل تشخیص مشکل با گوش</h1>
+
+  <!-- <img class="hero-image" src="images/mechanic-listening-engine-sound.jpg" alt="کارشناس خودرو در حال گوش دادن به صدای موتور برای تشخیص مشکل"> -->
+  <div class="img-placeholder hero">
+    <div class="ph-icon">👂🔧</div>
+    <div class="ph-label">گوش دادن به صدای موتور — قدیمی‌ترین ابزار عیب‌یابی</div>
+    <div class="ph-file">images/mechanic-listening-engine-sound.jpg</div>
+  </div>
+  <p class="image-caption">قبل از دیاگ و دستگاه، گوشِ آموزش‌دیده مشکل را پیدا می‌کند</p>
+
+  <p>دیشب یه پیام گرفتم که عین همیشه بود: «سلام آقا. ماشینم یه صدایی می‌ده، تق‌تق‌تق، فقط وقتی فرمون رو می‌چرخونم. چیه؟» راستش رو بخواهید، نصف پیام‌هایی که به من می‌رسه همینه — یه صدا و یه علامت سوال. و جالبه بدونید که <strong>صدای خودرو</strong> واقعاً زبان داره. ماشین قبل از اینکه شما رو وسط جاده بذاره، هفته‌ها و گاهی ماه‌ها با صدا بهتون هشدار می‌ده. فقط باید بلد باشید گوش کنید.</p>
+
+  <p>من ۱۵ ساله کارم کارشناسی خودروئه. توی این سال‌ها یاد گرفتم که هر صدا سه تا مشخصه داره: <strong>کِی میاد</strong> (موقع استارت؟ دور زدن؟ ترمز؟)، <strong>از کجا میاد</strong> (جلو؟ عقب؟ زیر پا؟) و <strong>با چی تغییر می‌کنه</strong> (سرعت؟ دور موتور؟ دست‌انداز؟). همین سه تا سوال، ۸۰ درصد راهِ تشخیص رو می‌ره. بریم سراغ صداها، یکی‌یکی.</p>
+
+  <div class="tip-box">💡 <strong>نکته طلایی:</strong> موقع تست ماشین برای خرید، ضبط و کولر رو خاموش کنید و شیشه‌ها رو بدید پایین. فروشنده‌ای که اصرار داره ضبط روشن بمونه و ولومش هم بالاست، شاید داره یه صدایی رو از شما قایم می‌کنه!</div>
+
+  <h2 id="taq-taq-jolobandi">تق‌تق از جلوبندی — سیبک، طبق و قصه همیشگی جاده‌های ما</h2>
+
+  <!-- <img class="section-image" src="images/front-suspension-check.jpg" alt="بررسی جلوبندی خودرو و سیبک روی جک برای تشخیص صدای تق تق" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">🔩</div>
+    <div class="ph-label">بررسی جلوبندی و سیبک روی جک</div>
+    <div class="ph-file">images/front-suspension-check.jpg</div>
+  </div>
+  <p class="image-caption">لقی سیبک را فقط روی جک و با دست می‌شود با اطمینان تشخیص داد</p>
+
+  <p>رایج‌ترین صدای ماشین‌های ایران؟ بدون شک <strong>تق‌تق جلوبندی روی دست‌انداز</strong>. با این آسفالت‌ها و سرعت‌گیرهای غیراستانداردی که داریم، جلوبندی زودتر از هر چیز دیگه‌ای می‌بُره. مظنون‌های اصلی: <strong>سیبک فرمان، سیبک طبق، لاستیک‌های چاکدار (بوش طبق) و لینک موج‌گیر</strong>.</p>
+
+  <p>خبر خوب: بیشتر این‌ها تعمیرهای ارزونی هستن. لینک موج‌گیر برای پراید و ۲۰۶ شاید کلاً یکی دو میلیون تومن با دستمزد بشه. خبر بد: اگه ولش کنید، لقیِ کوچیک به مرور بقیه قطعات رو هم می‌خوره و از همه مهم‌تر — <strong>فرمان‌پذیری ماشین توی ترمز اضطراری غیرقابل پیش‌بینی می‌شه</strong>. یعنی بحث فقط صدا نیست، بحث جونه.</p>
+
+  <p>یه بار مشتری داشتم — خانم رضایی، پرستار شیفت شب — که یه ۲۰۶ می‌خواست بخره. فروشنده قسم می‌خورد «این صدا مال کفشِ زیر پاییِ داخل ماشینه»! ماشین رو بردیم روی جک. سیبک طبق چپ اون‌قدر لق بود که با دو انگشت تکون می‌خورد. فروشنده هنوزم قسم می‌خورد. خانم رضایی همون ماشین رو خرید — اما با ۴ میلیون تخفیف بابت جلوبندی. صدا رو که بشناسی، چانه‌زنی هم بلد می‌شی.</p>
+
+  <p>نتیجه: تق‌تق روی دست‌انداز = جلوبندی. ترسناک نیست، ولی نادیده‌گرفتنش ترسناکه.</p>
+
+  <h2 id="soot-tasme">سوت و جیغ از زیر کاپوت — تسمه‌ای که داره خداحافظی می‌کنه</h2>
+
+  <p>صبح زمستون، استارت می‌زنید و یه <strong>جیغ تیز</strong> بلند می‌شه که بعد از چند ثانیه قطع می‌شه؟ این صدای کلاسیکِ <strong>تسمه دینام</strong>ه که یا شل شده یا فرسوده. تسمه سالم صدا نمی‌ده — همین‌قدر ساده.</p>
+
+  <p>خود تسمه قطعه ارزونیه. اما دو تا نکته حیاتی داره. اول: اگه صدای سوت با چرخوندن فرمون تا انتها بلندتر می‌شه، پمپ هیدرولیک هم قاطی ماجراست. دوم و مهم‌تر: توی خیلی از ماشین‌ها اگه <strong>تسمه تایم</strong> (نه دینام) پاره بشه، سوپاپ‌ها با پیستون برخورد می‌کنن و موتور عملاً نابود می‌شه. تسمه تایم معمولاً قبل از پاره شدن صدای خاصی نمی‌ده — برای همین باید طبق کیلومتر عوضش کرد، نه طبق صدا!</p>
+
+  <div class="warning-box">⚠️ <strong>هشدار:</strong> موقع خرید ماشین دست‌دوم، هیچ‌وقت به حرفِ «تسمه تایم تازه عوض شده» اکتفا نکنید. فاکتور بخواهید. اگه فاکتور نبود، هزینه تعویض (برای ۲۰۶ حدود ۳ تا ۵ میلیون تومن با متعلقات) رو توی قیمت حساب کنید. کارشناس هم موقع <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">کارشناسی حضوری خودرو</a> وضعیت ظاهری تسمه رو چک می‌کنه.</div>
+
+  <h2 id="jigh-tormoz">جیغ و غِژغِژ موقع ترمز — لنتی که داره داد می‌زنه</h2>
+
+  <!-- <img class="section-image" src="images/worn-brake-pads-disc.jpg" alt="لنت ترمز ساییده و دیسک خط افتاده عامل صدای جیغ ترمز خودرو" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">🛑</div>
+    <div class="ph-label">لنت ساییده و دیسک خط‌افتاده</div>
+    <div class="ph-file">images/worn-brake-pads-disc.jpg</div>
+  </div>
+  <p class="image-caption">وقتی لنت تمام شود، فلز روی فلز می‌ساید — و دیسک قربانی می‌شود</p>
+
+  <p>صدای ترمز دو مرحله داره و فرقشون مهمه. مرحله اول: <strong>جیغ تیز و ممتد</strong> موقع ترمز. این معمولاً یعنی لنت به انتهای عمرش رسیده — خیلی از لنت‌ها یه تیغه هشدار فلزی دارن که عمداً همین صدا رو تولید می‌کنه. هزینه؟ کم. یه دست لنت جلو برای ماشین‌های داخلی معمولاً زیر ۲ میلیون تومنه.</p>
+
+  <p>مرحله دوم: <strong>صدای خش‌دار فلز روی فلز</strong>، مثل سنگ سمباده. این یعنی لنت کامل تموم شده و کفشک فلزی داره مستقیم دیسک رو می‌خوره. حالا دیگه دیسک هم باید تراش بخوره یا تعویض بشه و هزینه چند برابر شده. جالبه که فاصله بین این دو مرحله گاهی فقط دو سه هفته رانندگیه. لنت که جیغ زد، همون هفته اقدام کنید.</p>
+
+  <p>یه صدای سومی هم هست: <strong>لرزش و دِدِدِد توی پدال</strong> موقع ترمز از سرعت بالا. این یعنی دیسک تاب برداشته. توی تست جاده‌ای که برای مشتری‌ها انجام می‌دم، همیشه یه ترمز از سرعت ۸۰-۹۰ توی جای خلوت می‌گیرم دقیقاً برای همین. نتیجه‌گیری: صدای ترمز هیچ‌وقت «بذار ببینیم چی می‌شه» نداره — ترمز یعنی توقف، و توقف یعنی زندگی.</p>
+
+  <h2 id="taq-taq-motor">تق‌تق و کلاک‌کلاک از خود موتور — از تایپت تا یاتاقان</h2>
+
+  <!-- <img class="section-image" src="images/engine-knocking-diagnosis.jpg" alt="تشخیص صدای تق تق موتور و یاتاقان با گوشی مکانیکی" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">⚙️</div>
+    <div class="ph-label">تشخیص صدای موتور با گوشی مکانیکی</div>
+    <div class="ph-file">images/engine-knocking-diagnosis.jpg</div>
+  </div>
+  <p class="image-caption">صدای تایپت از بالای موتور می‌آید، صدای یاتاقان از پایین — و دنیایی هزینه بینشان است</p>
+
+  <p>حالا رسیدیم به بخشی که توی کارشناسی بیشترین دقت رو می‌طلبه، چون <strong>گرون‌ترین تشخیص‌ها اینجاست</strong>. صدای داخل موتور دو دسته کلی داره:</p>
+
+  <p><strong>صدای تایپت (تق‌تق ریز از بالای موتور):</strong> یه تیک‌تیک سریع که با دور موتور تند می‌شه و معمولاً وقتی موتور سرده بلندتره. علتش لقی سوپاپ یا افت فشار روغنه. توی موتورهای پرکارکرد پژو و پراید خیلی رایجه. آزاردهنده‌ست ولی معمولاً فاجعه نیست — تنظیم فیلر یا تعویض استکانی تایپت حلش می‌کنه.</p>
+
+  <p><strong>صدای یاتاقان (کلاک‌کلاک بم از پایین موتور):</strong> این یکی زنگ خطر واقعیه. یه صدای بم و سنگین که زیر گاز و مخصوصاً موقع گاز خالی کردن (رها کردن پدال) شنیده می‌شه. یاتاقان زدن یعنی تعمیر اساسی موتور — برای یه ۲۰۶ راحت از ۳۰-۴۰ میلیون تومن شروع می‌شه. باور کنید یا نه، بعضی فروشنده‌ها ماشینِ یاتاقان‌زده رو با روغن غلیظ‌تر «ساکت» می‌کنن و می‌فروشن. با گوش عادی سخت تشخیصش می‌دی، ولی گوشی مکانیکی و تجربه، دروغ رو رو می‌کنه.</p>
+
+  <div class="warning-box">⚠️ <strong>بدون کارشناسی موتور، ماشین صدادار نخرید.</strong> فرق تایپت و یاتاقان، فرق بین ۲ میلیون و ۴۰ میلیون تومنه. اگه شک دارید، <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">همین‌جا درخواست کارشناسی ثبت کنید</a> تا با دستگاه و گوشی مکانیکی تکلیف صدا روشن بشه.</div>
+
+  <h2 id="seda-charkh-german">ووم‌ووم از چرخ‌ها — بلبرینگ، گِردی لاستیک و صدای سرعت</h2>
+
+  <p>یه <strong>صدای بم ووووم</strong> که با سرعت زیاد می‌شه و با دور موتور کاری نداره؟ (یعنی توی دنده خلاص هم با همون سرعت ادامه داره؟) دو مظنون دارید: <strong>بلبرینگ چرخ</strong> یا <strong>لاستیک آج‌خورده/تاب‌دار</strong>.</p>
+
+  <p>ترفند تشخیص که همیشه استفاده می‌کنم: توی سرعت ۶۰-۷۰، آروم فرمون رو به چپ و راست بدید (توی جای خلوت!). اگه صدا موقع پیچ به چپ کم شد، بلبرینگ چرخ راست خرابه — چون بار از روش برداشته می‌شه. برعکسش هم همین‌طور. اگه صدا با پیچ تغییری نکرد، برید سراغ لاستیک‌ها: سایش ناهموار، بادکردگی یا آج پله‌پله.</p>
+
+  <p>بلبرینگ خراب رو جدی بگیرید. من یه پراید دیدم که بلبرینگ جلوش اون‌قدر کار کرده بود که چرخ توی حرکت لقی محسوس داشت. یه ترمز محکم کافی بود تا فاجعه بشه. هزینه بلبرینگ؟ معمولاً زیر ۲ میلیون تومن. هزینه نادیده گرفتنش؟ حساب نکنید بهتره. جمع‌بندی: صدای وابسته به سرعت (نه دور موتور) = چرخ و لاستیک.</p>
+
+  <h2 id="jamandi-jadval-seda">جمع‌بندی — جدول مرجع صداها و یک توصیه</h2>
+
+  <!-- <img class="section-image" src="images/car-sounds-infographic.jpg" alt="اینفوگرافیک راهنمای صداهای خودرو و معنی هر صدا" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">📊</div>
+    <div class="ph-label">اینفوگرافیک مرجع صداهای خودرو</div>
+    <div class="ph-file">images/car-sounds-infographic.jpg</div>
+  </div>
+  <p class="image-caption">هر صدا، یک آدرس: کی، کجا، با چی تغییر می‌کند</p>
+
+  <table class="verdict-table">
+    <tr><th>صدا</th><th>موقعیت</th><th>مظنون اصلی</th><th>سطح خطر</th></tr>
+    <tr><td>تق‌تق روی دست‌انداز</td><td>جلوبندی</td><td>سیبک، بوش طبق، لینک موج‌گیر</td><td><span class="badge yellow">زرد</span></td></tr>
+    <tr><td>جیغ موقع استارت سرد</td><td>زیر کاپوت</td><td>تسمه دینام شل/فرسوده</td><td><span class="badge yellow">زرد</span></td></tr>
+    <tr><td>جیغ ممتد موقع ترمز</td><td>چرخ‌ها</td><td>لنت تمام‌شده</td><td><span class="badge yellow">زرد — فوری</span></td></tr>
+    <tr><td>فلز روی فلز موقع ترمز</td><td>چرخ‌ها</td><td>لنت صفر + دیسک</td><td><span class="badge red">قرمز</span></td></tr>
+    <tr><td>تیک‌تیک ریز بالای موتور</td><td>موتور</td><td>تایپت / فیلر سوپاپ</td><td><span class="badge yellow">زرد</span></td></tr>
+    <tr><td>کلاک‌کلاک بم پایین موتور</td><td>موتور</td><td>یاتاقان</td><td><span class="badge red">قرمز — تعمیر اساسی</span></td></tr>
+    <tr><td>ووم‌ووم وابسته به سرعت</td><td>چرخ‌ها</td><td>بلبرینگ / لاستیک</td><td><span class="badge yellow">زرد — پیگیری سریع</span></td></tr>
+    <tr><td>تق‌تق موقع دور زدن کامل</td><td>چرخ جلو</td><td>پلوس / گردگیر پاره</td><td><span class="badge yellow">زرد</span></td></tr>
+  </table>
+
+  <p>راستی، اون پیامِ اول مقاله — تق‌تق موقع چرخوندن فرمون — جوابش همین ردیف آخره: <strong>پلوس</strong>. وقتی گردگیر پلوس پاره می‌شه و گریسش خالی می‌شه، سر پلوس خشک کار می‌کنه و توی دور زدن تق‌تق می‌کنه. زود بجنبی، فقط گردگیره؛ دیر بجنبی، کل پلوس.</p>
+
+  <p>گوش شما بهترین دستگاه دیاگیه که مجانی همراهتونه. اما گوش فقط آدرس می‌ده؛ تأیید نهایی کار ابزار و تجربه‌ست. تیم ما توی کارماچک سال‌هاست همین کار رو می‌کنه — اگه دوست دارید بیشتر با ما آشنا بشید، <a href="https://carmacheck.com/about-us" style="color:#1d6fb8;font-weight:700">صفحه درباره ما</a> رو ببینید.</p>
+
+  <div class="success-box">✅ <strong>اقدام عملی:</strong> ماشینی که می‌خواید بخرید صدا داره؟ یا ماشین خودتون تازگی یه صدای جدید درآورده؟ همین الان از <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">کارماچک درخواست کارشناسی</a> بدید تا کارشناس با تست جاده‌ای و تجهیزات کامل، منبع دقیق صدا و هزینه واقعی تعمیرش رو مشخص کنه. لیست کامل <a href="https://carmacheck.com/services" style="color:#1d6fb8;font-weight:700">خدمات کارشناسی ما</a> هم اینجاست.</div>
+
+  <p>مقاله «بوهای داخل خودرو چی میگن؟» رو هم توی <a href="https://carmacheck.com/blog" style="color:#1d6fb8;font-weight:700">بلاگ کارماچک</a> بخونید — گوش و دماغ با هم، بهترین تیم عیب‌یابی هستن. <!-- TODO: internal blog link --></p>
+
+  <hr>
+
+  <h2 id="faq">سوالات متداول</h2>
+  <div class="faq">
+    <h3>صدای تق‌تق جلوبندی خطرناک است یا فقط آزاردهنده؟</h3>
+    <p>هر دو. در کوتاه‌مدت فقط آزاردهنده است، اما لقی سیبک و طبق روی فرمان‌پذیری در ترمزهای اضطراری اثر می‌گذارد و در حالت پیشرفته می‌تواند به دررفتن سیبک و انحراف ناگهانی ماشین ختم شود. تعمیرش هم معمولاً ارزان است — زودتر انجامش بدهید.</p>
+
+    <h3>از کجا بفهمم صدای موتور تایپت است یا یاتاقان؟</h3>
+    <p>تایپت صدای ریز و تیز از بالای موتور است و با گرم شدن معمولاً کم می‌شود؛ یاتاقان صدای بم و سنگین از پایین موتور است که زیر گاز و موقع رها کردن پدال شنیده می‌شود. تشخیص قطعی با گوشی مکانیکی و کارشناس انجام می‌شود، چون تفاوت هزینه این دو چند ده میلیون تومان است.</p>
+
+    <h3>صدای جیغ ترمز یعنی حتماً باید دیسک هم عوض کنم؟</h3>
+    <p>نه. اگر در مرحله جیغ (هشدار لنت) اقدام کنید، معمولاً فقط لنت عوض می‌شود. اگر صبر کنید تا صدای فلز روی فلز بیاید، دیسک هم خط می‌افتد و باید تراش یا تعویض شود.</p>
+
+    <h3>صدایی که فقط در سرعت بالا می‌آید از کجاست؟</h3>
+    <p>اگر صدا به سرعت خودرو وابسته است نه دور موتور (در دنده خلاص هم ادامه دارد)، سراغ بلبرینگ چرخ و لاستیک‌ها بروید. تست تغییر صدا با چرخش ملایم فرمان در سرعت ۶۰-۷۰ کمک می‌کند سمت خراب را پیدا کنید.</p>
+
+    <h3>فروشنده می‌تواند صدای موتور را موقتاً مخفی کند؟</h3>
+    <p>بله، متأسفانه. روغن غلیظ‌تر و مکمل‌های صداگیر، صدای یاتاقان و تایپت را چند روزی کم می‌کنند. به همین دلیل تست موتور سرد (استارت اولیه صبح) و کارشناسی تخصصی قبل از خرید ضروری است.</p>
+
+    <h3>کارشناسی خودرو صداها را هم بررسی می‌کند؟</h3>
+    <p>بله. کارشناسی کامل شامل تست جاده‌ای، گوش دادن به موتور سرد و گرم، بررسی جلوبندی روی جک و دیاگ کامپیوتری است. سوال‌های بیشترتان را در <a href="https://carmacheck.com/faq" style="color:#1d6fb8;font-weight:700">سوالات متداول کارماچک</a> جواب داده‌ایم.</p>
+  </div>
+
+</article>
+</body>
+</html>

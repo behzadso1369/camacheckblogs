@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="قیمت‌گذاری خودرو برای فروش چطور انجام می‌شود؟ راهنمای عملی تعیین قیمت منصفانه ماشین که نه ضرر کنید نه مشتری فراری بدید.">
+  <title>قیمت‌گذاری خودروتون برای فروش — چطور نه ارزون بفروشید نه بترسونید</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #1a1a1a;
+      background: #f5f5f5;
+    }
+
+    article {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 32px 60px;
+    }
+
+    h1 { font-size: 2rem; font-weight: 800; line-height: 1.4; margin-bottom: 24px; color: #111; }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 48px 0 16px;
+      color: #111;
+      border-right: 4px solid #1d6fb8;
+      padding-right: 12px;
+    }
+
+    h3 { font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #222; }
+    p { margin-bottom: 18px; color: #2c2c2c; }
+    strong { color: #111; font-weight: 700; }
+
+    /* ===== IMAGES ===== */
+    .hero-image, .section-image, .infographic {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .hero-image { height: 420px; }
+    .section-image { height: 300px; }
+
+    /* ===== PLACEHOLDERS (تا وقتی عکس آماده نشده) ===== */
+    .img-placeholder {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #eef3f8 0%, #dde7f0 100%);
+      border: 2px dashed #b8c9da;
+      color: #7a8ba0;
+      font-size: 0.9rem;
+      gap: 8px;
+      text-align: center;
+      padding: 12px;
+    }
+    .img-placeholder.hero { height: 420px; }
+    .img-placeholder.section { height: 280px; }
+    .img-placeholder .ph-icon { font-size: 2.5rem; }
+    .img-placeholder .ph-label { font-weight: 600; color: #5a7290; }
+    .img-placeholder .ph-file { font-size: 0.78rem; color: #9bb0c5; direction: ltr; }
+
+    .image-caption { text-align: center; font-size: 0.82rem; color: #888; margin-bottom: 24px; }
+
+    /* ===== BOXES ===== */
+    .tip-box {
+      background: #fff8e1;
+      border-right: 4px solid #f4a200;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .warning-box {
+      background: #fff0f0;
+      border-right: 4px solid #e63946;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .success-box {
+      background: #f0fff4;
+      border-right: 4px solid #2d9e5f;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ===== STEPS ===== */
+    .steps { margin: 24px 0; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: #fafafa;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+    .step-num {
+      min-width: 36px; height: 36px;
+      background: #1d6fb8;
+      color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; flex-shrink: 0;
+    }
+    .step-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #111; }
+    .step-content p { margin: 0; font-size: 0.93rem; color: #444; }
+
+    /* ===== CHECKLIST ===== */
+    .checklist { list-style: none; margin: 16px 0 24px; padding: 0; }
+    .checklist li {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .checklist li::before { content: "✓"; color: #2d9e5f; font-weight: 800; font-size: 1rem; flex-shrink: 0; }
+
+    /* ===== VERDICT TABLE ===== */
+    .verdict-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.93rem; }
+    .verdict-table th { background: #1d6fb8; color: #fff; padding: 12px; text-align: right; font-weight: 700; }
+    .verdict-table td { padding: 12px; border-bottom: 1px solid #eee; }
+    .verdict-table tr:nth-child(even) { background: #f9fbfd; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #fff; }
+    .badge.green { background: #2d9e5f; }
+    .badge.yellow { background: #f4a200; }
+    .badge.red { background: #e63946; }
+
+    /* ===== PRICE / COMPARISON LIST ===== */
+    .price-list { margin: 16px 0 24px; padding: 0; list-style: none; }
+    .price-list li {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.95rem;
+    }
+    .price-list .drop { font-weight: 800; color: #e63946; direction: ltr; }
+    .price-list .drop.low { color: #2d9e5f; }
+    .price-list .drop.mid { color: #f4a200; }
+
+    hr { border: none; border-top: 1px solid #eee; margin: 48px 0; }
+
+    .faq h3 { font-size: 1.05rem; color: #111; margin: 28px 0 8px; }
+    .faq p { font-size: 0.95rem; color: #444; }
+
+    @media (max-width: 600px) {
+      article { padding: 20px 16px 48px; }
+      h1 { font-size: 1.5rem; }
+      .img-placeholder.hero, .hero-image { height: 220px; }
+      .img-placeholder.section, .section-image { height: 180px; }
+      .verdict-table { font-size: 0.82rem; }
+      .verdict-table th, .verdict-table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+<article>
+
+  <h1>قیمت‌گذاری خودروتون برای فروش — چطور نه ارزون بفروشید نه بترسونید</h1>
+
+  <!-- <img class="hero-image" src="images/car-for-sale-pricing-hero.jpg" alt="قیمت‌گذاری خودرو برای فروش در بازار ایران"> -->
+  <div class="img-placeholder hero">
+    <div class="ph-icon">🚗💰</div>
+    <div class="ph-label">عکس اصلی: خودرو با برگه فروش و ماشین‌حساب</div>
+    <div class="ph-file">images/car-for-sale-pricing-hero.jpg</div>
+  </div>
+  <p class="image-caption">قیمت درست، نصف مسیر فروش موفق است</p>
+
+  <p>هفته پیش یه پیام گرفتم که عین همیشه بود: «سلام مهندس، پژو ۲۰۶ مدل ۹۸ دارم، چند بذارم توی آگهی؟» و من عین همیشه جواب دادم: «بستگی داره.» راستش رو بخواهید، <strong>قیمت‌گذاری خودرو برای فروش</strong> سخت‌ترین بخش فروش ماشینه. نه به این خاطر که فرمول نداره — داره — بلکه به این خاطر که ما به ماشین خودمون احساس داریم. فکر می‌کنیم چون خودمون سوارش بودیم، تمیزه، «دست‌گلچینه». بازار اما احساس نمی‌فهمه. بازار عدد می‌فهمه.</p>
+
+  <p>توی این ۱۵ سالی که کارشناسی و خرید و فروش خودرو کارمه، صدها فروشنده دیدم که یا ماشین‌شون رو ارزون‌تر از ارزش واقعی فروختن و بعدش یک ماه غصه خوردن، یا انقدر قیمت بالا گذاشتن که آگهی‌شون سه ماه توی دیوار خاک خورد و آخرش مجبور شدن پایین‌تر از قیمت روز بفروشن. این مقاله قراره کاری کنه که شما جزو هیچ‌کدوم از این دو گروه نباشید.</p>
+
+  <h2 id="why-pricing-matters">چرا قیمت‌گذاری درست این‌قدر مهمه؟</h2>
+
+  <p>بذارید یه واقعیت تلخ بگم. توی سایت‌های آگهی، خریدارها با فیلتر قیمت جستجو می‌کنن. یعنی اگه پراید ۱۱۱ شما ۱۰ میلیون تومن گرون‌تر از سقف منطقی باشه، خیلی از خریدارها اصلاً آگهی شما رو <strong>نمی‌بینن</strong>. نه اینکه ببینن و رد کنن — اصلاً توی نتایج جستجوشون ظاهر نمی‌شید.</p>
+
+  <p>از اون طرف، قیمت خیلی پایین هم دردسر خودش رو داره. باور کنید یا نه، قیمت خیلی ارزون به جای اینکه مشتری جذب کنه، <strong>شک ایجاد می‌کنه</strong>. خریدار ایرانی با خودش می‌گه: «حتماً رنگ داره. حتماً تصادفی بوده. حتماً سندش مشکل داره.» یعنی با ارزون فروختن هم پول از دست می‌دید، هم اعتماد.</p>
+
+  <div class="warning-box">
+    ⚠️ <strong>هشدار:</strong> آگهی‌هایی که بیش از ۳ هفته توی سایت‌های آگهی می‌مونن، «سوخته» می‌شن. خریدارها آگهی قدیمی رو نشونه‌ی مشکل‌دار بودن ماشین می‌دونن و همون اول با پیشنهاد خیلی پایین سراغتون میان. پس بهتره از روز اول قیمت درست بذارید.
+  </div>
+
+  <p>نتیجه این بخش ساده‌ست: قیمت درست یعنی فروش سریع‌تر با پول بیشتر. قیمت غلط — چه بالا چه پایین — یعنی ضرر.</p>
+
+  <h2 id="market-research">قدم اول: تحقیق بازار مثل یه حرفه‌ای</h2>
+
+  <!-- <img class="section-image" src="images/checking-car-prices-online.jpg" alt="بررسی قیمت خودرو در سایت‌های آگهی آنلاین" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">📱📊</div>
+    <div class="ph-label">بررسی آگهی‌های مشابه در موبایل</div>
+    <div class="ph-file">images/checking-car-prices-online.jpg</div>
+  </div>
+  <p class="image-caption">حداقل ۱۵ تا ۲۰ آگهی مشابه رو بررسی کنید، نه فقط ۳ تا</p>
+
+  <p>اکثر فروشنده‌ها تحقیق بازارشون اینه: سه تا آگهی مشابه رو نگاه می‌کنن، بالاترین قیمت رو برمی‌دارن و پنج میلیون هم روش می‌ذارن! این تحقیق نیست، این خودفریبیه.</p>
+
+  <p>روش درست اینه:</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">۱</div>
+      <div class="step-content">
+        <h4>حداقل ۱۵ تا ۲۰ آگهی هم‌مدل رو پیدا کنید</h4>
+        <p>دقیقاً هم‌مدل، هم‌سال، هم‌تیپ. پژو ۲۰۶ تیپ ۲ با تیپ ۵ فرق قیمتی جدی داره. صندوق‌دار با معمولی فرق داره. حواستون به تیپ و آپشن باشه.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">۲</div>
+      <div class="step-content">
+        <h4>بالاترین و پایین‌ترین قیمت‌ها رو حذف کنید</h4>
+        <p>آگهی‌های خیلی گرون معمولاً فروشنده‌های رؤیاپردازن و خیلی ارزون‌ها یا مشکل‌دارن یا کلاهبرداری. میانگین ۷۰ درصد وسطی رو حساب کنید.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">۳</div>
+      <div class="step-content">
+        <h4>با چند فروشنده تماس بگیرید</h4>
+        <p>در نقش خریدار زنگ بزنید و ببینید قیمت واقعی معامله چقدره. خیلی وقت‌ها فروشنده پای تلفن ۵ تا ۱۰ میلیون تخفیف می‌ده. قیمت آگهی با قیمت معامله فرق داره.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">۴</div>
+      <div class="step-content">
+        <h4>از یه نمایشگاه‌دار قیمت خرید بپرسید</h4>
+        <p>نمایشگاه‌دار همیشه پایین‌تر از بازار می‌خره — معمولاً ۵ تا ۸ درصد. قیمتی که اون می‌گه کف واقعی بازاره. قیمت شما باید بین این کف و میانگین آگهی‌ها باشه.</p>
+      </div>
+    </div>
+  </div>
+
+  <p>جمع‌بندی این بخش: بعد از این چهار قدم، شما یه <strong>بازه قیمتی واقعی</strong> دارید. مثلاً می‌دونید سمند LX مدل ۹۶ شما بین ۴۱۰ تا ۴۳۵ میلیون تومن می‌ارزه. حالا وقتشه این بازه رو با وضعیت ماشین خودتون تنظیم کنید.</p>
+
+  <h2 id="price-adjustment-factors">قدم دوم: عوامل کاهنده و افزاینده قیمت ماشین شما</h2>
+
+  <!-- <img class="section-image" src="images/car-condition-price-factors.jpg" alt="عوامل موثر بر قیمت خودرو مانند رنگ‌شدگی و کارکرد" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">🔍🚙</div>
+    <div class="ph-label">بررسی بدنه و وضعیت فنی خودرو</div>
+    <div class="ph-file">images/car-condition-price-factors.jpg</div>
+  </div>
+  <p class="image-caption">هر لکه رنگ، هر خط و خش، روی عدد نهایی اثر می‌ذاره</p>
+
+  <p>یه بار مشتری داشتم — آقای محمدی، معلم بازنشسته — که دنا پلاسش رو گذاشته بود دقیقاً قیمت آگهی‌های صفرخط بازار. بهش گفتم: «حاج‌آقا، ماشین شما دو لکه رنگ داره و ۹۰ هزار کیلومتر کارکرده. اون آگهی‌ها بی‌رنگ با ۳۰ هزار کیلومترن.» ناراحت شد. ولی سه هفته بعد زنگ زد و گفت: «حق با تو بود، یه زنگ هم نخورد.» قیمت رو منطقی کردیم و ده روزه فروخت.</p>
+
+  <p>این جدول رو از تجربه هزاران کارشناسی براتون نوشتم:</p>
+
+  <table class="verdict-table">
+    <tr><th>عامل</th><th>اثر روی قیمت</th><th>شدت</th></tr>
+    <tr><td>رنگ‌شدگی یک قطعه (گلگیر/درب)</td><td>۳ تا ۶ درصد کاهش</td><td><span class="badge yellow">متوسط</span></td></tr>
+    <tr><td>رنگ کامل یا تعویض ستون/سقف</td><td>۱۵ تا ۳۰ درصد کاهش</td><td><span class="badge red">شدید</span></td></tr>
+    <tr><td>کارکرد بالاتر از نرمال (بیش از ۲۰ هزار در سال)</td><td>۲ تا ۵ درصد کاهش</td><td><span class="badge yellow">متوسط</span></td></tr>
+    <tr><td>کارکرد پایین با مدارک معتبر</td><td>۳ تا ۷ درصد افزایش</td><td><span class="badge green">مثبت</span></td></tr>
+    <tr><td>لاستیک نو + باتری نو + سرویس کامل</td><td>۱ تا ۲ درصد افزایش</td><td><span class="badge green">مثبت</span></td></tr>
+    <tr><td>بیمه بدنه فعال و تخفیف کامل بیمه ثالث</td><td>تا ۲ درصد افزایش</td><td><span class="badge green">مثبت</span></td></tr>
+    <tr><td>موتور یا گیربکس تعمیر اساسی شده</td><td>۸ تا ۱۵ درصد کاهش</td><td><span class="badge red">شدید</span></td></tr>
+  </table>
+
+  <div class="tip-box">
+    💡 <strong>نکته طلایی:</strong> اگه نمی‌دونید ماشین‌تون دقیقاً چه وضعیتی داره — مثلاً مطمئن نیستید اون لکه رنگ روی درب، فقط لیسه‌گیریه یا صافکاری کامل — قبل از قیمت‌گذاری یه <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">کارشناسی کامل خودرو</a> بگیرید. برگه کارشناسی معتبر نه فقط قیمت دقیق بهتون می‌ده، بلکه موقع فروش بهترین ابزار اعتمادسازی با خریداره.
+  </div>
+
+  <p>نتیجه: بازه قیمتی بازار رو با این جدول تنظیم کنید تا به <strong>قیمت واقعی ماشین خودتون</strong> برسید، نه قیمت ماشین‌های مشابه.</p>
+
+  <h2 id="pricing-psychology">قدم سوم: روانشناسی قیمت — عددی که خریدار رو نترسونه</h2>
+
+  <!-- <img class="section-image" src="images/negotiation-car-deal.jpg" alt="چانه‌زنی و توافق قیمت خودرو بین خریدار و فروشنده" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">🤝💬</div>
+    <div class="ph-label">مذاکره و توافق قیمت</div>
+    <div class="ph-file">images/negotiation-car-deal.jpg</div>
+  </div>
+  <p class="image-caption">جای چانه‌زنی بذارید، ولی نه اون‌قدر که آگهی دیده نشه</p>
+
+  <p>حالا که عدد واقعی رو دارید، سوال اینه: توی آگهی چند بنویسیم؟ فرهنگ چانه‌زنی توی بازار ما یه واقعیته. خریداری که تخفیف نگیره، حس می‌کنه سرش کلاه رفته. پس باید جای تخفیف بذارید — ولی حساب‌شده.</p>
+
+  <p>قاعده من بعد از سال‌ها معامله اینه: <strong>۲ تا ۳ درصد بالاتر از قیمت هدف</strong> آگهی کنید. نه بیشتر. مثلاً اگه قیمت هدف شما ۵۰۰ میلیونه، آگهی رو ۵۱۲ تا ۵۱۵ بذارید. این‌جوری هم توی فیلتر جستجوی خریدارها می‌مونید، هم ۱۰-۱۵ میلیون جای چانه دارید که خریدار با حس برنده بودن معامله رو تموم کنه.</p>
+
+  <p>چند ترفند کوچیک ولی موثر:</p>
+
+  <ul class="checklist">
+    <li>به جای عدد رند، عدد شکسته بذارید: ۴۹۸ به جای ۵۰۰. توی فیلتر «زیر ۵۰۰ میلیون» دیده می‌شید.</li>
+    <li>توی متن آگهی بنویسید «تخفیف پای معامله» — نه «مقطوع». کلمه مقطوع نصف تماس‌ها رو می‌پرونه، مگه اینکه واقعاً عجله ندارید.</li>
+    <li>دلیل قیمت رو توی آگهی توضیح بدید: «لاستیک نو، بیمه یک‌سال کامل، سرویس‌ها انجام‌شده». قیمت بدون دلیل، گرون به نظر میاد.</li>
+    <li>عکس‌های واقعی و زیاد بذارید. آگهی با ۸ عکس واضح، قیمت بالاترش هم منطقی جلوه می‌کنه.</li>
+  </ul>
+
+  <div class="warning-box">
+    ⚠️ <strong>مراقب باشید:</strong> خریدارهایی که پای تلفن و ندیده قیمت نهایی می‌خوان و اصرار عجیبی به «بیعانه آنلاین» دارن، به احتمال زیاد کلاهبردارن. طبق هشدارهای پلیس فتا، هیچ‌وقت قبل از دیدن حضوری خریدار و انجام معامله رسمی، پولی جابه‌جا نکنید و کارت‌خوان یا لینک پرداخت غریبه رو قبول نکنید.
+  </div>
+
+  <p>خلاصه این بخش: قیمت آگهی = قیمت هدف + ۲ تا ۳ درصد. نه صفر درصد که ضرر کنید، نه ۱۰ درصد که آگهی‌تون بسوزه.</p>
+
+  <h2 id="when-to-adjust">قدم چهارم: کی قیمت رو تغییر بدیم؟</h2>
+
+  <p>گذاشتن آگهی، پایان کار نیست. بازار خودروی ایران — به لطف نوسان ارز و تصمیمات لحظه‌ای — می‌تونه توی دو هفته کاملاً عوض بشه. من به مشتری‌هام یه قانون ساده می‌گم:</p>
+
+  <ul class="checklist">
+    <li>هفته اول: اگه روزی ۳-۴ تماس جدی دارید، قیمت درسته. دست نزنید.</li>
+    <li>اگه تماس زیاده ولی همه بعد از بازدید می‌پرن، مشکل قیمت نیست — مشکل خود ماشین یا انتظار خریداره. آگهی‌تون رو صادق‌تر کنید.</li>
+    <li>اگه توی ۱۰ روز کمتر از ۳ تماس جدی داشتید، قیمت ۲ تا ۳ درصد بالاست. اصلاحش کنید.</li>
+    <li>اگه چند خریدار مختلف حول یه عدد مشخص پیشنهاد دادن، اون عدد قیمت واقعی بازاره. بازار داره باهاتون حرف می‌زنه؛ گوش کنید.</li>
+  </ul>
+
+  <p>در واقع بازار بهترین کارشناس قیمته — فقط باید بلد باشید سیگنال‌هاش رو بخونید. لجبازی با بازار همیشه به ضرر فروشنده تموم می‌شه، مخصوصاً توی دوره‌هایی که قیمت‌ها نزولیه و هر هفته صبر یعنی چند میلیون ضرر.</p>
+
+  <div class="success-box">
+    ✅ <strong>اقدام عملی:</strong> قبل از ثبت آگهی، یه کارشناسی کامل از ماشین‌تون بگیرید و برگه‌ش رو ضمیمه آگهی کنید. تجربه ما نشون داده ماشین‌هایی که با برگه کارشناسی معتبر آگهی می‌شن، هم سریع‌تر فروش می‌رن هم چانه‌زنی کمتری می‌خورن. همین الان می‌تونید از <a href="https://carmacheck.com/car-inspection-flow/select-car-group" style="color:#1d6fb8;font-weight:700">کارماچک درخواست کارشناسی حضوری</a> بدید — کارشناس میاد در محل و همه‌چیز رو مستند می‌کنه. برای آشنایی با جزئیات، <a href="https://carmacheck.com/services" style="color:#1d6fb8;font-weight:700">خدمات کارشناسی کارماچک</a> رو ببینید.
+  </div>
+
+  <h2 id="common-mistakes">پنج اشتباه رایج فروشنده‌ها که خودم بارها دیدم</h2>
+
+  <!-- <img class="section-image" src="images/seller-mistakes-pricing.jpg" alt="اشتباهات رایج فروشندگان در قیمت‌گذاری خودرو" loading="lazy"> -->
+  <div class="img-placeholder section">
+    <div class="ph-icon">❌📉</div>
+    <div class="ph-label">اشتباهات رایج قیمت‌گذاری</div>
+    <div class="ph-file">images/seller-mistakes-pricing.jpg</div>
+  </div>
+  <p class="image-caption">این پنج اشتباه، بیشترین ضرر رو به فروشنده‌ها می‌زنه</p>
+
+  <h3>۱. قیمت‌گذاری با احساس، نه با عدد</h3>
+  <p>«این ماشین برام خاطره‌ست، ارزون نمی‌دم.» خاطره شما برای خریدار یه ریال هم ارزش نداره. بی‌تعارف بگم: بازار فقط وضعیت فنی، بدنه و مدارک رو می‌بینه.</p>
+
+  <h3>۲. حساب کردن خرج‌ها روی قیمت</h3>
+  <p>«۳۰ میلیون خرج صافکاری و رنگش کردم، پس ۳۰ میلیون گرون‌تر می‌فروشم.» اشتباهه. اتفاقاً رنگ‌شدگی قیمت رو <strong>پایین</strong> میاره، نه بالا. خرجی که برای رفع عیب کردید، جبران عیبه — نه ارزش افزوده.</p>
+
+  <h3>۳. مقایسه با قیمت کارخونه یا حواله</h3>
+  <p>قیمت کارخونه یه چیزه، قیمت بازار آزاد یه چیز دیگه. ماشین کارکرده شما با هیچ‌کدوم از این دوتا مستقیم قابل مقایسه نیست.</p>
+
+  <h3>۴. پنهان کردن عیب و امید به «رد شدن»</h3>
+  <p>خریدار امروزی باهوشه و اکثراً با کارشناس میاد. وقتی کارشناس رنگ‌شدگی مخفی‌شده رو پیدا کنه — که پیدا می‌کنه — اعتماد از بین می‌ره و خریدار یا می‌پره یا خیلی بیشتر از ارزش اون عیب تخفیف می‌خواد. صداقت از روز اول، پول بیشتری برات می‌سازه.</p>
+
+  <h3>۵. عجله یا لجبازی</h3>
+  <p>فروش زیر یک هفته معمولاً یعنی ارزون فروختید. فروش بالای دو ماه یعنی گرون گذاشتید. بازه سالم فروش با قیمت منصفانه، ۱۰ روز تا ۳ هفته‌ست.</p>
+
+  <h2 id="conclusion">جمع‌بندی: فرمول نهایی قیمت‌گذاری</h2>
+
+  <p>بذارید کل مقاله رو توی چهار خط خلاصه کنم: میانگین واقعی ۱۵-۲۰ آگهی مشابه رو دربیارید، با جدول عوامل کاهنده و افزاینده تنظیمش کنید، ۲ تا ۳ درصد برای چانه‌زنی روش بذارید، و بعد از انتشار آگهی به سیگنال‌های بازار گوش بدید. همین. نه ارزون می‌فروشید، نه خریدار رو می‌ترسونید.</p>
+
+  <p>و اگه هنوز درباره وضعیت واقعی ماشین‌تون شک دارید، تیم ما با سال‌ها تجربه کارشناسی در محل کنارتونه — می‌تونید از <a href="https://carmacheck.com/about-us" style="color:#1d6fb8;font-weight:700">درباره کارماچک</a> بیشتر بخونید یا برای مشاوره مستقیم با <a href="https://carmacheck.com/contact-us" style="color:#1d6fb8;font-weight:700">صفحه تماس با ما</a> در ارتباط باشید. مقالات بیشتری هم درباره خرید و فروش خودرو توی <a href="https://carmacheck.com/blog" style="color:#1d6fb8;font-weight:700">بلاگ کارماچک</a> منتظرتونه. <!-- TODO: internal blog link به مقاله «بهترین زمان خرید خودرو» و «خودرو کم افت قیمت» --></p>
+
+  <hr>
+
+  <h2 id="faq">سوالات متداول</h2>
+  <div class="faq">
+    <h3>قیمت خودروی کارکرده رو از کجا بفهمم؟</h3>
+    <p>میانگین ۱۵ تا ۲۰ آگهی هم‌مدل و هم‌تیپ (بعد از حذف گرون‌ترین‌ها و ارزون‌ترین‌ها)، به‌علاوه استعلام از یکی دو نمایشگاه‌دار. قیمت معامله معمولاً ۲ تا ۵ درصد پایین‌تر از قیمت آگهی‌هاست.</p>
+
+    <h3>رنگ‌شدگی چقدر از قیمت ماشین کم می‌کنه؟</h3>
+    <p>یک قطعه رنگ (مثل گلگیر) حدود ۳ تا ۶ درصد. تعویض قطعه بیشتر، و رنگ کامل یا آسیب به ستون و سقف می‌تونه تا ۳۰ درصد قیمت رو پایین بیاره.</p>
+
+    <h3>توی آگهی قیمت بنویسم یا «توافقی»؟</h3>
+    <p>حتماً قیمت بنویسید. آگهی بدون قیمت توی فیلتر جستجوی خیلی از خریدارها نمیاد و تماس‌های جدی کمتری می‌گیره.</p>
+
+    <h3>چقدر جای چانه‌زنی بذارم؟</h3>
+    <p>۲ تا ۳ درصد بالاتر از قیمت هدف کافیه. بیشتر از این باعث می‌شه آگهی‌تون از فیلتر قیمتی خریدارها خارج بشه و اصلاً دیده نشید.</p>
+
+    <h3>اگه ماشینم نفروخت، کی قیمت رو کم کنم؟</h3>
+    <p>اگه توی ۱۰ روز کمتر از ۳ تماس جدی داشتید، قیمت رو ۲ تا ۳ درصد اصلاح کنید. آگهی که بیش از ۳ هفته بمونه، «سوخته» می‌شه و خریدارها بهش مشکوک می‌شن.</p>
+
+    <h3>برگه کارشناسی موقع فروش به نفع فروشنده‌ست؟</h3>
+    <p>بله، کاملاً. برگه کارشناسی معتبر اعتماد خریدار رو جلب می‌کنه، چانه‌زنی رو کم می‌کنه و فروش رو سریع‌تر می‌کنه. سوالات بیشتر رو در <a href="https://carmacheck.com/faq" style="color:#1d6fb8;font-weight:700">سوالات متداول کارماچک</a> ببینید.</p>
+  </div>
+
+</article>
+</body>
+</html>
