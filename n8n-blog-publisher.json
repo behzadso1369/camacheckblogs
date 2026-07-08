@@ -1,20 +1,15 @@
 {
-  "name": "CarmaCheck Blog Publisher (Scheduled)",
+  "name": "CarmaCheck Blog Publisher (Git/Scheduled)",
   "nodes": [
     {
       "parameters": {
-        "rule": {
-          "interval": [
-            { "field": "hours", "hoursInterval": 2 }
-          ]
-        }
+        "rule": { "interval": [ { "field": "hours", "hoursInterval": 2 } ] }
       },
       "id": "trigger-schedule",
       "name": "هر ۲ ساعت",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [-1360, 400],
-      "notes": "هر ۲ ساعت یک‌بار اجرا می‌شود و بلاگ منتشرنشده بعدی را پابلیش می‌کند."
+      "position": [-1600, 400]
     },
     {
       "parameters": {
@@ -23,8 +18,10 @@
             { "id": "a1", "name": "apiBase", "value": "https://api.carmacheck.com/api/admin/", "type": "string" },
             { "id": "a2", "name": "userName", "value": "USERNAME_HERE", "type": "string" },
             { "id": "a3", "name": "password", "value": "PASSWORD_HERE", "type": "string" },
-            { "id": "a4", "name": "blogsRoot", "value": "/data/blogs", "type": "string" },
-            { "id": "a6", "name": "fileServeBase", "value": "https://api.carmacheck.com/", "type": "string" }
+            { "id": "a4", "name": "ghOwner", "value": "behzadso1369", "type": "string" },
+            { "id": "a5", "name": "ghRepo", "value": "camacheckblogs", "type": "string" },
+            { "id": "a6", "name": "ghBranch", "value": "main", "type": "string" },
+            { "id": "a7", "name": "fileServeBase", "value": "https://api.carmacheck.com/", "type": "string" }
           ]
         },
         "options": {}
@@ -33,8 +30,8 @@
       "name": "تنظیمات (Config)",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [-1140, 400],
-      "notes": "blogsRoot = مسیر داخل کانتینر داکر (پوشه blogs که mount کردی). یوزر/پس از Environment Variables."
+      "position": [-1400, 400],
+      "notes": "USERNAME_HERE/PASSWORD_HERE را با یوزر/پس داشبورد عوض کن. مخزن گیت عمومی."
     },
     {
       "parameters": {
@@ -49,8 +46,7 @@
       "name": "لاگین → توکن",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [-920, 400],
-      "notes": "پاسخ: resultObject.accessToken"
+      "position": [-1200, 400]
     },
     {
       "parameters": {
@@ -58,8 +54,10 @@
           "assignments": [
             { "id": "t1", "name": "accessToken", "value": "={{ $json.resultObject.accessToken }}", "type": "string" },
             { "id": "t2", "name": "apiBase", "value": "={{ $('تنظیمات (Config)').item.json.apiBase }}", "type": "string" },
-            { "id": "t3", "name": "blogsRoot", "value": "={{ $('تنظیمات (Config)').item.json.blogsRoot }}", "type": "string" },
-            { "id": "t5", "name": "fileServeBase", "value": "={{ $('تنظیمات (Config)').item.json.fileServeBase }}", "type": "string" }
+            { "id": "t3", "name": "ghOwner", "value": "={{ $('تنظیمات (Config)').item.json.ghOwner }}", "type": "string" },
+            { "id": "t4", "name": "ghRepo", "value": "={{ $('تنظیمات (Config)').item.json.ghRepo }}", "type": "string" },
+            { "id": "t5", "name": "ghBranch", "value": "={{ $('تنظیمات (Config)').item.json.ghBranch }}", "type": "string" },
+            { "id": "t6", "name": "fileServeBase", "value": "={{ $('تنظیمات (Config)').item.json.fileServeBase }}", "type": "string" }
           ]
         },
         "options": {}
@@ -68,48 +66,99 @@
       "name": "نگهداری توکن",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [-700, 400]
+      "position": [-1000, 400]
     },
     {
       "parameters": {
-        "jsCode": "// بلاگ منتشرنشده بعدی را انتخاب می‌کند:\n// شرط: index.html + meta.json + حداقل یک عکس دارد و هنوز فایل .published ندارد.\nconst fs = require('fs');\nconst path = require('path');\nconst cfg = $json;\nconst root = cfg.blogsRoot;\nlet dirs = [];\ntry { dirs = fs.readdirSync(root, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name); } catch (e) { throw new Error('blogsRoot خوانده نشد: ' + root); }\nfor (const slug of dirs.sort()) {\n  const base = path.join(root, slug);\n  const hasHtml = fs.existsSync(path.join(base, 'index.html'));\n  const hasMeta = fs.existsSync(path.join(base, 'meta.json'));\n  const published = fs.existsSync(path.join(base, '.published'));\n  let imgs = [];\n  try { imgs = fs.readdirSync(path.join(base, 'images')).filter(f => /\\.(jpg|jpeg|png|webp)$/i.test(f)); } catch (e) {}\n  if (hasHtml && hasMeta && imgs.length > 0 && !published) {\n    return [{ json: { ...cfg, blogSlug: slug } }];\n  }\n}\n// چیزی برای انتشار نمانده → خروجی خالی، اجرا اینجا متوقف می‌شود\nreturn [];"
+        "method": "GET",
+        "url": "={{ $json.apiBase }}BlogPost/List",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "skip", "value": "0" },
+            { "name": "take", "value": "10000" }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $json.accessToken }}" },
+            { "name": "accept", "value": "application/json" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "get-published",
+      "name": "لیست بلاگ‌های منتشرشده",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-800, 400],
+      "notes": "برای تشخیص اینکه کدام اسلاگ‌ها قبلاً منتشر شده‌اند."
+    },
+    {
+      "parameters": {
+        "jsCode": "// اسلاگ‌های منتشرشده را به‌صورت آرایه بیرون می‌دهد (منبع حقیقت به‌جای فایل .published)\nconst list = ($json.resultObject) || [];\nconst slugs = list.map(x => (x.Slug || x.slug)).filter(Boolean);\nreturn [{ json: { publishedSlugs: slugs } }];"
+      },
+      "id": "extract-slugs",
+      "name": "اسلاگ‌های منتشرشده",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-600, 400]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.github.com/repos/{{ $('نگهداری توکن').item.json.ghOwner }}/{{ $('نگهداری توکن').item.json.ghRepo }}/contents/?ref={{ $('نگهداری توکن').item.json.ghBranch }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "accept", "value": "application/vnd.github+json" },
+            { "name": "User-Agent", "value": "n8n-carmacheck" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "get-folders",
+      "name": "لیست پوشه‌های گیت",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-400, 400],
+      "notes": "GitHub Contents API — لیست پوشه‌های ریشه مخزن (هر بلاگ یک پوشه)."
+    },
+    {
+      "parameters": {
+        "jsCode": "// اولین پوشه‌ی بلاگی که (۱) منتشر نشده و (۲) حداقل یک عکس در images دارد را انتخاب می‌کند\nconst folders = $input.all().map(i => i.json).filter(x => x.type === 'dir' && !x.name.startsWith('.'));\nconst published = ($('اسلاگ‌های منتشرشده').first().json.publishedSlugs) || [];\nconst tk = $('نگهداری توکن').first().json;\nconst imgRe = /\\.(jpg|jpeg|png|webp)$/i;\nfor (const f of folders.sort((a,b) => a.name.localeCompare(b.name))) {\n  if (published.includes(f.name)) continue;\n  // چک عکس‌دار بودن از طریق GitHub Contents API\n  const url = `https://api.github.com/repos/${tk.ghOwner}/${tk.ghRepo}/contents/${f.name}/images?ref=${tk.ghBranch}`;\n  let hasImage = false;\n  try {\n    const res = await fetch(url, { headers: { 'accept': 'application/vnd.github+json', 'User-Agent': 'n8n-carmacheck' } });\n    if (res.ok) {\n      const list = await res.json();\n      hasImage = Array.isArray(list) && list.some(x => x.type === 'file' && imgRe.test(x.name));\n    }\n  } catch (e) { hasImage = false; }\n  if (hasImage) {\n    return [{ json: {\n      blogSlug: f.name,\n      accessToken: tk.accessToken,\n      apiBase: tk.apiBase,\n      ghOwner: tk.ghOwner,\n      ghRepo: tk.ghRepo,\n      ghBranch: tk.ghBranch,\n      fileServeBase: tk.fileServeBase\n    }}];\n  }\n}\n// هیچ بلاگ عکس‌دارِ منتشرنشده‌ای نمانده → توقف\nreturn [];"
       },
       "id": "pick-blog",
       "name": "انتخاب بلاگ بعدی",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [-480, 400],
-      "notes": "اگر همه بلاگ‌ها منتشر شده باشند، خروجی خالی می‌دهد و جریان متوقف می‌شود."
+      "position": [-200, 400]
     },
     {
       "parameters": {
-        "fileSelector": "={{ $json.blogsRoot }}/{{ $json.blogSlug }}/meta.json",
+        "method": "GET",
+        "url": "=https://raw.githubusercontent.com/{{ $json.ghOwner }}/{{ $json.ghRepo }}/{{ $json.ghBranch }}/{{ $json.blogSlug }}/meta.json",
         "options": {}
       },
-      "id": "read-meta",
+      "id": "fetch-meta",
       "name": "خواندن meta.json",
-      "type": "n8n-nodes-base.readWriteFile",
-      "typeVersion": 1,
-      "position": [-260, 400]
-    },
-    {
-      "parameters": { "operation": "fromJson", "options": {} },
-      "id": "meta-parse",
-      "name": "meta → JSON",
-      "type": "n8n-nodes-base.extractFromFile",
-      "typeVersion": 1,
-      "position": [-40, 400]
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [0, 400]
     },
     {
       "parameters": {
         "assignments": {
           "assignments": [
-            { "id": "m0", "name": "meta", "value": "={{ $json.data }}", "type": "object" },
-            { "id": "m1", "name": "accessToken", "value": "={{ $('نگهداری توکن').item.json.accessToken }}", "type": "string" },
-            { "id": "m2", "name": "apiBase", "value": "={{ $('نگهداری توکن').item.json.apiBase }}", "type": "string" },
-            { "id": "m3", "name": "blogsRoot", "value": "={{ $('نگهداری توکن').item.json.blogsRoot }}", "type": "string" },
-            { "id": "m4", "name": "blogSlug", "value": "={{ $('انتخاب بلاگ بعدی').item.json.blogSlug }}", "type": "string" },
-            { "id": "m5", "name": "fileServeBase", "value": "={{ $('نگهداری توکن').item.json.fileServeBase }}", "type": "string" }
+            { "id": "c0", "name": "meta", "value": "={{ $json }}", "type": "object" },
+            { "id": "c1", "name": "blogSlug", "value": "={{ $('انتخاب بلاگ بعدی').item.json.blogSlug }}", "type": "string" },
+            { "id": "c2", "name": "accessToken", "value": "={{ $('انتخاب بلاگ بعدی').item.json.accessToken }}", "type": "string" },
+            { "id": "c3", "name": "apiBase", "value": "={{ $('انتخاب بلاگ بعدی').item.json.apiBase }}", "type": "string" },
+            { "id": "c4", "name": "ghOwner", "value": "={{ $('انتخاب بلاگ بعدی').item.json.ghOwner }}", "type": "string" },
+            { "id": "c5", "name": "ghRepo", "value": "={{ $('انتخاب بلاگ بعدی').item.json.ghRepo }}", "type": "string" },
+            { "id": "c6", "name": "ghBranch", "value": "={{ $('انتخاب بلاگ بعدی').item.json.ghBranch }}", "type": "string" },
+            { "id": "c7", "name": "fileServeBase", "value": "={{ $('انتخاب بلاگ بعدی').item.json.fileServeBase }}", "type": "string" }
           ]
         },
         "options": {}
@@ -118,7 +167,7 @@
       "name": "کانتکست کامل",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [180, 400]
+      "position": [200, 400]
     },
     {
       "parameters": {
@@ -137,38 +186,48 @@
       "name": "ساخت پوشه بلاگ",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [400, 400],
-      "notes": "FileManager/CreateFolder?parentPath=&name=<slug>  — بدنه ندارد"
+      "position": [400, 400]
     },
     {
       "parameters": {
-        "jsCode": "const fs = require('fs');\nconst path = require('path');\nconst ctx = $('کانتکست کامل').item.json;\nconst imgDir = path.join(ctx.blogsRoot, ctx.blogSlug, 'images');\nlet files = [];\ntry { files = fs.readdirSync(imgDir).filter(f => /\\.(jpg|jpeg|png|webp)$/i.test(f)); } catch (e) {}\nreturn files.map(f => ({ json: {\n  fileName: f,\n  filePath: path.join(imgDir, f),\n  blogSlug: ctx.blogSlug,\n  apiBase: ctx.apiBase,\n  accessToken: ctx.accessToken\n}}));"
+        "method": "GET",
+        "url": "=https://api.github.com/repos/{{ $('کانتکست کامل').item.json.ghOwner }}/{{ $('کانتکست کامل').item.json.ghRepo }}/contents/{{ $('کانتکست کامل').item.json.blogSlug }}/images?ref={{ $('کانتکست کامل').item.json.ghBranch }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "accept", "value": "application/vnd.github+json" },
+            { "name": "User-Agent", "value": "n8n-carmacheck" }
+          ]
+        },
+        "options": {}
       },
       "id": "list-images",
-      "name": "لیست عکس‌ها",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [620, 400]
+      "name": "لیست عکس‌ها (گیت)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [600, 400],
+      "notes": "هر عکس یک آیتم با name + download_url"
     },
     {
       "parameters": {
-        "fileSelector": "={{ $json.filePath }}",
-        "options": { "dataPropertyName": "data" }
+        "method": "GET",
+        "url": "={{ $json.download_url }}",
+        "options": { "response": { "response": { "responseFormat": "file", "outputPropertyName": "data" } } }
       },
-      "id": "read-image",
-      "name": "خواندن فایل عکس",
-      "type": "n8n-nodes-base.readWriteFile",
-      "typeVersion": 1,
-      "position": [840, 400]
+      "id": "download-image",
+      "name": "دانلود عکس از گیت",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [800, 400]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "={{ $('لیست عکس‌ها').item.json.apiBase }}FileManager/upload",
+        "url": "={{ $('کانتکست کامل').item.json.apiBase }}FileManager/upload",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "=Bearer {{ $('لیست عکس‌ها').item.json.accessToken }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $('کانتکست کامل').item.json.accessToken }}" },
             { "name": "accept", "value": "application/json" }
           ]
         },
@@ -177,7 +236,7 @@
         "bodyParameters": {
           "parameters": [
             { "parameterType": "formBinaryData", "name": "file", "inputDataFieldName": "data" },
-            { "name": "path", "value": "={{ $('لیست عکس‌ها').item.json.blogSlug }}" }
+            { "name": "path", "value": "={{ $('کانتکست کامل').item.json.blogSlug }}" }
           ]
         },
         "options": {}
@@ -186,8 +245,7 @@
       "name": "آپلود عکس",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [1060, 400],
-      "notes": "FileManager/upload — فرم‌دیتا: file + path=<slug>"
+      "position": [1000, 400]
     },
     {
       "parameters": { "maxItems": 1 },
@@ -195,62 +253,51 @@
       "name": "بعد از آپلود همه → یک شاخه",
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
-      "position": [1280, 400],
-      "notes": "تا مرحله ساخت بلاگ فقط یک‌بار اجرا شود (نه به‌ازای هر عکس)."
+      "position": [1200, 400]
     },
     {
       "parameters": {
-        "fileSelector": "={{ $('کانتکست کامل').item.json.blogsRoot }}/{{ $('کانتکست کامل').item.json.blogSlug }}/index.html",
-        "options": { "dataPropertyName": "htmlData" }
+        "method": "GET",
+        "url": "=https://raw.githubusercontent.com/{{ $('کانتکست کامل').item.json.ghOwner }}/{{ $('کانتکست کامل').item.json.ghRepo }}/{{ $('کانتکست کامل').item.json.ghBranch }}/{{ $('کانتکست کامل').item.json.blogSlug }}/index.html",
+        "options": { "response": { "response": { "responseFormat": "text", "outputPropertyName": "data" } } }
       },
-      "id": "read-html",
+      "id": "fetch-html",
       "name": "خواندن index.html",
-      "type": "n8n-nodes-base.readWriteFile",
-      "typeVersion": 1,
-      "position": [1500, 400]
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1400, 400]
     },
     {
       "parameters": {
-        "operation": "binaryToPropery",
-        "binaryPropertyName": "htmlData",
-        "options": {}
-      },
-      "id": "html-to-text",
-      "name": "HTML → متن",
-      "type": "n8n-nodes-base.extractFromFile",
-      "typeVersion": 1,
-      "position": [1720, 400]
-    },
-    {
-      "parameters": {
-        "jsCode": "// بدنه <article> را به‌عنوان Content برمی‌دارد و مسیر عکس‌ها را به آدرس سرور بازنویسی می‌کند\nconst ctx = $('کانتکست کامل').item.json;\nconst meta = ctx.meta;\nlet html = $input.item.json.data || '';\nconst m = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\nlet content = m ? m[1] : html;\nconst serveBase = ctx.fileServeBase.replace(/\\/$/, '');\ncontent = content.replace(/src=\"images\\/([^\"]+)\"/g, `src=\"${serveBase}/${ctx.blogSlug}/$1\"`);\nreturn [{ json: {\n  ...meta,\n  Content: content,\n  apiBase: ctx.apiBase,\n  accessToken: ctx.accessToken,\n  blogSlug: ctx.blogSlug,\n  blogsRoot: ctx.blogsRoot\n}}];"
+        "jsCode": "// بدنه <article> را برمی‌دارد و مسیر عکس‌ها را به آدرس سرور بازنویسی می‌کند\nconst ctx = $('کانتکست کامل').item.json;\nconst meta = ctx.meta;\nlet html = $input.item.json.data || '';\nconst m = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\nlet content = m ? m[1] : html;\nconst serveBase = String(ctx.fileServeBase).replace(/\\/$/, '');\ncontent = content.replace(/src=\"images\\/([^\"]+)\"/g, `src=\"${serveBase}/${ctx.blogSlug}/$1\"`);\nreturn [{ json: {\n  ...meta,\n  Content: content,\n  apiBase: ctx.apiBase,\n  accessToken: ctx.accessToken,\n  blogSlug: ctx.blogSlug\n}}];"
       },
       "id": "build-content",
       "name": "ساخت Content + بازنویسی عکس",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1940, 400]
+      "position": [1600, 400]
     },
     {
       "parameters": {
-        "jsCode": "// اولین فایلی که با hero شروع می‌شود = تصویر شاخص\nconst fs = require('fs');\nconst path = require('path');\nconst j = $input.item.json;\nconst imgDir = path.join(j.blogsRoot, j.blogSlug, 'images');\nlet files = [];\ntry { files = fs.readdirSync(imgDir); } catch(e) {}\nconst hero = files.find(f => /^hero/i.test(f)) || files[0];\nreturn [{ json: { ...j, heroPath: path.join(imgDir, hero || '') } }];"
+        "jsCode": "// تصویر شاخص = فایلی که با hero شروع می‌شود (یا اولین عکس)\nconst imgs = $('لیست عکس‌ها (گیت)').all().map(i => i.json);\nconst hero = imgs.find(x => /^hero/i.test(x.name)) || imgs[0];\nconst j = $input.item.json;\nreturn [{ json: { ...j, heroUrl: hero ? hero.download_url : '' } }];"
       },
       "id": "pick-hero",
       "name": "انتخاب تصویر شاخص",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [2160, 400]
+      "position": [1800, 400]
     },
     {
       "parameters": {
-        "fileSelector": "={{ $json.heroPath }}",
-        "options": { "dataPropertyName": "heroImage" }
+        "method": "GET",
+        "url": "={{ $json.heroUrl }}",
+        "options": { "response": { "response": { "responseFormat": "file", "outputPropertyName": "heroImage" } } }
       },
-      "id": "read-hero",
-      "name": "خواندن تصویر شاخص",
-      "type": "n8n-nodes-base.readWriteFile",
-      "typeVersion": 1,
-      "position": [2380, 400]
+      "id": "download-hero",
+      "name": "دانلود تصویر شاخص",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2000, 400]
     },
     {
       "parameters": {
@@ -287,8 +334,7 @@
       "name": "ساخت بلاگ‌پست",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [2600, 400],
-      "notes": "BlogPost/CreateWithFile — فیلدهای سئو جداگانه + تصویر شاخص"
+      "position": [2200, 400]
     },
     {
       "parameters": {
@@ -305,42 +351,31 @@
       "name": "ثبت در Google Index",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [2820, 400],
-      "notes": "Google Indexing API — نیازمند Service Account با دسترسی Search Console. نداشتی، این نود را غیرفعال کن (اتصالش به نود بعد را نگه دار)."
-    },
-    {
-      "parameters": {
-        "jsCode": "// بلاگ را منتشرشده علامت می‌زند تا در اجراهای بعدی دوباره انتخاب نشود\nconst fs = require('fs');\nconst path = require('path');\nconst j = $('کانتکست کامل').item.json;\nconst marker = path.join(j.blogsRoot, j.blogSlug, '.published');\nfs.writeFileSync(marker, new Date().toISOString());\nreturn [{ json: { publishedBlog: j.blogSlug, at: new Date().toISOString() } }];"
-      },
-      "id": "mark-published",
-      "name": "علامت‌گذاری منتشر شد",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [3040, 400],
-      "notes": "فایل .published داخل پوشه بلاگ می‌سازد تا اجرای بعدی سراغ بلاگ جدید برود."
+      "position": [2400, 400],
+      "notes": "Google Indexing API — نیازمند Service Account با دسترسی Search Console. نداشتی، Disable کن."
     }
   ],
   "connections": {
     "هر ۲ ساعت": { "main": [[{ "node": "تنظیمات (Config)", "type": "main", "index": 0 }]] },
     "تنظیمات (Config)": { "main": [[{ "node": "لاگین → توکن", "type": "main", "index": 0 }]] },
     "لاگین → توکن": { "main": [[{ "node": "نگهداری توکن", "type": "main", "index": 0 }]] },
-    "نگهداری توکن": { "main": [[{ "node": "انتخاب بلاگ بعدی", "type": "main", "index": 0 }]] },
+    "نگهداری توکن": { "main": [[{ "node": "لیست بلاگ‌های منتشرشده", "type": "main", "index": 0 }]] },
+    "لیست بلاگ‌های منتشرشده": { "main": [[{ "node": "اسلاگ‌های منتشرشده", "type": "main", "index": 0 }]] },
+    "اسلاگ‌های منتشرشده": { "main": [[{ "node": "لیست پوشه‌های گیت", "type": "main", "index": 0 }]] },
+    "لیست پوشه‌های گیت": { "main": [[{ "node": "انتخاب بلاگ بعدی", "type": "main", "index": 0 }]] },
     "انتخاب بلاگ بعدی": { "main": [[{ "node": "خواندن meta.json", "type": "main", "index": 0 }]] },
-    "خواندن meta.json": { "main": [[{ "node": "meta → JSON", "type": "main", "index": 0 }]] },
-    "meta → JSON": { "main": [[{ "node": "کانتکست کامل", "type": "main", "index": 0 }]] },
+    "خواندن meta.json": { "main": [[{ "node": "کانتکست کامل", "type": "main", "index": 0 }]] },
     "کانتکست کامل": { "main": [[{ "node": "ساخت پوشه بلاگ", "type": "main", "index": 0 }]] },
-    "ساخت پوشه بلاگ": { "main": [[{ "node": "لیست عکس‌ها", "type": "main", "index": 0 }]] },
-    "لیست عکس‌ها": { "main": [[{ "node": "خواندن فایل عکس", "type": "main", "index": 0 }]] },
-    "خواندن فایل عکس": { "main": [[{ "node": "آپلود عکس", "type": "main", "index": 0 }]] },
+    "ساخت پوشه بلاگ": { "main": [[{ "node": "لیست عکس‌ها (گیت)", "type": "main", "index": 0 }]] },
+    "لیست عکس‌ها (گیت)": { "main": [[{ "node": "دانلود عکس از گیت", "type": "main", "index": 0 }]] },
+    "دانلود عکس از گیت": { "main": [[{ "node": "آپلود عکس", "type": "main", "index": 0 }]] },
     "آپلود عکس": { "main": [[{ "node": "بعد از آپلود همه → یک شاخه", "type": "main", "index": 0 }]] },
     "بعد از آپلود همه → یک شاخه": { "main": [[{ "node": "خواندن index.html", "type": "main", "index": 0 }]] },
-    "خواندن index.html": { "main": [[{ "node": "HTML → متن", "type": "main", "index": 0 }]] },
-    "HTML → متن": { "main": [[{ "node": "ساخت Content + بازنویسی عکس", "type": "main", "index": 0 }]] },
+    "خواندن index.html": { "main": [[{ "node": "ساخت Content + بازنویسی عکس", "type": "main", "index": 0 }]] },
     "ساخت Content + بازنویسی عکس": { "main": [[{ "node": "انتخاب تصویر شاخص", "type": "main", "index": 0 }]] },
-    "انتخاب تصویر شاخص": { "main": [[{ "node": "خواندن تصویر شاخص", "type": "main", "index": 0 }]] },
-    "خواندن تصویر شاخص": { "main": [[{ "node": "ساخت بلاگ‌پست", "type": "main", "index": 0 }]] },
-    "ساخت بلاگ‌پست": { "main": [[{ "node": "ثبت در Google Index", "type": "main", "index": 0 }]] },
-    "ثبت در Google Index": { "main": [[{ "node": "علامت‌گذاری منتشر شد", "type": "main", "index": 0 }]] }
+    "انتخاب تصویر شاخص": { "main": [[{ "node": "دانلود تصویر شاخص", "type": "main", "index": 0 }]] },
+    "دانلود تصویر شاخص": { "main": [[{ "node": "ساخت بلاگ‌پست", "type": "main", "index": 0 }]] },
+    "ساخت بلاگ‌پست": { "main": [[{ "node": "ثبت در Google Index", "type": "main", "index": 0 }]] }
   },
   "settings": { "executionOrder": "v1" },
   "pinData": {}
