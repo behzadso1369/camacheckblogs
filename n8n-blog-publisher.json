@@ -21,7 +21,10 @@
             { "id": "a4", "name": "ghOwner", "value": "behzadso1369", "type": "string" },
             { "id": "a5", "name": "ghRepo", "value": "camacheckblogs", "type": "string" },
             { "id": "a6", "name": "ghBranch", "value": "main", "type": "string" },
-            { "id": "a7", "name": "fileServeBase", "value": "https://api.carmacheck.com/", "type": "string" }
+            { "id": "a7", "name": "fileServeBase", "value": "https://api.carmacheck.com/", "type": "string" },
+            { "id": "a8", "name": "siteUrl", "value": "https://carmacheck.com", "type": "string" },
+            { "id": "a9", "name": "tgToken", "value": "TELEGRAM_BOT_TOKEN_HERE", "type": "string" },
+            { "id": "a10", "name": "tgChat", "value": "@your_channel", "type": "string" }
           ]
         },
         "options": {}
@@ -108,7 +111,7 @@
     {
       "parameters": {
         "method": "GET",
-        "url": "=https://api.github.com/repos/{{ $('نگهداری توکن').item.json.ghOwner }}/{{ $('نگهداری توکن').item.json.ghRepo }}/git/trees/{{ $('نگهداری توکن').item.json.ghBranch }}?recursive=1",
+        "url": "=https://api.github.com/repos/{{ $('نگهداری توکن').item.json.ghOwner }}/{{ $('نگهداری توکن').item.json.ghRepo }}/contents/?ref={{ $('نگهداری توکن').item.json.ghBranch }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -119,15 +122,15 @@
         "options": {}
       },
       "id": "get-folders",
-      "name": "درخت کامل مخزن گیت",
+      "name": "لیست پوشه‌های گیت",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [-400, 400],
-      "notes": "GitHub Git Trees API با recursive=1 — کل درخت مخزن در یک درخواست."
+      "notes": "GitHub Contents API — لیست پوشه‌های ریشه مخزن (هر بلاگ یک پوشه)."
     },
     {
       "parameters": {
-        "jsCode": "// از درخت کامل مخزن، اولین بلاگی که index.html + meta.json + حداقل یک عکس دارد و منتشر نشده را انتخاب می‌کند\nconst j = $input.first().json;\nconst tree = (j.tree) || [];\nconst published = ($('اسلاگ‌های منتشرشده').first().json.publishedSlugs) || [];\nconst tk = $('نگهداری توکن').first().json;\nconst imgRe = /\\.(jpg|jpeg|png|webp)$/i;\nconst slugs = {};\nfor (const e of tree) {\n  const parts = String(e.path).split('/');\n  const slug = parts[0];\n  if (!slug || slug.startsWith('.')) continue;\n  if (!slugs[slug]) slugs[slug] = { html: false, meta: false, img: false };\n  if (parts.length === 2 && parts[1] === 'index.html') slugs[slug].html = true;\n  if (parts.length === 2 && parts[1] === 'meta.json') slugs[slug].meta = true;\n  if (parts.length === 3 && parts[1] === 'images' && e.type === 'blob' && imgRe.test(parts[2])) slugs[slug].img = true;\n}\nconst eligible = Object.keys(slugs)\n  .filter(s => slugs[s].html && slugs[s].meta && slugs[s].img && !published.includes(s))\n  .sort();\nif (eligible.length === 0) return [];\nreturn [{ json: {\n  blogSlug: eligible[0],\n  accessToken: tk.accessToken,\n  apiBase: tk.apiBase,\n  ghOwner: tk.ghOwner,\n  ghRepo: tk.ghRepo,\n  ghBranch: tk.ghBranch,\n  fileServeBase: tk.fileServeBase\n}}];"
+        "jsCode": "// اولین پوشه‌ی بلاگِ منتشرنشده را انتخاب می‌کند (چک عکس لازم نیست — فقط بلاگ‌های عکس‌دار روی گیت گذاشته می‌شوند)\n// خروجی HTTP گاهی آرایه را در یک آیتم می‌گذارد و گاهی به چند آیتم تقسیم می‌کند — هر دو را پوشش می‌دهیم\nlet raw = $input.all().map(i => i.json);\nlet folders = [];\nif (raw.length === 1 && Array.isArray(raw[0])) folders = raw[0];\nelse if (raw.length === 1 && raw[0] && Array.isArray(raw[0].data)) folders = raw[0].data;\nelse if (raw.length === 1 && raw[0] && Array.isArray(raw[0].body)) folders = raw[0].body;\nelse folders = raw;\nfolders = folders.filter(x => x && x.type === 'dir' && !String(x.name).startsWith('.'));\nconst published = ($('اسلاگ‌های منتشرشده').first().json.publishedSlugs) || [];\nconst tk = $('نگهداری توکن').first().json;\nfor (const f of folders.sort((a, b) => String(a.name).localeCompare(String(b.name)))) {\n  if (!published.includes(f.name)) {\n    return [{ json: {\n      blogSlug: f.name,\n      accessToken: tk.accessToken,\n      apiBase: tk.apiBase,\n      ghOwner: tk.ghOwner,\n      ghRepo: tk.ghRepo,\n      ghBranch: tk.ghBranch,\n      fileServeBase: tk.fileServeBase\n    }}];\n  }\n}\n// همه منتشر شده‌اند → توقف\nreturn [];"
       },
       "id": "pick-blog",
       "name": "انتخاب بلاگ بعدی",
@@ -206,7 +209,18 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [600, 400],
-      "notes": "هر عکس یک آیتم با name + download_url"
+      "notes": "آرایه‌ی عکس‌ها (name + download_url)"
+    },
+    {
+      "parameters": {
+        "jsCode": "// آرایه‌ی عکس‌ها را به آیتم‌های جدا می‌شکند تا دانلود/آپلود روی همه لوپ بزند\nlet raw = $input.all().map(i => i.json);\nlet arr = [];\nif (raw.length === 1 && Array.isArray(raw[0])) arr = raw[0];\nelse if (raw.length === 1 && raw[0] && Array.isArray(raw[0].data)) arr = raw[0].data;\nelse if (raw.length === 1 && raw[0] && Array.isArray(raw[0].body)) arr = raw[0].body;\nelse arr = raw;\nconst imgRe = /\\.(jpg|jpeg|png|webp)$/i;\nreturn arr\n  .filter(x => x && x.type === 'file' && imgRe.test(x.name) && x.download_url)\n  .map(x => ({ json: { name: x.name, download_url: x.download_url } }));"
+      },
+      "id": "split-images",
+      "name": "تفکیک عکس‌ها",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 400],
+      "notes": "یک آیتم به‌ازای هر عکس"
     },
     {
       "parameters": {
@@ -269,7 +283,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// بدنه <article> را برمی‌دارد و مسیر عکس‌ها را به آدرس سرور بازنویسی می‌کند\nconst ctx = $('کانتکست کامل').item.json;\nconst meta = ctx.meta;\nlet html = $input.item.json.data || '';\nconst m = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\nlet content = m ? m[1] : html;\nconst serveBase = String(ctx.fileServeBase).replace(/\\/$/, '');\ncontent = content.replace(/src=\"images\\/([^\"]+)\"/g, `src=\"${serveBase}/${ctx.blogSlug}/$1\"`);\nreturn [{ json: {\n  ...meta,\n  Content: content,\n  apiBase: ctx.apiBase,\n  accessToken: ctx.accessToken,\n  blogSlug: ctx.blogSlug\n}}];"
+        "jsCode": "// بدنه <article> را برمی‌دارد و مسیر عکس‌ها را به آدرس سرور بازنویسی می‌کند\nconst ctx = $('کانتکست کامل').item.json;\n// meta ممکن است رشته یا داخل data باشد (گیت‌هاب فایل json را متنی می‌دهد) — امن پارس می‌کنیم\nlet meta = ctx.meta;\nif (typeof meta === 'string') { meta = JSON.parse(meta); }\nelse if (meta && typeof meta.data === 'string') { meta = JSON.parse(meta.data); }\nlet html = $input.item.json.data || '';\nconst m = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\nlet content = m ? m[1] : html;\nconst serveBase = String(ctx.fileServeBase).replace(/\\/$/, '');\ncontent = content.replace(/src=\"images\\/([^\"]+)\"/g, `src=\"${serveBase}/${ctx.blogSlug}/$1\"`);\nreturn [{ json: {\n  ...meta,\n  Content: content,\n  apiBase: ctx.apiBase,\n  accessToken: ctx.accessToken,\n  blogSlug: ctx.blogSlug\n}}];"
       },
       "id": "build-content",
       "name": "ساخت Content + بازنویسی عکس",
@@ -353,6 +367,32 @@
       "typeVersion": 4.2,
       "position": [2400, 400],
       "notes": "Google Indexing API — نیازمند Service Account با دسترسی Search Console. نداشتی، Disable کن."
+    },
+    {
+      "parameters": {
+        "jsCode": "// از داده‌های موجود همین workflow یک کپشن جذاب تلگرام می‌سازد (بدون webhook)\nconst cfg = $('تنظیمات (Config)').first().json;\nconst slug = $('کانتکست کامل').item.json.blogSlug;\nconst bc = $('ساخت Content + بازنویسی عکس').item.json;\nconst title = bc.blogPostTitle || bc.Title || '';\n\n// تیزر: چند پاراگراف اول مقاله از HTML خام\nconst html = $('خواندن index.html').item.json.data || '';\nconst artMatch = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\nconst art = artMatch ? artMatch[1] : html;\nconst re = /<p(?![^>]*class=\"image-caption\")[^>]*>([\\s\\S]*?)<\\/p>/gi;\nconst paras = [];\nlet m;\nwhile ((m = re.exec(art)) !== null && paras.length < 3) {\n  const t = m[1].replace(/<[^>]+>/g, '').replace(/\\s+/g, ' ').trim();\n  if (t.length > 25) paras.push(t);\n}\nlet teaser = paras.join('\\n\\n');\nif (teaser.length > 600) teaser = teaser.slice(0, 600).replace(/\\s+\\S*$/, '') + '…';\nif (!teaser) teaser = bc.blogPostDescription || bc.Excerpt || '';\n\n// عکس شاخص (raw گیت‌هاب) که تلگرام می‌تواند دریافت کند\nconst photo = $('انتخاب تصویر شاخص').item.json.heroUrl || '';\n\n// لینک بر اساس slug (سایت حالا slug را می‌شناسد)\nconst url = `${String(cfg.siteUrl).replace(/\\/$/, '')}/blog/${slug}`;\n\nconst esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\nconst caption =\n  `🚗 <b>${esc(title)}</b>\\n\\n` +\n  `${esc(teaser)}\\n\\n` +\n  `📖 <a href=\"${url}\">ادامه‌ی کامل مقاله در کارماچک 👈</a>`;\n\nreturn [{ json: { chatId: cfg.tgChat, photo, caption, url, title } }];"
+      },
+      "id": "build-telegram",
+      "name": "ساخت پیام تلگرام",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2600, 400]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.telegram.org/bot{{ $('تنظیمات (Config)').item.json.tgToken }}/sendPhoto",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"chat_id\": \"{{ $json.chatId }}\",\n  \"photo\": \"{{ $json.photo }}\",\n  \"caption\": {{ JSON.stringify($json.caption) }},\n  \"parse_mode\": \"HTML\"\n}",
+        "options": {}
+      },
+      "id": "send-telegram",
+      "name": "ارسال به تلگرام",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2800, 400],
+      "notes": "sendPhoto: عکس شاخص + کپشن با تیزر بلند. ربات باید ادمین کانال باشد."
     }
   ],
   "connections": {
@@ -367,7 +407,8 @@
     "خواندن meta.json": { "main": [[{ "node": "کانتکست کامل", "type": "main", "index": 0 }]] },
     "کانتکست کامل": { "main": [[{ "node": "ساخت پوشه بلاگ", "type": "main", "index": 0 }]] },
     "ساخت پوشه بلاگ": { "main": [[{ "node": "لیست عکس‌ها (گیت)", "type": "main", "index": 0 }]] },
-    "لیست عکس‌ها (گیت)": { "main": [[{ "node": "دانلود عکس از گیت", "type": "main", "index": 0 }]] },
+    "لیست عکس‌ها (گیت)": { "main": [[{ "node": "تفکیک عکس‌ها", "type": "main", "index": 0 }]] },
+    "تفکیک عکس‌ها": { "main": [[{ "node": "دانلود عکس از گیت", "type": "main", "index": 0 }]] },
     "دانلود عکس از گیت": { "main": [[{ "node": "آپلود عکس", "type": "main", "index": 0 }]] },
     "آپلود عکس": { "main": [[{ "node": "بعد از آپلود همه → یک شاخه", "type": "main", "index": 0 }]] },
     "بعد از آپلود همه → یک شاخه": { "main": [[{ "node": "خواندن index.html", "type": "main", "index": 0 }]] },
@@ -375,7 +416,9 @@
     "ساخت Content + بازنویسی عکس": { "main": [[{ "node": "انتخاب تصویر شاخص", "type": "main", "index": 0 }]] },
     "انتخاب تصویر شاخص": { "main": [[{ "node": "دانلود تصویر شاخص", "type": "main", "index": 0 }]] },
     "دانلود تصویر شاخص": { "main": [[{ "node": "ساخت بلاگ‌پست", "type": "main", "index": 0 }]] },
-    "ساخت بلاگ‌پست": { "main": [[{ "node": "ثبت در Google Index", "type": "main", "index": 0 }]] }
+    "ساخت بلاگ‌پست": { "main": [[{ "node": "ثبت در Google Index", "type": "main", "index": 0 }]] },
+    "ثبت در Google Index": { "main": [[{ "node": "ساخت پیام تلگرام", "type": "main", "index": 0 }]] },
+    "ساخت پیام تلگرام": { "main": [[{ "node": "ارسال به تلگرام", "type": "main", "index": 0 }]] }
   },
   "settings": { "executionOrder": "v1" },
   "pinData": {}

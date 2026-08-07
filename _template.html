@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{META_DESCRIPTION_MAX_155_CHARS}}">
+  <title>{{BLOG_TITLE}}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.9;
+      color: #1a1a1a;
+      background: #f5f5f5;
+    }
+
+    article {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 32px 60px;
+    }
+
+    h1 { font-size: 2rem; font-weight: 800; line-height: 1.4; margin-bottom: 24px; color: #111; }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 48px 0 16px;
+      color: #111;
+      border-right: 4px solid {{ACCENT_COLOR}};
+      padding-right: 12px;
+    }
+
+    h3 { font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #222; }
+    p { margin-bottom: 18px; color: #2c2c2c; }
+    strong { color: #111; font-weight: 700; }
+
+    /* ===== IMAGES ===== */
+    .hero-image, .section-image, .infographic {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .hero-image { height: 420px; }
+    .section-image { height: 300px; }
+
+    /* ===== PLACEHOLDERS (تا وقتی عکس آماده نشده) ===== */
+    .img-placeholder {
+      width: 100%;
+      border-radius: 12px;
+      margin: 24px 0 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #eef3f8 0%, #dde7f0 100%);
+      border: 2px dashed #b8c9da;
+      color: #7a8ba0;
+      font-size: 0.9rem;
+      gap: 8px;
+      text-align: center;
+      padding: 12px;
+    }
+    .img-placeholder.hero { height: 420px; }
+    .img-placeholder.section { height: 280px; }
+    .img-placeholder .ph-icon { font-size: 2.5rem; }
+    .img-placeholder .ph-label { font-weight: 600; color: #5a7290; }
+    .img-placeholder .ph-file { font-size: 0.78rem; color: #9bb0c5; direction: ltr; }
+
+    .image-caption { text-align: center; font-size: 0.82rem; color: #888; margin-bottom: 24px; }
+
+    /* ===== BOXES ===== */
+    .tip-box {
+      background: #fff8e1;
+      border-right: 4px solid #f4a200;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .warning-box {
+      background: #fff0f0;
+      border-right: 4px solid #e63946;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .success-box {
+      background: #f0fff4;
+      border-right: 4px solid #2d9e5f;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+
+    /* ===== STEPS (برای مقالات مرحله‌ای) ===== */
+    .steps { margin: 24px 0; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 16px;
+      background: #fafafa;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+    .step-num {
+      min-width: 36px; height: 36px;
+      background: {{ACCENT_COLOR}};
+      color: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; flex-shrink: 0;
+    }
+    .step-content h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; color: #111; }
+    .step-content p { margin: 0; font-size: 0.93rem; color: #444; }
+
+    /* ===== CHECKLIST ===== */
+    .checklist { list-style: none; margin: 16px 0 24px; padding: 0; }
+    .checklist li {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .checklist li::before { content: "✓"; color: #2d9e5f; font-weight: 800; font-size: 1rem; flex-shrink: 0; }
+
+    /* ===== VERDICT TABLE (برای مقالات مقایسه‌ای) ===== */
+    .verdict-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.93rem; }
+    .verdict-table th { background: {{ACCENT_COLOR}}; color: #fff; padding: 12px; text-align: right; font-weight: 700; }
+    .verdict-table td { padding: 12px; border-bottom: 1px solid #eee; }
+    .verdict-table tr:nth-child(even) { background: #f9fbfd; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; color: #fff; }
+    .badge.green { background: #2d9e5f; }
+    .badge.yellow { background: #f4a200; }
+    .badge.red { background: #e63946; }
+
+    /* ===== PRICE / COMPARISON LIST ===== */
+    .price-list { margin: 16px 0 24px; padding: 0; list-style: none; }
+    .price-list li {
+      padding: 10px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.95rem;
+    }
+    .price-list .drop { font-weight: 800; color: #e63946; direction: ltr; }
+    .price-list .drop.low { color: #2d9e5f; }
+    .price-list .drop.mid { color: #f4a200; }
+
+    hr { border: none; border-top: 1px solid #eee; margin: 48px 0; }
+
+    .faq h3 { font-size: 1.05rem; color: #111; margin: 28px 0 8px; }
+    .faq p { font-size: 0.95rem; color: #444; }
+
+    @media (max-width: 600px) {
+      article { padding: 20px 16px 48px; }
+      h1 { font-size: 1.5rem; }
+      .img-placeholder.hero, .hero-image { height: 220px; }
+      .img-placeholder.section, .section-image { height: 180px; }
+      .verdict-table { font-size: 0.82rem; }
+      .verdict-table th, .verdict-table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+<article>
+
+  <h1>{{BLOG_TITLE}}</h1>
+
+  <!-- محتوای مقاله اینجا -->
+  <!--
+  قوانین ساختار:
+  - همه بخش‌های اصلی فقط <h2 id="kebab-case-english"> — TOC از H2 ها ساخته می‌شود.
+  - زیربخش‌ها <h3>. عنوان «سوالات متداول» هم <h2>.
+  - هر <img> حتماً alt توصیفی فارسی + loading="lazy" (به جز hero).
+  - نمونه عکس:
+    <img class="section-image" src="images/worn-steering-wheel.jpg"
+         alt="فرمان خودرو ساییده شده نشانه کارکرد بالا" loading="lazy">
+    <p class="image-caption">توضیح فارسی زیر عکس</p>
+  - ۳ تا ۶ لینک داخلی به carmacheck.com (شروع کارشناسی حداقل ۲ بار).
+  -->
+
+</article>
+</body>
+</html>

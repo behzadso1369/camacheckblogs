@@ -1,0 +1,103 @@
+{
+  "name": "CarmaCheck Telegram Notifier (Webhook)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "blog-published",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "webhook",
+      "name": "وبهوک (blog-published)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-1200, 400],
+      "webhookId": "carmacheck-blog-published",
+      "notes": "POST از workflow انتشار. بدنه: { slug, id }  (id = آی‌دی عددی بلاگ‌پست از پاسخ CreateWithFile). اختیاری: url مستقیم."
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            { "id": "s1", "name": "tgToken", "value": "TELEGRAM_BOT_TOKEN_HERE", "type": "string" },
+            { "id": "s2", "name": "tgChat", "value": "@your_channel", "type": "string" },
+            { "id": "s3", "name": "ghOwner", "value": "behzadso1369", "type": "string" },
+            { "id": "s4", "name": "ghRepo", "value": "camacheckblogs", "type": "string" },
+            { "id": "s5", "name": "ghBranch", "value": "main", "type": "string" },
+            { "id": "s6", "name": "siteUrl", "value": "https://carmacheck.com", "type": "string" },
+            { "id": "s7", "name": "slug", "value": "={{ $json.body.slug || $json.query.slug }}", "type": "string" },
+            { "id": "s8", "name": "id", "value": "={{ $json.body.id || $json.query.id }}", "type": "string" },
+            { "id": "s9", "name": "url", "value": "={{ $json.body.url || '' }}", "type": "string" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cfg",
+      "name": "تنظیمات (Config)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [-1000, 400],
+      "notes": "توکن ربات و آی‌دی کانال را اینجا بگذار. ربات باید ادمین کانال باشد."
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://raw.githubusercontent.com/{{ $json.ghOwner }}/{{ $json.ghRepo }}/{{ $json.ghBranch }}/{{ $json.slug }}/meta.json",
+        "options": { "response": { "response": { "responseFormat": "text", "outputPropertyName": "data" } } }
+      },
+      "id": "fetch-meta",
+      "name": "خواندن meta.json",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-800, 400]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://raw.githubusercontent.com/{{ $('تنظیمات (Config)').item.json.ghOwner }}/{{ $('تنظیمات (Config)').item.json.ghRepo }}/{{ $('تنظیمات (Config)').item.json.ghBranch }}/{{ $('تنظیمات (Config)').item.json.slug }}/index.html",
+        "options": { "response": { "response": { "responseFormat": "text", "outputPropertyName": "data" } } }
+      },
+      "id": "fetch-html",
+      "name": "خواندن index.html",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-600, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// از meta.json و index.html، یک کپشن جذاب تلگرام + عکس بزرگ می‌سازد\nconst cfg = $('تنظیمات (Config)').item.json;\n\n// --- meta ---\nlet meta = $('خواندن meta.json').item.json;\nif (typeof meta === 'string') { try { meta = JSON.parse(meta); } catch(e){ meta = {}; } }\nelse if (meta && typeof meta.data === 'string') { try { meta = JSON.parse(meta.data); } catch(e){ meta = {}; } }\n\n// --- html ---\nconst html = $('خواندن index.html').item.json.data || '';\n\n// عکس شاخص (اولین img با کلاس hero-image)\nlet hero = '';\nconst hm = html.match(/<img[^>]*class=\"hero-image\"[^>]*src=\"images\\/([^\"]+)\"/i)\n        || html.match(/<img[^>]*src=\"images\\/([^\"]+)\"/i);\nif (hm) hero = hm[1];\nconst photo = hero\n  ? `https://raw.githubusercontent.com/${cfg.ghOwner}/${cfg.ghRepo}/${cfg.ghBranch}/${cfg.slug}/images/${hero}`\n  : '';\n\n// تیزر: چند پاراگراف اول داخل <article> (بدون کپشن عکس)\nconst artMatch = html.match(/<article[^>]*>([\\s\\S]*?)<\\/article>/i);\nconst art = artMatch ? artMatch[1] : html;\nconst re = /<p(?![^>]*class=\"image-caption\")[^>]*>([\\s\\S]*?)<\\/p>/gi;\nconst paras = [];\nlet m;\nwhile ((m = re.exec(art)) !== null && paras.length < 3) {\n  const t = m[1].replace(/<[^>]+>/g, '').replace(/\\s+/g, ' ').trim();\n  if (t.length > 25) paras.push(t);\n}\nlet teaser = paras.join('\\n\\n');\nconst LIMIT = 600;\nif (teaser.length > LIMIT) teaser = teaser.slice(0, LIMIT).replace(/\\s+\\S*$/, '') + '…';\nif (!teaser) teaser = meta.blogPostDescription || meta.Excerpt || '';\n\n// لینک درست: /blog/{id عددی}  (نه slug)\nlet url = cfg.url;\nif (!url) url = cfg.id ? `${String(cfg.siteUrl).replace(/\\/$/, '')}/blog/${cfg.id}` : (meta.blogPostCanonical || '');\n\nconst title = meta.blogPostTitle || meta.Title || '';\nconst esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\n\nconst caption =\n  `🚗 <b>${esc(title)}</b>\\n\\n` +\n  `${esc(teaser)}\\n\\n` +\n  `📖 <a href=\"${url}\">ادامه‌ی کامل مقاله در کارماچک 👈</a>`;\n\nreturn [{ json: { chatId: cfg.tgChat, photo, caption, url, title, hasPhoto: !!photo } }];"
+      },
+      "id": "build-msg",
+      "name": "ساخت پیام تلگرام",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-400, 400]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.telegram.org/bot{{ $('تنظیمات (Config)').item.json.tgToken }}/sendPhoto",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"chat_id\": \"{{ $json.chatId }}\",\n  \"photo\": \"{{ $json.photo }}\",\n  \"caption\": {{ JSON.stringify($json.caption) }},\n  \"parse_mode\": \"HTML\"\n}",
+        "options": {}
+      },
+      "id": "send-telegram",
+      "name": "ارسال به تلگرام",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-200, 400],
+      "notes": "sendPhoto: عکس بزرگ + کپشن HTML با تیزر بلند. اگر عکس نبود، به sendMessage سوییچ کن."
+    }
+  ],
+  "connections": {
+    "وبهوک (blog-published)": { "main": [[{ "node": "تنظیمات (Config)", "type": "main", "index": 0 }]] },
+    "تنظیمات (Config)": { "main": [[{ "node": "خواندن meta.json", "type": "main", "index": 0 }]] },
+    "خواندن meta.json": { "main": [[{ "node": "خواندن index.html", "type": "main", "index": 0 }]] },
+    "خواندن index.html": { "main": [[{ "node": "ساخت پیام تلگرام", "type": "main", "index": 0 }]] },
+    "ساخت پیام تلگرام": { "main": [[{ "node": "ارسال به تلگرام", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "pinData": {}
+}
