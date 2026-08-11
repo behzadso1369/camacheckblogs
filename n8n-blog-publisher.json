@@ -293,7 +293,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// تصویر شاخص = فایلی که با hero شروع می‌شود (یا اولین عکس)\nconst imgs = $('لیست عکس‌ها (گیت)').all().map(i => i.json);\nconst hero = imgs.find(x => /^hero/i.test(x.name)) || imgs[0];\nconst j = $input.item.json;\nreturn [{ json: { ...j, heroUrl: hero ? hero.download_url : '' } }];"
+        "jsCode": "// تصویر شاخص را دقیقاً از روی <figure class=\"hero-image\"> در HTML مقاله انتخاب می‌کند\n// تا هیچ‌وقت وابسته به ترتیب یا حدسِ اسم فایل نباشد.\nconst imgs = $('لیست عکس‌ها (گیت)').all().map(i => i.json);\nconst html = $('خواندن index.html').item.json.data || '';\nlet heroName = '';\n// اول: عکس داخل figure با کلاس hero-image\nlet mm = html.match(/<figure[^>]*class=\"[^\"]*hero-image[^\"]*\"[^>]*>[\\s\\S]*?<img[^>]*src=\"images\\/([^\"]+)\"/i);\nif (mm) heroName = mm[1];\n// دوم: og:image\nif (!heroName) { const om = html.match(/property=\"og:image\"[^>]*content=\"images\\/([^\"]+)\"/i); if (om) heroName = om[1]; }\nlet hero = heroName ? imgs.find(x => x.name === heroName) : null;\n// سوم: اسمی که با hero شروع می‌شود؛ چهارم: اولین عکس\nif (!hero) hero = imgs.find(x => /^hero/i.test(x.name)) || imgs[0];\nconst j = $input.item.json;\nreturn [{ json: { ...j, heroUrl: hero ? hero.download_url : '' } }];"
       },
       "id": "pick-hero",
       "name": "انتخاب تصویر شاخص",

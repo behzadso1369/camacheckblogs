@@ -1,6 +1,6 @@
 [
   {
-    "file_name": "shasi-inspection-hero",
+    "file_name": "hero-shasi-inspection",
     "role": "hero",
     "placeholder": "{{HERO_IMAGE_URL}}",
     "aspect_ratio": "16:9",
