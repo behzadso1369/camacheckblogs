@@ -1,0 +1,41 @@
+[
+  {
+    "file_name": "shasi-inspection-hero",
+    "role": "hero",
+    "placeholder": "{{HERO_IMAGE_URL}}",
+    "aspect_ratio": "16:9",
+    "image_title": "بررسی شاسی خودرو پیش از خرید",
+    "alt_text": "بررسی شاسی و سینه جلوی خودرو برای تشخیص ضربه و صافکاری پیش از خرید",
+    "caption": "بررسی دقیق شاسی، یکی از مهم‌ترین بخش‌های کارشناسی پیش از خرید است.",
+    "image_prompt": "Realistic documentary photo, a car inspector examining the front chassis rail and inner fender of a sedan in a bright workshop, hood open, focus on structural metal and welds, Iranian market sedan, natural daylight, high detail, no text, no watermark",
+    "negative_prompt": "text, watermark, logo, distorted faces, extra fingers, deformed car geometry, cartoon, low quality",
+    "decorative": false,
+    "status": "placeholder"
+  },
+  {
+    "file_name": "door-gap-symmetry-check",
+    "role": "section",
+    "placeholder": "{{SECTION_IMAGE_1_URL}}",
+    "aspect_ratio": "4:3",
+    "image_title": "بررسی فاصله و تقارن درها",
+    "alt_text": "بررسی فاصله و تقارن درها و کاپوت خودرو برای تشخیص آسیب شاسی",
+    "caption": "فاصله نامنظم درها و کاپوت می‌تواند نشانه تغییر شکل سازه باشد.",
+    "image_prompt": "Realistic close-up photo of the panel gaps between a car door, fender and hood, showing alignment inspection, silver sedan body in daylight, sharp focus, no text, no watermark",
+    "negative_prompt": "text, watermark, logo, faces, deformed panels, cartoon, low quality",
+    "decorative": false,
+    "status": "placeholder"
+  },
+  {
+    "file_name": "test-drive-pull-and-brake",
+    "role": "section",
+    "placeholder": "{{SECTION_IMAGE_2_URL}}",
+    "aspect_ratio": "4:3",
+    "image_title": "تست رانندگی و رفتار فرمان",
+    "alt_text": "تست رانندگی خودرو برای بررسی کشش به یک سمت و رفتار فرمان و ترمز",
+    "caption": "کشیده‌شدن خودرو به یک سمت در جاده صاف می‌تواند به آسیب سازه مربوط باشد.",
+    "image_prompt": "Realistic photo from behind of a sedan driving on a straight empty road, motion sense, testing tracking and steering, daylight, no visible faces, no text, no watermark",
+    "negative_prompt": "text, watermark, logo, faces, deformed car, cartoon, low quality",
+    "decorative": false,
+    "status": "placeholder"
+  }
+]
