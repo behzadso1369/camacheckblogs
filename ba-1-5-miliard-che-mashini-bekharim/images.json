@@ -1,0 +1,62 @@
+[
+  {
+    "file_name": "hero-ba-1-5-miliard-che-mashini-bekharim",
+    "image_role": "hero",
+    "image_type": "photo",
+    "aspect_ratio": "16:9",
+    "image_title": "انتخاب خودرو با بودجه یک و نیم میلیارد تومان",
+    "alt_text": "خریدار در حال انتخاب بین خودرو صفر و کارکرده در نمایشگاه با بودجه یک و نیم میلیارد تومان",
+    "caption": "انتخاب خودرو با بودجه مشخص، بیشتر یک تصمیم است تا یک خرید ساده.",
+    "decorative": false,
+    "image_prompt": "Photorealistic wide shot of a thoughtful Iranian male buyer standing in a bright car dealership lot, looking at two rows of clean sedans and crossovers, deciding between a brand-new car and a used one, soft natural daylight, shallow depth of field, realistic modern Iranian used-car market atmosphere, neutral colors, no text, no logos, 16:9",
+    "negative_prompt": "text, watermark, logos, brand names, distorted car geometry, extra wheels, deformed hands, blurry faces, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/hero-ba-1-5-miliard-che-mashini-bekharim.jpg"
+  },
+  {
+    "file_name": "section-se-daste-khodro",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "سه دسته خودرو در این بودجه",
+    "alt_text": "سه دسته خودرو شامل سدان صفر داخلی، کراس‌اوور مونتاژی کارکرده و سدان چندساله کنار هم",
+    "caption": "سه مسیر اصلی خرید در بودجه یک و نیم میلیارد تومان.",
+    "decorative": false,
+    "image_prompt": "Photorealistic image of three different cars parked side by side in a clean outdoor lot, a new domestic sedan, a used compact crossover, and an older mid-size sedan, daylight, realistic proportions, neutral tones, Iranian car market context, no text, no logos, 4:3",
+    "negative_prompt": "text, watermark, logos, brand names, distorted car geometry, extra wheels, deformed shapes, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/section-se-daste-khodro.jpg"
+  },
+  {
+    "file_name": "section-barresi-khodro-karkardeh",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "بررسی بدنه خودروی کارکرده",
+    "alt_text": "کارشناس در حال بررسی بدنه و درزهای خودروی کارکرده پیش از خرید",
+    "caption": "در خودروی کارکرده، سلامت واقعی مهم‌تر از ظاهر تمیز آن است.",
+    "decorative": false,
+    "image_prompt": "Photorealistic close view of a car inspector in work clothes carefully examining the body panels and door gaps of a used car with a small flashlight, natural daylight, focused and professional mood, realistic detail, Iranian used-car inspection context, no text, no logos, 4:3",
+    "negative_prompt": "text, watermark, logos, brand names, distorted geometry, deformed hands, extra fingers, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/section-barresi-khodro-karkardeh.jpg"
+  },
+  {
+    "file_name": "section-ravesh-entekhab-khodro",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "روش انتخاب خودرو پیش از معامله",
+    "alt_text": "خریدار در حال یادداشت معیارهای انتخاب خودرو و مقایسه چند گزینه پیش از معامله",
+    "caption": "تصمیم خوب، نتیجه ترتیب درست است، نه عجله در معامله.",
+    "decorative": false,
+    "image_prompt": "Photorealistic image of a buyer sitting at a table with a notebook and phone, comparing a few car options, writing notes, calm decision-making mood, soft indoor light, realistic hands, Iranian context, no text, no logos, 4:3",
+    "negative_prompt": "text, watermark, logos, brand names, deformed hands, extra fingers, unreadable scribbles, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/section-ravesh-entekhab-khodro.jpg"
+  }
+]
