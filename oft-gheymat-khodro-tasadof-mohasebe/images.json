@@ -1,0 +1,62 @@
+[
+  {
+    "file_name": "hero-oft-gheymat-khodro-tasadof-mohasebe",
+    "image_role": "hero",
+    "image_type": "photo",
+    "aspect_ratio": "16:9",
+    "image_title": "برآورد افت قیمت خودرو تصادفی",
+    "alt_text": "کارشناس در حال بررسی بدنه خودرو تصادفی برای برآورد افت قیمت",
+    "caption": "افت قیمت تصادف، بیشتر از خود آسیب، به نوع و محل آن بستگی دارد.",
+    "decorative": false,
+    "image_prompt": "Photorealistic wide shot of a car inspector examining the damaged body panel of a used car after a minor accident, holding a paint thickness gauge, natural daylight, realistic detail, professional mood, neutral colors, no text, no logos, 16:9",
+    "negative_prompt": "text, watermark, logos, brand names, distorted car geometry, extra wheels, deformed hands, blurry faces, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/hero-oft-gheymat-khodro-tasadof-mohasebe.jpg"
+  },
+  {
+    "file_name": "section-rang-shodegi-badane",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "رنگ‌شدگی روی بدنه خودرو",
+    "alt_text": "اختلاف رنگ روی گلگیر خودرو که نشانه رنگ‌شدگی و تصادف قبلی است",
+    "caption": "اختلاف رنگ جزئی روی یک قطعه، افت کمتری از رنگ گسترده دارد.",
+    "decorative": false,
+    "image_prompt": "Photorealistic close view of a car fender showing a slight paint color mismatch and repainted area, inspector hand pointing at the panel, natural daylight, realistic detail, no text, no logos, 4:3",
+    "negative_prompt": "text, watermark, logos, brand names, deformed hands, extra fingers, distorted geometry, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/section-rang-shodegi-badane.jpg"
+  },
+  {
+    "file_name": "section-teviz-ghte",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "بررسی تعویض قطعه بدنه",
+    "alt_text": "بررسی پیچ‌های گلگیر و درب خودرو برای تشخیص تعویض قطعه",
+    "caption": "پیچ‌ها و درزهای یک قطعه، نشان می‌دهند تعویض شده یا اصل است.",
+    "decorative": false,
+    "image_prompt": "Photorealistic close view of a mechanic checking the bolts and door gap of a car fender to detect a replaced body panel, natural daylight, realistic detail, professional mood, no text, no logos, 4:3",
+    "negative_prompt": "text, watermark, logos, brand names, deformed hands, extra fingers, distorted geometry, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/section-teviz-ghte.jpg"
+  },
+  {
+    "file_name": "section-asib-shasi",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "بررسی شاسی زیر خودرو",
+    "alt_text": "بررسی شاسی و کف زیر خودرو روی جک برای تشخیص آسیب سازه‌ای",
+    "caption": "آسیب شاسی روی ایمنی و ارزش خودرو بیشترین اثر را دارد.",
+    "decorative": false,
+    "image_prompt": "Photorealistic image of a car raised on a lift with a mechanic inspecting the underbody chassis rails with a flashlight, workshop setting, realistic detail, professional mood, no text, no logos, 4:3",
+    "negative_prompt": "text, watermark, logos, brand names, deformed hands, extra fingers, distorted geometry, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/section-asib-shasi.jpg"
+  }
+]
