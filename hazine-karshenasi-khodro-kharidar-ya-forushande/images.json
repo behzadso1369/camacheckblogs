@@ -1,0 +1,62 @@
+[
+  {
+    "file_name": "hero-hazine-karshenasi-khodro-kharidar-ya-forushande",
+    "image_role": "hero",
+    "image_type": "photo",
+    "aspect_ratio": "16:9",
+    "image_title": "توافق خریدار و فروشنده درباره هزینه کارشناسی",
+    "alt_text": "خریدار و فروشنده کنار خودرو در حال گفت‌وگو درباره اینکه هزینه کارشناسی با کدام طرف است",
+    "caption": "تعیین‌کننده‌ترین توافق پیش از معامله، همان چیزی است که معمولاً درباره‌اش حرف زده نمی‌شود.",
+    "decorative": false,
+    "image_prompt": "Photorealistic wide shot of a buyer and a seller standing next to a used car in a dealership lot, talking and negotiating politely, one gesturing toward the car, natural daylight, realistic Iranian used-car market atmosphere, neutral colors, no text, no logos, 16:9",
+    "negative_prompt": "text, watermark, logos, brand names, distorted car geometry, extra wheels, deformed hands, blurry faces, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/hero-hazine-karshenasi-khodro-kharidar-ya-forushande.jpg"
+  },
+  {
+    "file_name": "section-pardakht-beyaneh",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "پرداخت بیعانه پیش از قرارداد",
+    "alt_text": "خریدار در حال پرداخت بیعانه نقدی کنار خودرو پیش از تنظیم قرارداد",
+    "caption": "پرداخت بیعانه پیش از کارشناسی، توازن معامله را به‌سمت فروشنده می‌برد.",
+    "decorative": false,
+    "image_prompt": "Photorealistic image of a person handing over cash banknotes to another person next to a car, close view of hands exchanging money, daylight, realistic detail, tense negotiation mood, no text, no logos, 4:3",
+    "negative_prompt": "text, watermark, logos, brand names, deformed hands, extra fingers, distorted money, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/section-pardakht-beyaneh.jpg"
+  },
+  {
+    "file_name": "section-karshenas-mostaghel",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "کارشناس مستقل و خریدار",
+    "alt_text": "کارشناس مستقل در حال بررسی خودرو در حالی که خریدار کنار او ایستاده است",
+    "caption": "وقتی خریدار کارشناس را انتخاب می‌کند، از بی‌طرفی گزارش مطمئن‌تر است.",
+    "decorative": false,
+    "image_prompt": "Photorealistic image of an independent male car inspector in work clothes examining a used car engine bay, while a male buyer in a coat stands beside him watching, both men, natural daylight, professional trustworthy mood, realistic detail, no text, no logos, 4:3",
+    "negative_prompt": "text, watermark, logos, brand names, deformed hands, extra fingers, distorted geometry, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/section-karshenas-mostaghel.jpg"
+  },
+  {
+    "file_name": "section-tavafogh-dast-dadan",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "توافق و دست‌دادن روی معامله",
+    "alt_text": "خریدار و فروشنده در حال دست‌دادن روی توافق کنار خودرو با گزارش کارشناسی روی میز",
+    "caption": "توافق روشن درباره هزینه و زمان کارشناسی، معامله را بی‌تنش‌تر می‌کند.",
+    "decorative": false,
+    "image_prompt": "Photorealistic image of two men shaking hands over a car deal next to a car, with an inspection report paper on a table nearby, warm daylight, positive agreement mood, realistic hands, no text, no logos, 4:3",
+    "negative_prompt": "text, watermark, logos, brand names, deformed hands, extra fingers, unreadable documents, cartoon, low quality",
+    "allow_text": false,
+    "status": "generated",
+    "generated_url": "images/section-tavafogh-dast-dadan.jpg"
+  }
+]

@@ -1,0 +1,52 @@
+<style>
+    .car-blog-article { --ink:#1f2733; --muted:#5b6572; --line:#e6e9ee; --brand:#0b6b5a; --brandink:#08402f; --warn:#b23b2e; --warnbg:#fdecea; --tipbg:#eef6f4; --okbg:#eaf6ef; max-width:820px; margin:0 auto; background:#fff; padding:28px 22px 48px; color:var(--ink); font-family:Vazirmatn,Tahoma,"Segoe UI",sans-serif; line-height:2; font-size:17px; }
+    .car-blog-article * { box-sizing:border-box; }
+    .car-blog-article h1 { font-size:1.9rem; line-height:1.6; margin:.4em 0; }
+    .car-blog-article h2 { font-size:1.35rem; margin:1.8em 0 .5em; padding-top:.3em; border-top:1px solid var(--line); }
+    .car-blog-article h3 { font-size:1.1rem; margin:1.2em 0 .3em; }
+    .car-blog-article p { margin:.7em 0; }
+    .car-blog-article a { color:var(--brand); }
+    .car-blog-article img { max-width:100%; height:auto; border-radius:10px; }
+    .car-blog-article figure { margin:1.4em 0; }
+    .car-blog-article figcaption { color:var(--muted); font-size:.9rem; text-align:center; margin-top:.5em; }
+    .car-blog-article .article-lead { font-size:1.12rem; color:#33404f; }
+    .car-blog-article .article-meta { display:flex; flex-wrap:wrap; gap:14px; color:var(--muted); font-size:.9rem; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:8px; }
+    .car-blog-article .quick-answer { background:#f0f4f8; border-radius:12px; padding:16px 18px; margin:1.4em 0; }
+    .car-blog-article .quick-answer h2 { border:0; margin:0 0 .3em; padding:0; font-size:1.15rem; }
+    .car-blog-article .key-takeaways { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 18px; margin:1.2em 0; }
+    .car-blog-article .table-of-contents { background:#fafbfc; border:1px solid var(--line); border-radius:12px; padding:12px 18px; margin:1.4em 0; }
+    .car-blog-article .table-of-contents ol { margin:.3em 0; padding-inline-start:1.4em; }
+    .car-blog-article aside { border-radius:12px; padding:12px 16px; margin:1.2em 0; }
+    .car-blog-article .tip-box { background:var(--tipbg); border:1px solid #cfe6e0; }
+    .car-blog-article .warning-box { background:var(--warnbg); border:1px solid #f3c9c3; }
+    .car-blog-article .success-box { background:var(--okbg); border:1px solid #cfe9d8; }
+    .car-blog-article aside strong { display:block; margin-bottom:.2em; }
+    .car-blog-article .checklist { list-style:none; padding:0; margin:1em 0; }
+    .car-blog-article .checklist li { position:relative; padding-inline-start:30px; margin:.5em 0; }
+    .car-blog-article .checklist li::before { content:"✔"; position:absolute; inset-inline-start:0; color:var(--brand); font-weight:700; }
+    .car-blog-article .steps { padding-inline-start:1.3em; }
+    .car-blog-article .steps li { margin:.7em 0; }
+    .car-blog-article .table-wrapper { overflow-x:auto; margin:1.4em 0; }
+    .car-blog-article table.verdict-table { width:100%; border-collapse:collapse; min-width:520px; }
+    .car-blog-article .verdict-table th, .car-blog-article .verdict-table td { border:1px solid var(--line); padding:10px 12px; text-align:right; vertical-align:top; }
+    .car-blog-article .verdict-table thead th { background:#f0f4f8; }
+    .car-blog-article .inline-cta, .car-blog-article .final-cta { background:var(--brandink); color:#fff; border-radius:14px; padding:22px; margin:1.8em 0; text-align:center; }
+    .car-blog-article .inline-cta h2, .car-blog-article .final-cta h2 { border:0; color:#fff; margin:0 0 .3em; padding:0; }
+    .car-blog-article .inline-cta p, .car-blog-article .final-cta p { color:#d7ece6; }
+    .car-blog-article .cta-button { display:inline-block; background:#fff; color:var(--brandink); font-weight:700; padding:12px 22px; border-radius:10px; text-decoration:none; margin-top:.6em; }
+    .car-blog-article .faq-section details { border:1px solid var(--line); border-radius:10px; padding:6px 14px; margin:.6em 0; }
+    .car-blog-article .faq-section summary { cursor:pointer; font-weight:700; padding:6px 0; }
+    .car-blog-article .article-author { margin-top:2em; border-top:1px solid var(--line); padding-top:16px; color:var(--muted); font-size:.95rem; }
+    .car-blog-article .model-examples { display:grid; grid-template-columns:1fr; gap:10px; margin:1.2em 0; }
+    .car-blog-article .model-examples .me-card { border:1px solid var(--line); border-radius:12px; padding:12px 16px; background:#fafbfc; }
+    .car-blog-article .model-examples .me-card strong { display:block; color:var(--brandink); margin-bottom:.2em; }
+    .car-blog-article .price-picks { background:linear-gradient(135deg,#eef6f4,#e7f0fb); border:1px solid #cfe6e0; border-radius:16px; padding:22px; margin:1.8em 0; }
+    .car-blog-article .price-picks-head { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:.3em; }
+    .car-blog-article .price-picks-badge { background:var(--brand); color:#fff; font-size:.8rem; font-weight:700; padding:3px 12px; border-radius:999px; }
+    .car-blog-article .price-picks-head strong { font-size:1.15rem; color:var(--brandink); }
+    .car-blog-article .price-picks p { color:#33404f; margin:.3em 0 .9em; }
+    .car-blog-article .price-picks-chips { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:1.1em; }
+    .car-blog-article .price-picks-chips span { background:#fff; border:1px solid #cfe6e0; color:var(--brandink); font-weight:600; font-size:.95rem; padding:6px 14px; border-radius:999px; }
+    .car-blog-article .price-picks-btn { display:inline-block; background:var(--brand); color:#fff; font-weight:700; padding:12px 24px; border-radius:10px; text-decoration:none; }
+    .car-blog-article .price-picks-btn:hover { background:var(--brandink); }
+</style>
