@@ -1,0 +1,62 @@
+[
+  {
+    "image_prompt": "A realistic documentary style automotive photograph of a used car buyer inspecting the instrument cluster and odometer area of a common Iranian sedan such as a Peugeot 206 or Samand, seen through the open driver door. Only a cropped hand near the steering wheel and dashboard, no visible face. The digital odometer display is softly out of focus so no legible numbers are readable. Soft natural daylight through the windshield, sharp focus on the dashboard and steering wheel materials, realistic textures, neutral parking environment softly blurred behind, editorial neutral color grading, wide horizontal composition, high image quality.",
+    "negative_prompt": "legible numbers, readable digits, visible text, Persian writing, English writing, logos, watermarks, brand names, license plate characters, visible face, portrait, direct eye contact, distorted hands, extra fingers, incorrect anatomy, broken car proportions, duplicated parts, deformed dashboard, surreal elements, fantasy scene, cartoon style, exaggerated cinematic lighting, visual clutter, low resolution, blurred main subject, stock photo composition, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "hero",
+    "visual_focus": "buyer checking dashboard odometer of a used car",
+    "suggested_aspect_ratio": "16:9",
+    "alt_text": "نمای نزدیک از صفحه کیلومتر و داشبورد یک خودرو هنگام بررسی کارکرد پیش از خرید",
+    "file_name": "hero-oft-gheymat-karkard-kilometr",
+    "image_title": "بررسی کارکرد خودرو از روی داشبورد",
+    "caption": "عدد روی کیلومترشمار به‌تنهایی قیمت را تعیین نمی‌کند؛ تناسب آن با سن خودرو مهم است.",
+    "decorative": false,
+    "status": "generated",
+    "generated_url": "images/hero-oft-gheymat-karkard-kilometr.jpg", "source": "bing-image-creator", "generated_dimensions": "1248x832"
+  },
+  {
+    "image_prompt": "A realistic documentary automotive photograph of two similar common Iranian sedans of the same model parked side by side in a used car sales lot, representing a comparison of value between two cars. Natural daylight, both cars clean and in good condition, sharp focus, realistic proportions and reflections, neutral open parking background softly blurred, no people, balanced horizontal composition, editorial neutral color grading, high image quality.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, shop signs, brand names, visible face, portrait, distorted hands, extra fingers, broken car proportions, duplicated wheels, surreal elements, fantasy scene, cartoon style, dramatic cinematic lighting, showroom advertisement look, visual clutter, low resolution, blurred main subject, stock photo composition, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "comparison",
+    "visual_focus": "two similar used sedans compared by value in a lot",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "دو خودروی هم‌مدل دست دوم در یک نمایشگاه که برای مقایسه ارزش کنار هم پارک شده‌اند",
+    "file_name": "moghayese-khodro-dast-dovom-lot",
+    "image_title": "مقایسه ارزش دو خودروی هم‌مدل دست دوم",
+    "caption": "دو خودروی هم‌مدل با کارکرد متفاوت، ارزش متفاوتی دارند.",
+    "decorative": false,
+    "status": "generated",
+    "generated_url": "images/moghayese-khodro-dast-dovom-lot.jpg", "source": "bing-image-creator", "generated_dimensions": "1248x832"
+  },
+  {
+    "image_prompt": "A realistic close up automotive photograph of the worn rubber pads on the brake and clutch pedals and the worn grip of the steering wheel inside a common Iranian sedan, showing genuine signs of real usage that should match the odometer reading. Soft natural daylight from the open door, sharp focus on the pedal rubber texture and steering wheel wear, realistic materials, neutral cabin interior softly blurred, no people, instructional detail composition, 4:3 aspect ratio, high quality editorial image.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, brand names, visible face, portrait, distorted hands, extra fingers, incorrect anatomy, broken proportions, duplicated parts, deformed pedals, surreal elements, fantasy scene, cartoon style, dramatic lighting, visual clutter, low resolution, blurred main subject, stock photo composition, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "warning",
+    "visual_focus": "worn pedals and steering wheel as real usage signs versus claimed mileage",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "فرسودگی روکش پدال‌ها و فرمان داخل خودرو به عنوان نشانه کارکرد واقعی",
+    "file_name": "farsoodegi-pedal-farman",
+    "image_title": "نشانه‌های فرسودگی داخل خودرو و کارکرد واقعی",
+    "caption": "فرسودگی پدال و فرمان باید با کارکرد اعلام‌شده خودرو بخواند.",
+    "decorative": false,
+    "status": "generated",
+    "generated_url": "images/farsoodegi-pedal-farman.jpg", "source": "bing-image-creator", "generated_dimensions": "1248x832"
+  },
+  {
+    "image_prompt": "A realistic documentary automotive photograph of a diagnostic scan tool connected to the OBD port under the dashboard of a common Iranian sedan, held by a cropped hand with no visible face, used to read the vehicle data during an inspection. Soft natural daylight, sharp focus on the diagnostic device and the cable, realistic materials, neutral cabin and footwell area softly blurred, blank device screen with no legible text or numbers, no logos, instructional close composition, 4:3 aspect ratio, high image quality.",
+    "negative_prompt": "legible text, readable numbers, visible screen text, Persian writing, English writing, logos, watermarks, brand names, visible face, portrait, distorted hands, extra fingers, incorrect anatomy, broken proportions, duplicated parts, deformed device, surreal elements, fantasy scene, cartoon style, dramatic cinematic lighting, visual clutter, low resolution, blurred main subject, stock photo composition, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "process",
+    "visual_focus": "diagnostic tool reading vehicle data to verify real mileage",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "اتصال دستگاه دیاگ به خودرو برای خواندن اطلاعات و بررسی کارکرد واقعی",
+    "file_name": "diag-barresi-karkard",
+    "image_title": "بررسی کارکرد واقعی با دستگاه دیاگ",
+    "caption": "خواندن اطلاعات از سیستم خودرو به تشخیص کارکرد واقعی کمک می‌کند.",
+    "decorative": false,
+    "status": "generated",
+    "generated_url": "images/diag-barresi-karkard.jpg", "source": "bing-image-creator", "generated_dimensions": "1248x832"
+  }
+]

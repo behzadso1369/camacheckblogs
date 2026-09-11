@@ -1,0 +1,62 @@
+[
+  {
+    "image_prompt": "A realistic documentary photograph of a used car buyer standing in a car sales lot holding a smartphone and looking at car classified listings, seen from a side and back angle with no visible face. The phone screen is softly out of focus so no legible text or numbers are readable. Rows of common Iranian sedans softly blurred in the background under natural daylight. Sharp focus on the hand and phone, realistic materials, editorial neutral color grading, wide horizontal composition, high image quality.",
+    "negative_prompt": "legible text, readable numbers, visible screen text, Persian writing, English writing, logos, watermarks, brand names, license plate characters, visible face, portrait, direct eye contact, distorted hands, extra fingers, incorrect anatomy, broken car proportions, duplicated wheels, surreal elements, fantasy scene, cartoon style, dramatic cinematic lighting, visual clutter, low resolution, blurred main subject, stock photo composition, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "hero",
+    "visual_focus": "buyer browsing used car listings on a phone in a car lot",
+    "suggested_aspect_ratio": "16:9",
+    "alt_text": "خریدار در حال بررسی آگهی‌های خودرو کارکرده روی گوشی برای پیدا کردن قیمت واقعی",
+    "file_name": "hero-gheymat-vaghei-khodro-karkardeh",
+    "image_title": "بررسی آگهی‌های خودرو برای یافتن قیمت واقعی",
+    "caption": "قیمت روی آگهی نقطه شروع است، نه عددی که واقعاً معامله می‌شود.",
+    "decorative": false,
+    "status": "generated",
+    "generated_url": "images/hero-gheymat-vaghei-khodro-karkardeh.jpg", "source": "bing-image-creator", "generated_dimensions": "1248x832"
+  },
+  {
+    "image_prompt": "A realistic close up photograph of a hand holding a smartphone showing a car classifieds app with several listing cards, the screen content softly out of focus so no legible text or numbers are readable, held in front of a parked common Iranian sedan under natural daylight. Sharp focus on the phone and hand, realistic materials, neutral background softly blurred, no visible face, instructional composition, high quality editorial image.",
+    "negative_prompt": "legible text, readable numbers, visible screen text, Persian writing, English writing, logos, watermarks, brand names, license plate characters, visible face, portrait, distorted hands, extra fingers, incorrect anatomy, broken proportions, surreal elements, fantasy scene, cartoon style, dramatic lighting, visual clutter, low resolution, blurred main subject, stock photo composition, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "warning",
+    "visual_focus": "phone showing car listings to spot a bait low price ad",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "بررسی چند آگهی خودرو با قیمت‌های متفاوت روی صفحه گوشی برای جدا کردن آگهی طعمه",
+    "file_name": "aghahi-taomeh-gheymat-paeen",
+    "image_title": "شناخت آگهی طعمه از روی قیمت",
+    "caption": "قیمت خیلی پایین‌تر از بازار، بیشتر از آنکه فرصت باشد، نشانه آگهی طعمه است.",
+    "decorative": false,
+    "status": "generated",
+    "generated_url": "images/aghahi-taomeh-gheymat-paeen.jpg", "source": "bing-image-creator", "generated_dimensions": "1248x832"
+  },
+  {
+    "image_prompt": "A realistic documentary photograph of a row of several similar common Iranian sedans of the same model parked in a used car sales lot, representing many listings to compare for value. Natural daylight, cars clean and in good condition, sharp focus on the front row, realistic proportions and reflections, neutral open parking background softly blurred, no people, balanced horizontal composition, editorial neutral color grading, high image quality.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, shop signs, brand names, visible face, portrait, distorted hands, extra fingers, broken car proportions, duplicated wheels, surreal elements, fantasy scene, cartoon style, dramatic cinematic lighting, showroom advertisement look, visual clutter, low resolution, blurred main subject, stock photo composition, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "comparison",
+    "visual_focus": "a row of similar used sedans to compare several listings",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "ردیفی از خودروهای کارکرده هم‌مدل در یک نمایشگاه برای مقایسه قیمت چند نمونه",
+    "file_name": "moghayese-aghahi-khodro",
+    "image_title": "مقایسه چند نمونه خودرو برای قیمت‌گذاری",
+    "caption": "مقایسه چند نمونه واقعی، مطمئن‌تر از تکیه به یک آگهی است.",
+    "decorative": false,
+    "status": "generated",
+    "generated_url": "images/moghayese-aghahi-khodro.jpg", "source": "bing-image-creator", "generated_dimensions": "1248x832"
+  },
+  {
+    "image_prompt": "A realistic documentary photograph of a car inspector examining the open engine bay of a common Iranian sedan in a neutral parking area, seen from a side angle with only hands and cropped arms visible and no visible face. Soft natural daylight, sharp focus on the engine bay and the inspector's hand, realistic materials and textures, neutral background softly blurred, editorial neutral color grading, close instructional composition, 4:3 aspect ratio, high image quality.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible face, portrait, direct eye contact, distorted hands, extra fingers, incorrect anatomy, broken car proportions, duplicated parts, deformed tools, surreal elements, fantasy scene, cartoon style, dramatic cinematic lighting, visual clutter, low resolution, blurred main subject, stock photo composition, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "inspector checking engine to match price with real condition",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "کارشناس در حال بررسی موتور و بدنه یک خودرو کارکرده برای سنجش تناسب قیمت با وضعیت",
+    "file_name": "barresi-khodro-gheymat",
+    "image_title": "بررسی وضعیت خودرو برای سنجش تناسب قیمت",
+    "caption": "وضعیت واقعی موتور و بدنه، قیمت را از عدد آگهی جدا می‌کند.",
+    "decorative": false,
+    "status": "generated",
+    "generated_url": "images/barresi-khodro-gheymat.jpg", "source": "bing-image-creator", "generated_dimensions": "1248x832"
+  }
+]
