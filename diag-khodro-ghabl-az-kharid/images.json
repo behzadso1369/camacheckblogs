@@ -1,0 +1,62 @@
+[
+  {
+    "image_prompt": "Realistic documentary automotive photograph. A handheld car diagnostic scanner connected by cable to the OBD port under the dashboard of a common Iranian sedan such as a Peugeot 206 or Samand. A technician's cropped hands hold the scanner, no visible face. Interior of the car is neutral and clean, natural daylight coming through the window, believable used car viewing setting in Iran. Sharp focus on the scanner and the cable going into the port. Wide composition with some negative space, professional editorial quality, realistic materials and reflections, neutral color grading. 16:9 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, shop signs, brand names, visible faces, portraits, direct eye contact, distorted hands, extra fingers, incorrect anatomy, broken car proportions, duplicated wheels, deformed tools, unrealistic reflections, surreal elements, fantasy lighting, cartoon appearance, cinematic action scene, showroom advertisement, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "hero",
+    "visual_focus": "اتصال دستگاه دیاگ به پورت عیب‌یابی خودرو",
+    "suggested_aspect_ratio": "16:9",
+    "alt_text": "دستگاه دیاگ متصل به پورت زیر داشبورد یک خودرو داخلی هنگام بررسی پیش از خرید",
+    "file_name": "hero-diag-khodro-obd",
+    "image_title": "اتصال دستگاه دیاگ به خودرو پیش از خرید",
+    "caption": "دیاگ فقط بخش الکترونیکی خودرو را می‌خواند، نه همه واقعیت آن را.",
+    "decorative": false,
+    "generated_url": "images/hero-diag-khodro-obd.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Close up realistic automotive photograph of the OBD-II diagnostic port under the dashboard of a common Iranian car, with a diagnostic connector plug about to be inserted. Focus on the port and connector, shallow natural depth of field, believable car interior in the background, soft daylight, clean instructional composition. Realistic materials, professional editorial photography quality, no text. 4:3 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken proportions, deformed connector, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "پورت عیب‌یابی و کانکتور دیاگ",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "نمای نزدیک پورت عیب‌یابی زیر داشبورد خودرو و کانکتور دستگاه دیاگ",
+    "file_name": "diag-obd-port-connector",
+    "image_title": "پورت عیب‌یابی خودرو و کانکتور دیاگ",
+    "caption": "پورت عیب‌یابی، همان جایی که دستگاه دیاگ به مغز الکترونیکی خودرو وصل می‌شود.",
+    "decorative": false,
+    "generated_url": "images/diag-obd-port-connector.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Realistic photograph of a shiny red car fender and front quarter panel exterior, close up on smooth automotive paint surface with clean reflections, outdoor daylight, professional editorial photo. 4:3 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, shop signs, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken car proportions, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "رنگ و بدنه براق خودرو",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "نمای نزدیک رنگ و بدنه براق یک خودرو، بخشی که دیاگ توان تشخیص وضعیت آن را ندارد",
+    "file_name": "karshenasi-rang-badane-khodro",
+    "image_title": "رنگ و بدنه براق خودرو",
+    "caption": "رنگ‌شدگی و اصلاح بدنه فقط با بررسی چشمی و ابزار مخصوص رنگ‌سنج مشخص می‌شود.",
+    "decorative": false,
+    "generated_url": "images/karshenasi-rang-badane-khodro.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Realistic close up photograph of a car dashboard instrument cluster with glowing warning indicator lights at ignition, dark car interior, soft glow, professional automotive editorial photo. 4:3 aspect ratio.",
+    "negative_prompt": "readable text, Persian writing, English writing, meaningful numbers, logos, watermarks, brand names, visible faces, portraits, distorted shapes, incorrect anatomy, broken proportions, surreal elements, fantasy lighting, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "چراغ‌های هشدار داشبورد هنگام روشن شدن سوئیچ",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "چراغ‌های هشدار داشبورد خودرو هنگام روشن شدن سوئیچ برای بررسی اولیه سلامت سیستم‌ها",
+    "file_name": "diag-dashboard-warning-lights",
+    "image_title": "چراغ‌های هشدار داشبورد خودرو",
+    "caption": "روشن‌شدن و خاموش‌شدن درست چراغ‌های هشدار، اولین سرنخ سلامت سیستم‌هاست.",
+    "decorative": false,
+    "generated_url": "images/diag-dashboard-warning-lights.jpg",
+    "status": "generated"
+  }
+]
