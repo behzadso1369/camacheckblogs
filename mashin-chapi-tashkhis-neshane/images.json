@@ -1,0 +1,62 @@
+[
+  {
+    "image_prompt": "Realistic documentary automotive photograph. A technician cropped hands and side angle without a visible face, inspecting the roof and pillar of a used sedan car during a pre purchase check, looking closely along the roof edge for waviness. Believable used car setting, natural daylight showing surface reflections on the roof, sharp focus, wide composition, professional editorial quality, neutral color grading, no text. 16:9 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible faces, portraits, direct eye contact, distorted hands, extra fingers, incorrect anatomy, broken car proportions, unrealistic reflections, surreal elements, fantasy lighting, cartoon appearance, showroom advertisement, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner",
+    "image_type": "realistic-photo",
+    "image_role": "hero",
+    "visual_focus": "بررسی سقف و ستون خودرو برای تشخیص چپ کردن",
+    "suggested_aspect_ratio": "16:9",
+    "alt_text": "بررسی سقف و ستون خودرو هنگام کارشناسی برای تشخیص چپ کردن پیش از خرید",
+    "file_name": "hero-mashin-chapi-check",
+    "image_title": "بررسی سقف خودرو برای تشخیص چپ کردن",
+    "caption": "ماشین چپی اغلب ظاهر سالمی دارد؛ نشانه‌ها را باید در سقف و ستون‌ها جست‌وجو کرد.",
+    "decorative": false,
+    "generated_url": "images/hero-mashin-chapi-check.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Close up realistic automotive photograph of the roof panel of a used sedan car seen at a low angle in daylight, showing subtle surface waviness and reflections that hint at previous repair, clean instructional composition, shallow depth of field, professional editorial quality, no text. 4:3 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible faces, portraits, distorted proportions, broken car geometry, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "سطح سقف خودرو با موج و رنگ‌شدگی",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "بررسی سقف خودرو برای یافتن موج، فرورفتگی و رنگ‌شدگی به‌عنوان نشانه چپ کردن",
+    "file_name": "saghf-khodro-chapi-neshane",
+    "image_title": "سطح سقف خودرو و نشانه چپ کردن",
+    "caption": "موج و فرورفتگی جزئی روی سقف، یکی از گویاترین نشانه‌های چپ کردن است.",
+    "decorative": false,
+    "generated_url": "images/saghf-khodro-chapi-neshane.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Close up realistic automotive photograph of the door pillar and door frame edge of a car with the door open, showing the weld seam and paint along the pillar, natural daylight, shallow depth of field, clean instructional composition, professional editorial quality, no text. 4:3 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken proportions, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "ستون و لبه در خودرو و درز جوش",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "بررسی ستون و لبه در خودرو برای یافتن جوش و اصلاح به‌عنوان نشانه چپ کردن",
+    "file_name": "sotoon-dar-khodro-jush",
+    "image_title": "ستون و لبه در خودرو و آثار جوش",
+    "caption": "جوش یا اصلاح روی ستون‌ها، نشانه فشار سنگین ناشی از واژگونی است.",
+    "decorative": false,
+    "generated_url": "images/sotoon-dar-khodro-jush.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Close up realistic automotive photograph of a car steering wheel with the airbag cover module in the center, clean modern car interior, soft natural daylight, shallow depth of field, clean instructional composition, professional editorial quality, no readable text or logos. 4:3 aspect ratio.",
+    "negative_prompt": "readable text, Persian writing, English writing, meaningful numbers, logos, watermarks, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken proportions, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "درپوش ایربگ روی فرمان خودرو",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "بررسی درپوش ایربگ روی فرمان خودرو برای یافتن نشانه باز شدن و تعویض",
+    "file_name": "airbag-farman-khodro-check",
+    "image_title": "درپوش ایربگ روی فرمان خودرو",
+    "caption": "ناهماهنگی یا اصلاح درپوش ایربگ می‌تواند نشانه باز شدن و تعویض آن باشد.",
+    "decorative": false,
+    "generated_url": "images/airbag-farman-khodro-check.jpg",
+    "status": "generated"
+  }
+]

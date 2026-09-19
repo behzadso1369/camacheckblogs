@@ -1,0 +1,62 @@
+[
+  {
+    "image_prompt": "Realistic documentary automotive photograph. Close view of a driver cropped hand resting on the automatic gear shifter lever inside a common car during a test drive, no visible face. Clean modern car interior, natural daylight through the windshield, believable used car test setting in Iran. Sharp focus on the gear selector, shallow depth of field, professional editorial quality, neutral color grading, no text. 16:9 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible faces, portraits, direct eye contact, distorted hands, extra fingers, incorrect anatomy, broken proportions, unrealistic reflections, surreal elements, cartoon appearance, showroom advertisement, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "hero",
+    "visual_focus": "دست راننده روی اهرم دنده اتوماتیک هنگام تست",
+    "suggested_aspect_ratio": "16:9",
+    "alt_text": "دست راننده روی اهرم دنده اتوماتیک هنگام تست گیربکس یک خودرو پیش از خرید",
+    "file_name": "hero-test-gearbox-automat",
+    "image_title": "تست گیربکس اتوماتیک پیش از خرید خودرو",
+    "caption": "گیربکس اتوماتیک را باید در حرکت تست کرد، نه فقط سرجای پارک.",
+    "decorative": false,
+    "generated_url": "images/hero-test-gearbox-automat.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Close up realistic automotive photograph of an automatic transmission gear shifter lever inside a car, showing the P R N D selector positions, hand not required. Modern clean interior, soft natural daylight, shallow depth of field, clean instructional composition, professional editorial quality, no readable text. 4:3 aspect ratio.",
+    "negative_prompt": "readable text, Persian writing, English writing, meaningful numbers, logos, watermarks, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken proportions, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "اهرم دنده اتوماتیک و حالت‌های انتخاب دنده",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "نمای نزدیک اهرم دنده اتوماتیک خودرو در حالت انتخاب دنده هنگام تست",
+    "file_name": "gearbox-automat-shifter-lever",
+    "image_title": "اهرم دنده اتوماتیک خودرو",
+    "caption": "جاگیری دنده باید نرم باشد؛ ضربه محسوس یک نشانه هشدار است.",
+    "decorative": false,
+    "generated_url": "images/gearbox-automat-shifter-lever.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Realistic documentary photograph of a sedan car driving on an open road during a test drive, motion sense, daylight, clean editorial automotive photography, side or three quarter rear view, believable Iranian road environment, no text. 4:3 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible faces, portraits, distorted proportions, duplicated wheels, broken car geometry, surreal elements, fantasy lighting, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "تست رانندگی خودرو روی جاده",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "خودرو در حال تست رانندگی روی جاده برای بررسی شتاب‌گیری و لغزش دنده گیربکس اتوماتیک",
+    "file_name": "test-ranandegi-gearbox-automat",
+    "image_title": "تست رانندگی برای بررسی گیربکس اتوماتیک",
+    "caption": "لغزش دنده معمولاً هنگام شتاب‌گیری در جاده بهتر خودش را نشان می‌دهد.",
+    "decorative": false,
+    "generated_url": "images/test-ranandegi-gearbox-automat.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Realistic close up automotive photograph of a transmission fluid dipstick held over an engine bay, showing the reddish automatic transmission fluid color on the dipstick, natural daylight, mechanic workshop background out of focus, clean instructional composition, professional editorial quality, no text. 4:3 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken proportions, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "بررسی رنگ روغن گیربکس اتوماتیک روی گیج",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "بررسی رنگ روغن گیربکس اتوماتیک روی گیج روغن برای تشخیص فرسودگی",
+    "file_name": "roghan-gearbox-automat-rang",
+    "image_title": "بررسی رنگ روغن گیربکس اتوماتیک",
+    "caption": "روغن سالم شفاف و مایل به قرمز است؛ روغن تیره و سوخته هشدار جدی است.",
+    "decorative": false,
+    "generated_url": "images/roghan-gearbox-automat-rang.jpg",
+    "status": "generated"
+  }
+]

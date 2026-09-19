@@ -1,0 +1,47 @@
+[
+  {
+    "image_prompt": "Professional editorial automotive photograph of a clean used silver sedan car parked outdoors with its hood open showing the engine bay, ready for a technical inspection, natural daylight, sharp focus, wide balanced composition, professional quality, no readable text. 16:9 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible faces, portraits, direct eye contact, distorted hands, extra fingers, incorrect anatomy, broken car proportions, duplicated wheels, unrealistic reflections, surreal elements, fantasy lighting, cartoon appearance, showroom advertisement, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner",
+    "image_type": "realistic-photo",
+    "image_role": "hero",
+    "visual_focus": "خودروی آماده کارشناسی با درِ موتور باز",
+    "suggested_aspect_ratio": "16:9",
+    "alt_text": "خودروی سواری نقره‌ای با درِ موتور باز در محوطه پارکینگ، آماده برای کارشناسی فنی پیش از خرید",
+    "file_name": "hero-entekhab-karshenas-khodro",
+    "image_title": "خودروی آماده کارشناسی فنی",
+    "caption": "انتخاب کارشناس خودرو معتبر همان‌قدر مهم است که خود کارشناسی؛ کیفیت بررسی به آدم پشت آن بستگی دارد.",
+    "decorative": false,
+    "generated_url": "images/hero-entekhab-karshenas-khodro.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Professional editorial photograph of a car diagnostic OBD scanner device connected under a car dashboard in a clean modern interior, soft natural daylight, shallow depth of field, sharp focus, professional quality, no readable text. 4:3 aspect ratio.",
+    "negative_prompt": "readable text, Persian writing, English writing, meaningful numbers, logos, watermarks, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken proportions, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "دستگاه دیاگ متصل به خودرو",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "دستگاه دیاگ متصل به پورت خودرو به‌عنوان یکی از تجهیزات استاندارد کارشناسی",
+    "file_name": "tajhizat-karshenasi-diag",
+    "image_title": "دستگاه دیاگ متصل به خودرو",
+    "caption": "دستگاه دیاگ یکی از ابزارهای پایه است؛ نبود آن یعنی خطاهای الکترونیکی خودرو دیده نمی‌شود.",
+    "decorative": false,
+    "generated_url": "images/tajhizat-karshenasi-diag.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Close up realistic photograph of a hand holding a clipboard with a printed vehicle inspection checklist form on paper next to a car body in the background, focus on the paper document, natural daylight, shallow depth of field, clean instructional composition, professional editorial quality, no readable text on the form. 4:3 aspect ratio.",
+    "negative_prompt": "readable text, Persian writing, English writing, legible words, meaningful numbers, logos, watermarks, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken proportions, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "گزارش کتبی کارشناسی خودرو روی برگه",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "بررسی گزارش کتبی کارشناسی خودرو روی برگه هنگام تصمیم‌گیری برای خرید",
+    "file_name": "gozaresh-katbi-karshenasi-khodro",
+    "image_title": "گزارش کتبی کارشناسی خودرو",
+    "caption": "گزارش کتبی و مستند، تفاوت یک کارشناسی حرفه‌ای با یک نگاه سطحی را نشان می‌دهد.",
+    "decorative": false,
+    "generated_url": "images/gozaresh-katbi-karshenasi-khodro.jpg",
+    "status": "generated"
+  }
+]

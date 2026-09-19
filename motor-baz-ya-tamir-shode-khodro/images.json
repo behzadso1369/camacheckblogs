@@ -1,0 +1,62 @@
+[
+  {
+    "image_prompt": "Realistic documentary automotive photograph. A car with the hood open during a pre purchase inspection, a technician cropped hands examining the engine bay, no visible face. Believable used car viewing setting in Iran, natural daylight, realistic engine components, sharp focus on the engine, wide composition with some negative space, professional editorial quality, neutral color grading, no text. 16:9 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible faces, portraits, direct eye contact, distorted hands, extra fingers, incorrect anatomy, broken engine proportions, unrealistic reflections, surreal elements, fantasy lighting, cartoon appearance, showroom advertisement, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "hero",
+    "visual_focus": "بررسی موتور با درپوش باز پیش از خرید",
+    "suggested_aspect_ratio": "16:9",
+    "alt_text": "بررسی موتور خودرو با درپوش باز هنگام کارشناسی پیش از خرید برای تشخیص باز شدن یا تعمیر",
+    "file_name": "hero-motor-baz-shode-check",
+    "image_title": "بررسی موتور خودرو پیش از خرید",
+    "caption": "باز شدن موتور همیشه بد نیست، اما باید بدانید چه چیزی و چرا باز شده است.",
+    "decorative": false,
+    "generated_url": "images/hero-motor-baz-shode-check.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Close up realistic automotive photograph of the cylinder head bolts on a car engine, showing worn and rounded bolt heads that indicate previous disassembly, metallic surfaces, natural daylight, shallow depth of field, clean instructional composition, professional editorial quality, no text. 4:3 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken proportions, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner, fake interface elements",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "پیچ‌های خط‌افتاده سرسیلندر",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "نمای نزدیک پیچ‌های سرسیلندر خودرو برای بررسی خط‌افتادگی و نشانه باز شدن موتور",
+    "file_name": "motor-pich-baz-shode-neshane",
+    "image_title": "پیچ‌های سرسیلندر و نشانه باز شدن موتور",
+    "caption": "پیچ‌های خط‌افتاده و لبه‌پریده نشان می‌دهند موتور قبلاً باز شده است.",
+    "decorative": false,
+    "generated_url": "images/motor-pich-baz-shode-neshane.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Realistic documentary photograph of light smoke coming out of a car exhaust tailpipe while the engine is running, outdoor daylight, focus on the rear tailpipe and the smoke, believable street setting, clean editorial automotive photography, no text. 4:3 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, license plate characters, brand names, visible faces, portraits, distorted proportions, broken car geometry, surreal elements, fantasy lighting, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "خروج دود از اگزوز خودرو",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "خروج دود از اگزوز خودرو هنگام روشن بودن موتور برای بررسی وضعیت داخلی موتور",
+    "file_name": "dood-egzoz-motor-khodro",
+    "image_title": "دود اگزوز خودرو و وضعیت موتور",
+    "caption": "رنگ دود اگزوز سرنخ مهمی درباره وضعیت داخلی موتور می‌دهد.",
+    "decorative": false,
+    "generated_url": "images/dood-egzoz-motor-khodro.jpg",
+    "status": "generated"
+  },
+  {
+    "image_prompt": "Realistic close up automotive photograph of an engine oil dipstick being checked, showing the oil level and color on the dipstick, engine bay background out of focus, natural daylight, clean instructional composition, professional editorial quality, no text. 4:3 aspect ratio.",
+    "negative_prompt": "visible text, Persian writing, English writing, numbers, logos, watermarks, brand names, visible faces, portraits, distorted hands, extra fingers, incorrect anatomy, broken proportions, unrealistic reflections, surreal elements, cartoon appearance, visual clutter, low resolution, blurred main subject, stock photo appearance, advertising banner",
+    "image_type": "realistic-photo",
+    "image_role": "section",
+    "visual_focus": "بررسی رنگ و سطح روغن موتور روی گیج",
+    "suggested_aspect_ratio": "4:3",
+    "alt_text": "بررسی رنگ و سطح روغن موتور روی گیج روغن هنگام کارشناسی خودرو",
+    "file_name": "roghan-motor-gej-check",
+    "image_title": "بررسی روغن موتور روی گیج",
+    "caption": "روغن شیری‌رنگ یا کف‌آلود می‌تواند نشانه مخلوط شدن آب و روغن باشد.",
+    "decorative": false,
+    "generated_url": "images/roghan-motor-gej-check.jpg",
+    "status": "generated"
+  }
+]
