@@ -1,0 +1,58 @@
+[
+  {
+    "file_name": "hero-tara-shahin-moqayese",
+    "image_role": "hero",
+    "image_type": "photo",
+    "aspect_ratio": "16:9",
+    "image_title": "مقایسه دو سدان جدید ایرانی",
+    "alt_text": "دو سدان جدید ایرانی سفید و نقره‌ای کنار هم در فضای نمایشگاه خودرو",
+    "caption": "انتخاب بین دو سدان هم‌رده ایرانی به فاکتورهای فنی و اقتصادی بستگی دارد.",
+    "visual_focus": "دو سدان مدرن ایرانی کنار هم در نمایشگاه",
+    "image_prompt": "Realistic documentary photo of two modern Iranian sedan cars parked side by side in a clean car showroom, one white and one silver, three quarter front view, similar to affordable Iranian market family sedans. Bright even showroom lighting, sharp focus on the two car bodies, editorial quality, neutral color grading. No people faces, no text, no logos, no readable license plate, no distorted car shapes.",
+    "negative_prompt": "text, watermark, logos, license plate numbers, human faces, distorted car body, extra wheels, warped panels",
+    "decorative": false,
+    "status": "generated"
+  },
+  {
+    "file_name": "motor-gearbox-sedan-irani",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "بررسی موتور سدان ایرانی",
+    "alt_text": "موتور و محفظه فنی یک سدان ایرانی هنگام بررسی توسط کارشناس",
+    "caption": "وضعیت موتور و گیربکس اثر مستقیمی بر هزینه نگهداری و ارزش خودرو دارد.",
+    "visual_focus": "محفظه موتور تمیز یک سدان و دست کارشناس",
+    "image_prompt": "Realistic documentary photo of a clean engine bay of an ordinary Iranian sedan with the hood open, a mechanic's hand checking components, no visible face. Natural daylight, sharp focus on the engine block and hand, editorial quality, neutral color grading. No text, no logos, no numbers, no faces, no distorted hands.",
+    "negative_prompt": "text, watermark, logos, human faces, distorted hands, extra fingers, warped engine parts",
+    "decorative": false,
+    "status": "generated"
+  },
+  {
+    "file_name": "estehlak-oft-gheymat-khodro",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "بررسی بدنه و افت قیمت",
+    "alt_text": "کارشناس در حال بررسی بدنه یک سدان ایرانی برای ارزیابی وضعیت و افت قیمت",
+    "caption": "سابقه رنگ و سلامت بدنه، بیش از نام برند بر ارزش دست دوم اثر می‌گذارد.",
+    "visual_focus": "دست کارشناس روی بدنه سدان و بررسی رنگ",
+    "image_prompt": "Realistic documentary photo of a car inspector's hand running along the side body panel of a silver Iranian sedan to check the paint, no visible face. Neutral outdoor inspection area, natural daylight, sharp focus on the hand and body panel reflection, editorial quality, neutral color grading. No text, no logos, no readable license plate, no faces, no distorted hands.",
+    "negative_prompt": "text, watermark, logos, license plate numbers, human faces, distorted hands, warped body panel",
+    "decorative": false,
+    "status": "generated"
+  },
+  {
+    "file_name": "bazar-dast-dovom-sedan-irani",
+    "image_role": "section",
+    "image_type": "photo",
+    "aspect_ratio": "4:3",
+    "image_title": "بازار دست دوم سدان ایرانی",
+    "alt_text": "چند سدان ایرانی دست دوم در محوطه فروش خودرو زیر نور روز",
+    "caption": "در بازار دست دوم، وضعیت واقعی هر خودرو معامله را می‌سازد.",
+    "visual_focus": "ردیف سدان‌های دست دوم در محوطه فروش",
+    "image_prompt": "Realistic documentary photo of several used Iranian sedan cars parked in a row at an outdoor used car sales lot in Iran, daytime, natural light, plain urban background, sharp focus on the nearest car bodies, editorial quality, neutral color grading. No people faces, no text, no logos, no readable license plate, no distorted car shapes.",
+    "negative_prompt": "text, watermark, logos, license plate numbers, human faces, distorted car body, warped panels",
+    "decorative": false,
+    "status": "generated"
+  }
+]
