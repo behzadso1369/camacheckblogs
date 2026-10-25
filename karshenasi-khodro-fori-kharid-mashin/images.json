@@ -12,8 +12,8 @@
     "caption": "در کارشناسی فوری، چند دقیقه هماهنگی درست از چند ساعت عجله ارزشمندتر است.",
     "decorative": false,
     "placeholder": "{{HERO_IMAGE_URL}}",
-    "generated_url": "",
-    "status": "placeholder"
+    "generated_url": "images/hero-urgent-car-inspection-arrival-tehran.jpg",
+    "status": "generated"
   },
   {
     "image_prompt": "Photorealistic editorial photo. A young Iranian woman in a headscarf stands on a sidewalk of a Tehran residential street with stone apartment buildings and plane trees, typing on her phone with a focused expression; a white used sedan is parked behind her. Phone screen not visible. Natural daylight. No readable text, no logos, no license plates.",
@@ -28,8 +28,8 @@
     "caption": "اطلاعات کامل و تأیید فروشنده پیش از رزرو، سریع‌ترین مسیر کارشناسی فوری است.",
     "decorative": false,
     "placeholder": "{{SECTION_IMAGE_1_URL}}",
-    "generated_url": "",
-    "status": "placeholder"
+    "generated_url": "images/buyer-booking-inspection-phone-tehran.jpg",
+    "status": "generated"
   },
   {
     "image_prompt": "Photorealistic editorial close-up photo. A car inspector, face not visible, opens the front door of a white sedan parked in a Tehran alley and shines a bright flashlight on the door pillar and hinge area, checking seams and factory sealant. Blurred stone apartment buildings and plane trees behind. No readable text, no logos.",
@@ -44,8 +44,8 @@
     "caption": "بررسی شاسی و ستون‌ها حتی در کارشناسی فوری، اولویت اول است.",
     "decorative": false,
     "placeholder": "{{SECTION_IMAGE_2_URL}}",
-    "generated_url": "",
-    "status": "placeholder"
+    "generated_url": "images/inspector-checking-pillar-flashlight-tehran.jpg",
+    "status": "generated"
   },
   {
     "image_prompt": "Photorealistic editorial close-up photo. Inside a parked car on a Tehran street, a buyer's hand holds a smartphone up to photograph the instrument cluster and odometer; car documents rest on the passenger seat. Through the windshield, blurred Tehran apartment buildings and plane trees. All numbers and text blurred and unreadable. No logos.",
@@ -60,8 +60,8 @@
     "caption": "عکس از کیلومتر و مدارک، روز تحویل خودرو به کارتان می‌آید.",
     "decorative": false,
     "placeholder": "{{SECTION_IMAGE_3_URL}}",
-    "generated_url": "",
-    "status": "placeholder"
+    "generated_url": "images/buyer-photographing-odometer-phone.jpg",
+    "status": "generated"
   },
   {
     "image_prompt": "Photorealistic editorial photo at night. Bright covered ground-floor parking of a Tehran apartment building with even white ceiling lights and a black iron gate open to a dark street. A car inspector in a work vest, face not visible, measures paint on a grey sedan with a handheld gauge while the buyer watches. No readable text, no logos, no license plates.",
@@ -76,7 +76,7 @@
     "caption": "اگر کارشناسی به شب افتاد، پارکینگ با نور سفید یکنواخت بهترین انتخاب است.",
     "decorative": false,
     "placeholder": "{{SECTION_IMAGE_4_URL}}",
-    "generated_url": "",
-    "status": "placeholder"
+    "generated_url": "images/night-car-inspection-covered-parking-tehran.jpg",
+    "status": "generated"
   }
 ]
